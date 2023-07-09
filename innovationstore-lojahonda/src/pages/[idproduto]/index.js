@@ -73,7 +73,6 @@ async function getRelatedProducts(cod_prod) {
       codigo_grupo_produto: dados.codigo_grupo_produto.toString(),
     })
 
-    console.log("relatedProductsResponse", relatedProductsResponse)
 
     const relatedProducts = []
 
