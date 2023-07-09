@@ -1,0 +1,42 @@
+export const headerLabels = [
+  {
+    index: 1,
+    label: "caneca de metal",
+    labelMobile: "caneca de metal",
+    value: 1,
+    price: 1000,
+    description: "Caneca<br /> de metal <br /> 400 ml",
+  },
+  {
+    index: 2,
+    label: "kit churrasco",
+    labelMobile: "kit churrasco",
+    value: 2,
+    price: 3000,
+    description: "Kit <br /> Churrasco",
+  },
+  {
+    index: 3,
+    label: "copo térmico 500 ml",
+    labelMobile: "copo térmico",
+    value: 3,
+    price: 5000,
+    description: "Copo <br /> térmico <br /> 500 ml",
+  },
+  {
+    index: 4,
+    label: "fone de ouvido",
+    labelMobile: "fone de <br /> ouvido wireless",
+    value: 4,
+    price: 10000,
+    description: "Fone de <br /> ouvido <br /> Wireless",
+  },
+  {
+    index: 5,
+    label: "caixa de som",
+    labelMobile: "caixa de som",
+    value: 5,
+    price: 30000,
+    description: "Caixa  <br /> de som ",
+  },
+]
