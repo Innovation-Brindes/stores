@@ -1,4 +1,4 @@
-import Header from "../../../../components/Header/index"
+import Header from "../../../../../components/Header/index"
 import { Center, ChakraProvider, Flex, Grid, Image, Select } from "@chakra-ui/react"
 import React, { useEffect, useState } from "react"
 import axios from "axios"

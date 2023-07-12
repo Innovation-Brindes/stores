@@ -1,7 +1,5 @@
-import FinalizarPedido from "../../components/FinalizarPedido"
-import { getInformacoesLayout, getListarInfoClientes } from "../../services/api"
-import { getCategorias, getSegmentos } from "../../utils/getLinksHeader"
-import Header from "../../components/Header"
+import FinalizarPedido from "../../../components/FinalizarPedido"
+import { getInformacoesLayout, getListarInfoClientes } from "../../../services/api"
 
 export const getServerSideProps = async (ctx) => {
   const { id } = ctx.params

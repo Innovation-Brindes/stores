@@ -2,7 +2,7 @@ import { Flex } from "@chakra-ui/react"
 import Head from "next/head"
 import React from "react"
 
-import { Header } from "../../../../../components/ConfirmacaoCompra/components/"
+import { Header } from "../../../../../components/ConfirmacaoCompra/components"
 import { Success as Sucesso } from "../../../../../components/success/Success"
 import { baseURL } from "../../../../../services/api"
 
