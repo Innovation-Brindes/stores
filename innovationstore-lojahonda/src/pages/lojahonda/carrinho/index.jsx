@@ -1,7 +1,7 @@
 import React from "react"
-import { Cart } from "../../components/Cart"
-import { getCategorias, getSegmentos } from "../../utils/getLinksHeader"
-import Header from "../../components/Header"
+import { Cart } from "../../../components/Cart"
+import { getCategorias, getSegmentos } from "../../../utils/getLinksHeader"
+import Header from "../../../components/Header"
 
 export default function CarrinhoPage(props) {
   return (
