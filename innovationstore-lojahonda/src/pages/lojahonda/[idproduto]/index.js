@@ -220,21 +220,21 @@ export async function getStaticPaths() {
     return topProducts.includes(item.codigo_produto)
   })
 
-  // const paths = uniqueProduct.map((item) => ({
-  //   params: {
-  //     idproduto: String(item.url_produto),
-  //   },
-  // }))
+  const paths = uniqueProduct.map((item) => ({
+    params: {
+      idproduto: String(item.url_produto),
+    },
+  }))
 
   // const uniqueUrl = uniqueProduct.map((item) => {
   //   return item.url_produto
   // })
 
-  const paths = produtos.map((item) => ({
-    params: {
-      idproduto: String(item.url_produto),
-    },
-  }))
+  // const paths = produtos.map((item) => ({
+  //   params: {
+  //     idproduto: String(item.url_produto),
+  //   },
+  // }))
   // const paths = [
   //   {
   //     params: {
