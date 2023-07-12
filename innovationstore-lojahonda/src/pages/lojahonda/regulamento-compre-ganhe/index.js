@@ -1,6 +1,6 @@
-import RegulamentoCompreGanhe from "../../components/RegulamentoCompreGanhe"
-import Header from "../../components/Header"
-import { getCategorias, getSegmentos } from "../../utils/getLinksHeader"
+import RegulamentoCompreGanhe from "../../../components/RegulamentoCompreGanhe"
+import Header from "../../../components/Header"
+import { getCategorias, getSegmentos } from "../../../utils/getLinksHeader"
 
 export default function Index(props) {
   return (
