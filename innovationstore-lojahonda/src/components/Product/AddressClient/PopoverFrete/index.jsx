@@ -10,6 +10,8 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { setCookie, destroyCookie } from "nookies"
 import { baseURL } from "../../../../services/api"
 import { useCookiesSession } from "../../../../contexts/cookiesSessionProvider"
+import { Icon } from "@chakra-ui/react"
+import { AiFillCloseCircle } from "react-icons/ai"
 
 const schema = yup.object().shape({
   cep: yup
@@ -98,6 +100,16 @@ export function PopoverFrete({ isOpen, onClose }) {
         boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
         onClick={(e) => e.stopPropagation()}
       >
+        <Icon
+          as={AiFillCloseCircle}
+          position="absolute"
+          top=".3rem"
+          right=".3rem"
+          fontSize="1.5rem"
+          onClick={onClose}
+          color={"#0B73F8"}
+        />
+
         <Box
           position="absolute"
           top="-20px"

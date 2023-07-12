@@ -144,7 +144,7 @@ class UltraRapido extends Component {
           ]}
         />
         <ChakraProvider>
-          <Box style={{ opacity: this.state.display_init, transition: "0.3s" }} color="#494949" w="100%" h="100vh">
+          <Box style={{ opacity: this.state.display_init, transition: "0.3s" }} color="#494949" w="100%">
             <Image
               maxWidth="1900px"
               mx={this.state.mobileView ? "auto" : "auto"}
@@ -153,16 +153,16 @@ class UltraRapido extends Component {
               objectFit="cover"
               src={
                 this.state.mobileView
-                  ? `https://homolog.innovationbrindes.com.br/images/banners/banner-ultra-rapido/banner-ultra-rapido-mobile-${this.state.sortBanner}.png`
-                  : `https://homolog.innovationbrindes.com.br/images/banners/banner-ultra-rapido/banner-ultra-rapido-${this.state.sortBanner}.png`
+                  ? `https://homolog.innovationbrindes.com.br/images/banners/banner-ultra-rapido/banner-ultra-rapido-mobile-1.png`
+                  : `https://homolog.innovationbrindes.com.br/images/banners/banner-ultra-rapido/banner-ultra-rapido-1.png`
               }
               alt="banner-ultra-rapido"
             />
             <ContainerFlexUtilize>
-              <Text color={colorBaseUltraRapido} fontSize="22px" fontFamily="Helvetica Neue LT Std bold">
+              <Text color={colorBaseUltraRapido} fontSize="22px" fontFamily="Open Sans">
                 Utilize o filtro de pesquisa abaixo
               </Text>
-              <Text color="#494949" ml="5px" fontSize="22px" fontFamily="Helvetica Neue LT Std bold">
+              <Text color="#494949" ml="5px" fontSize="22px" fontFamily="Open Sans">
                 e encontre o brinde desejado com a agilidade que procura!
               </Text>
             </ContainerFlexUtilize>

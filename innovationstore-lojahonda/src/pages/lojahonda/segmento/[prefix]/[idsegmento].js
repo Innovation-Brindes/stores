@@ -1,9 +1,9 @@
 import React from "react"
-import Segmento from "../../../components/Segmentos"
-import { dadosProdutosSegmento, dadosSegmentos } from "../../../services/api"
-import { getCategorias, getSegmentos } from "../../../utils/getLinksHeader"
+import Segmento from "../../../../components/Segmentos"
+import { dadosProdutosSegmento, dadosSegmentos } from "../../../../services/api"
+import { getCategorias, getSegmentos } from "../../../../utils/getLinksHeader"
 // import Segmentos from '../../../components/Segmentos';
-import Header from "../../../components/Header"
+import Header from "../../../../components/Header"
 
 export async function getStaticProps(context) {
   const segmento = context.params.idsegmento

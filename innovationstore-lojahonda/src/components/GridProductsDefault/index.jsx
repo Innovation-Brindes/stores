@@ -50,7 +50,10 @@ export function GridProductDefault(props) {
   }
 
   return (
-    <a href={props.gridTelaProduto ? "/" + props.url_prod : "/" + props.url_prod} style={{ textDecoration: "none" }}>
+    <a
+      href={props.gridTelaProduto ? "/lojahonda/" + props.url_prod : "/lojahonda/" + props.url_prod}
+      style={{ textDecoration: "none" }}
+    >
       <LinkBoxProductContainer
         textDedoration="none"
         color="black"

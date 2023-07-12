@@ -279,7 +279,7 @@ class Home extends Component {
             <InnovationSiteHomeContentMobile>
               <HomeFilter subcategorias={this.props.subcategorias} />
 
-              <BannerChaveiro />
+              {/* <BannerChaveiro /> */}
               <ItemPromocao />
               <HomeContentBodyTitle>
                 <img alt="o-mais-vendido" src={osMaisVendidos} />

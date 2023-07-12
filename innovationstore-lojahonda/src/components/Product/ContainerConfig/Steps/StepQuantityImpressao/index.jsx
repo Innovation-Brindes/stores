@@ -2,10 +2,12 @@ import { useEffect, useState } from "react"
 import { ColorInputComponent } from "../../ColorInput/styles"
 import * as S from "./styles"
 import { useProductProvider } from "../../../../../contexts/ProductProvider"
+import { buscaProduto } from "../../../../../services/api"
 
 export function StepQuantityImpressao({ product }) {
   const [selectedImpressao, setSelectedImpressao] = useState(null)
   const { handleSetBatidas } = useProductProvider()
+  const [batidas, setBatidas] = useState([])
 
   function handleSelectedImpressao(impressao) {
     setSelectedImpressao(impressao)
@@ -13,12 +15,31 @@ export function StepQuantityImpressao({ product }) {
     handleSetBatidas(impressao?.qtd_batida)
   }
 
-  function calculateInitialPersonalizacao() {
-    if (product?.batidas?.length <= 0) return
+  async function prazoProducao(codprod) {
+    const response = await buscaProduto.get(codprod.toString())
 
-    //sempre a posição 0 do array'
+    const dados = response.data
 
-    const productMaxStock = product.batidas[0]
+    if (dados.batidadas_maximas <= 0) return
+
+    const batidas = []
+
+    for (let i = 1; i <= dados.batidadas_maximas; i++) {
+      batidas.push({
+        qtd_batida: i,
+      })
+    }
+
+    setBatidas(batidas)
+
+    return batidas
+  }
+
+  async function calculateInitialPersonalizacao() {
+    const batidasDisponiveis = await prazoProducao(product.codigo_produto)
+    if (batidasDisponiveis?.length <= 0) return
+
+    const productMaxStock = batidasDisponiveis[0]
 
     handleSelectedImpressao(productMaxStock)
   }
@@ -27,9 +48,13 @@ export function StepQuantityImpressao({ product }) {
     calculateInitialPersonalizacao()
   }, [product])
 
+  useEffect(() => {
+    prazoProducao(product.codigo_produto)
+  }, [product])
+
   return (
     <S.ContainerImpressao>
-      {product.batidas.map((impressao, index) => (
+      {batidas?.map((impressao, index) => (
         <>
           <S.GroupImpressao key={impressao.qtd_batida}>
             <S.Impressao onClick={() => handleSelectedImpressao(impressao)}>
@@ -39,7 +64,7 @@ export function StepQuantityImpressao({ product }) {
               {impressao.qtd_batida} {impressao.qtd_batida === 1 ? "Impressão" : "Impressões"}
             </S.Impressao>
           </S.GroupImpressao>
-          {index !== product.batidas.length - 1 && <S.Divider />}
+          {index !== batidas?.length - 1 && <S.Divider />}
         </>
       ))}
     </S.ContainerImpressao>

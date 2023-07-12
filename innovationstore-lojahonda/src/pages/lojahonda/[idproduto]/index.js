@@ -1,10 +1,16 @@
 import React, { useEffect } from "react"
 
-import { buscaProduto, BuscaTodosProdutos, dadosProdutosSubcategoria, ListaPrazoDeProducao } from "../../services/api"
-import { getSegmentos, getCategorias } from "../../utils/getLinksHeader"
-import Header from "../../components/Header"
-import { Product } from "../../components/Product"
+import {
+  buscaProduto,
+  BuscaTodosProdutos,
+  dadosProdutosSubcategoria,
+  ListaPrazoDeProducao,
+} from "../../../services/api"
+import { getSegmentos, getCategorias } from "../../../utils/getLinksHeader"
+import Header from "../../../components/Header"
+import { Product } from "../../../components/Product"
 import Head from "next/head"
+import axios from "axios"
 
 export async function getStaticProps(context) {
   var arraycod = String(context.params.idproduto).split("-")
@@ -69,10 +75,9 @@ async function getRelatedProducts(cod_prod) {
     const response = await buscaProduto.get(cod_prod)
     const dados = await response.data
 
-    const relatedProductsResponse = await dadosProdutosSubcategoria.post("", {
-      codigo_grupo_produto: dados.codigo_grupo_produto.toString(),
-    })
-
+    const relatedProductsResponse = await axios.get(
+      `https://api.innovationbrindes.com.br/api/produto/lista-referencias-grupo/${dados.codigo_grupo_produto.toString()}`,
+    )
 
     const relatedProducts = []
 
@@ -99,11 +104,7 @@ async function getRelatedProducts(cod_prod) {
       })
     }
 
-    const productStock = relatedProducts.filter((prod) => parseInt(prod.estoque) > 0)
-
-    const slicedProducts = productStock.slice(0, 12)
-
-    return slicedProducts
+    return relatedProducts
   } catch (error) {
     console.log(Object.keys(error), error.message)
   }
@@ -219,21 +220,21 @@ export async function getStaticPaths() {
     return topProducts.includes(item.codigo_produto)
   })
 
-  const paths = uniqueProduct.map((item) => ({
-    params: {
-      idproduto: String(item.url_produto),
-    },
-  }))
+  // const paths = uniqueProduct.map((item) => ({
+  //   params: {
+  //     idproduto: String(item.url_produto),
+  //   },
+  // }))
 
   // const uniqueUrl = uniqueProduct.map((item) => {
   //   return item.url_produto
   // })
 
-  // const paths = produtos.map((item) => ({
-  //   params: {
-  //     idproduto: String(item.url_produto),
-  //   },
-  // }))
+  const paths = produtos.map((item) => ({
+    params: {
+      idproduto: String(item.url_produto),
+    },
+  }))
   // const paths = [
   //   {
   //     params: {

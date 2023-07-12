@@ -2,10 +2,20 @@ import { useEffect, useState } from "react"
 import { ColorInputComponent } from "../../ColorInput/styles"
 import * as S from "./styles"
 import { useProductProvider } from "../../../../../contexts/ProductProvider"
+import { buscaProduto } from "../../../../../services/api"
 
 export function StepPersonalizacao({ product }) {
   const [selectedPersonalizacao, setSelectedPersonalizacao] = useState(null)
   const { handleSetCodImp } = useProductProvider()
+  const [personalizacoes, setPersonalizacoes] = useState([])
+
+  async function tipoPersonalizacao(codprod) {
+    const response = await buscaProduto.get(`${codprod}/tipo-gravacao`)
+
+    setPersonalizacoes(response.data)
+
+    return response.data
+  }
 
   function handleSelectedPersonalizacao(personalizacao) {
     setSelectedPersonalizacao(personalizacao)
@@ -13,23 +23,28 @@ export function StepPersonalizacao({ product }) {
     handleSetCodImp(personalizacao)
   }
 
-  function calculateInitialPersonalizacao() {
-    if (product?.personalizacoes?.length <= 0) return
+  async function calculateInitialPersonalizacao() {
+    const persona = await tipoPersonalizacao(product.codigo_produto)
 
-    //sempre a posição 0 do array'
+    if (persona.length <= 0) return
 
-    const productMaxStock = product.personalizacoes[0]
+    const productMaxStock = persona[0]
 
     handleSelectedPersonalizacao(productMaxStock)
   }
 
   useEffect(() => {
     calculateInitialPersonalizacao()
+    tipoPersonalizacao(product.codigo_produto)
   }, [product])
+
+  useEffect(() => {
+    tipoPersonalizacao(product.codigo_produto)
+  }, [])
 
   return (
     <S.ContainerPersonalizacao>
-      {product.personalizacoes.map((personalizacao, index) => (
+      {personalizacoes.map((personalizacao, index) => (
         <>
           <S.GroupPersonalizacao key={personalizacao.codigo_impressao}>
             <S.Personalizacao onClick={() => handleSelectedPersonalizacao(personalizacao)}>
@@ -42,7 +57,7 @@ export function StepPersonalizacao({ product }) {
               {personalizacao.descricao_impressao}
             </S.Personalizacao>
           </S.GroupPersonalizacao>
-          {index !== product.personalizacoes.length - 1 && <S.Divider />}
+          {index !== personalizacoes.length - 1 && <S.Divider />}
         </>
       ))}
     </S.ContainerPersonalizacao>

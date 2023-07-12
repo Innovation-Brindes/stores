@@ -55,6 +55,7 @@ async function getGridProduto() {
 
       produtos.push({
         prod_nome: prod.nome_produto.trim(),
+        real_price: preco_home,
         prod_cod: prod.referencia,
         url_prod: prod.url_seo,
         img_prod: link,
@@ -76,6 +77,8 @@ async function getGridProduto() {
 
     //só retorna produtos com valor home maior que zero
     // produtos = produtos.filter((prod) => prod.preco_home > 0)
+
+    produtos.filter((prod) => parseInt(prod.real_price) > 0)
 
     return produtos
   } catch (error) {

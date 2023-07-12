@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
-import { dadosMenu, dadosProdutosSubcategoria } from "../../../services/api"
-import Categoria from "../../../components/Categoria"
-import { getCategorias, getSegmentos } from "../../../utils/getLinksHeader"
-import Header from "../../../components/Header"
+import { dadosMenu, dadosProdutosSubcategoria } from "../../../../services/api"
+import Categoria from "../../../../components/Categoria"
+import { getCategorias, getSegmentos } from "../../../../utils/getLinksHeader"
+import Header from "../../../../components/Header"
 
 export async function getStaticProps(context) {
   const categoria = context.params.idcategoria
