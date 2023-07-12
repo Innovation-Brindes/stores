@@ -2,31 +2,10 @@ import { useEffect, useState } from "react"
 import * as S from "./styles"
 import { useProductProvider } from "../../../../../contexts/ProductProvider"
 import { ColorInputComponent } from "../../ColorInput/styles"
-import { ListaPrazoDeProducao } from "../../../../../services/api"
 
 export function StepPrazoProducao({ product }) {
   const [selectedProducao, setSelectedProducao] = useState(null)
   const { handleSetEntrega } = useProductProvider()
-  const [prazos, setPrazos] = useState([])
-
-  async function prazoProducao(prazoMinimo) {
-    const responsePrazo = await ListaPrazoDeProducao.get(prazoMinimo.toString())
-    const dadosPrazo = await responsePrazo.data
-
-    //percorre o array, calcula as datas e pega o mais rapido e o mais barato
-
-    const newPrazos = dadosPrazo.map((prazo) => {
-      return {
-        ...prazo,
-        mais_rapido: prazo === dadosPrazo[0],
-        mais_barato: prazo === dadosPrazo[dadosPrazo.length - 1],
-      }
-    })
-
-    setPrazos(newPrazos)
-
-    return dadosPrazo
-  }
 
   function handleSelectedProducao(producao) {
     setSelectedProducao(producao)
@@ -39,14 +18,13 @@ export function StepPrazoProducao({ product }) {
   function calculateInitialPersonalizacao() {
     if (product?.personalizacoes?.length <= 0) return
 
-    const maxPrazo = product.prazos.at(-1)
+    const productMaxStock = product.prazos[2]
 
-    handleSelectedProducao(maxPrazo)
+    handleSelectedProducao(productMaxStock)
   }
 
   useEffect(() => {
     calculateInitialPersonalizacao()
-    prazoProducao(product.prazo_minimo_entrega)
   }, [product])
 
   function backgroundColor(mais_rapido, mais_barato) {
@@ -60,7 +38,7 @@ export function StepPrazoProducao({ product }) {
 
   return (
     <S.ContainerProducao>
-      {prazos?.map((producao, index) => (
+      {product.prazos.map((producao, index) => (
         <>
           <S.GroupProducao key={producao.prazo}>
             <S.Producao onClick={() => handleSelectedProducao(producao)}>
@@ -70,16 +48,13 @@ export function StepPrazoProducao({ product }) {
                 backgroundColor={backgroundColor(producao.mais_rapido, producao.mais_barato)}
               >
                 {producao.data_producao} | {producao.nome_data}
-                <strong>
-                  {producao.mais_rapido ? " | MAIS RÁPIDO" : producao.mais_barato ? " | MAIS BARATO" : ""}
-                </strong>
+                <span>{producao.mais_rapido ? " | MAIS RÁPIDO" : producao.mais_barato ? " | MAIS BARATO" : ""}</span>
               </S.ProducaoTextColor>
             </S.Producao>
           </S.GroupProducao>
-          {index !== prazos?.length - 1 && <S.Divider />}
+          {index !== product.prazos.length - 1 && <S.Divider />}
         </>
       ))}
-      <span>*Para pedido aprovados até as 14hrs, de segunda a sexta (exceto feriados). Retirada após as 08:30.</span>
     </S.ContainerProducao>
   )
 }

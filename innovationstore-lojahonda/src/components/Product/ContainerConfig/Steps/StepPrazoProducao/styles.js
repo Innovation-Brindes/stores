@@ -8,11 +8,6 @@ export const ContainerProducao = styled.div`
   height: 100%;
   align-items: flex-start;
   justify-content: flex-start;
-
-  span {
-    font-size: 11px;
-    font-weight: 400;
-  }
 `
 
 export const Producao = styled.label`

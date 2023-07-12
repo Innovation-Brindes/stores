@@ -14,16 +14,7 @@ export function ModalSlideImages({ onOpen, isOpen, onClose, images, initialImage
   return (
     <>
       <ImageContent onClick={onOpen}>
-        <Image
-          src={initialImage}
-          width={427}
-          height={322}
-          priority
-          quality={30}
-          placeholder="blur"
-          blurDataURL={initialImage}
-          alt="Imagem do produto"
-        />
+        <Image src={initialImage} width={427} height={322} priority />
       </ImageContent>
       <S.Overlay open={isOpen} onClick={onClose} />
       <S.ContainerModalSlideImage open={isOpen}>
@@ -43,17 +34,7 @@ export function ModalSlideImages({ onOpen, isOpen, onClose, images, initialImage
           >
             <Slider>
               {images.map((image) => (
-                <Image
-                  key={image.url}
-                  src={image.url}
-                  width={688}
-                  height={536}
-                  alt="Imagem do produto"
-                  priority
-                  quality={30}
-                  placeholder="blur"
-                  blurDataURL={image.url}
-                />
+                <Image key={image.url} src={image.url} width={688} height={536} alt="Imagem do produto" />
               ))}
             </Slider>
             <S.ContainerButtonController>

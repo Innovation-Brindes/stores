@@ -5,7 +5,6 @@ import Head from "next/head"
 import Link from "next/link"
 import { LinksHeader } from "./LinksHeader"
 import { useCart } from "../../contexts/useCart"
-
 import { FreteGratis } from "../FreteGratis"
 import { Links } from "./Links"
 import {
@@ -178,7 +177,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                 <div className="content">
                   {openMenu.subcategorias &&
                     subcategorias.map((data, index) => (
-                      <Links key={index} data={data} pathname={"/lojahonda/categoria/[slug]" + "/" + "[id]"} />
+                      <Links key={index} data={data} pathname={"/categoria/[slug]" + "/" + "[id]"} />
                     ))}
                 </div>
               </MenuOpen>
@@ -213,7 +212,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                     <li key={index}>
                       <Link
                         href={{
-                          pathname: `${"/lojahonda/segmento/[slug]" + "/" + "[id]"}`,
+                          pathname: `${"/segmento/[slug]" + "/" + "[id]"}`,
                           query: {
                             slug: `${retira_acentos(data.descricao).toLowerCase().replace(/ /g, "-")}`,
                             id: data.codigo_segmento,
@@ -228,7 +227,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
             </ButtonGroup>
             <Link
               href={{
-                pathname: `${"/lojahonda/segmento/[slug]" + "/" + "[id]"}`,
+                pathname: `${"/segmento/[slug]" + "/" + "[id]"}`,
                 query: { slug: "novidades", id: 6 },
               }}
             >
@@ -243,7 +242,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                 <MenuButton>Lançamentos</MenuButton>
               </LinkGroup>
             </Link>
-            <Link href="/lojahonda/ultra-rapido">
+            <Link href="/ultra-rapido">
               <LinkGroup>
                 <SpanLink
                   css={{

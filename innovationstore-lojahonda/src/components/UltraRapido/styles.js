@@ -1,6 +1,6 @@
-import { Box, Text, Flex } from "@chakra-ui/react"
-import styled from "styled-components"
-import { colorBaseUltraRapido } from "./component/FlexFiltroUltraRapido/styles"
+import { Box, Text, Flex } from "@chakra-ui/react";
+import styled from "styled-components";
+import { colorBaseUltraRapido } from "./component/FlexFiltroUltraRapido/styles";
 
 export const FlexContainer = styled(Flex)`
   margin-top: -15px;
@@ -15,7 +15,7 @@ export const FlexContainer = styled(Flex)`
   @media screen and (max-width: 768px) {
     display: none;
   }
-`
+`;
 export const TextUltraRapido = styled(Text)`
   color: #494949;
   margin-top: 30px;
@@ -38,7 +38,7 @@ export const TextUltraRapido = styled(Text)`
     font-size: 40px;
     text-align: center;
   }
-`
+`;
 
 export const TextUltraRapido2 = styled(Text)`
   color: #494949;
@@ -59,7 +59,7 @@ export const TextUltraRapido2 = styled(Text)`
     font-size: 26px;
     text-align: center;
   }
-`
+`;
 export const ContainerFlexUtilize = styled(Flex)`
   align-items: center;
   height: 80px;
@@ -70,9 +70,9 @@ export const ContainerFlexUtilize = styled(Flex)`
   @media screen and (max-width: 1280px) {
   }
   @media screen and (max-width: 768px) {
-    display: none !important;
+    display: none;
   }
-`
+`;
 
 export const TextUltraRapido3 = styled(Text)`
   color: #494949;
@@ -96,7 +96,7 @@ export const TextUltraRapido3 = styled(Text)`
       color: ${colorBaseUltraRapido};
     }
   }
-`
+`;
 
 export const ImgProdUltraRapido = styled.img`
   width: 170px;
@@ -146,7 +146,7 @@ export const ImgProdUltraRapido = styled.img`
       }
     }
   }
-`
+`;
 
 export const SelectUltraRapido = styled.select`
   cursor: pointer;
@@ -178,7 +178,7 @@ export const SelectUltraRapido = styled.select`
   @media screen and (max-width: 768px) {
     display: none;
   }
-`
+`;
 export const PaginationUltraRapido = styled(Box)`
   width: 520px;
   height: 34px;
@@ -259,4 +259,4 @@ export const PaginationUltraRapido = styled(Box)`
       }
     }
   }
-`
+`;

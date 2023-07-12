@@ -7,7 +7,6 @@ import { AddresClient } from "../../AddressClient"
 import { Button } from "../../components/Button"
 import { PaymentMethods } from "../PaymentMethods"
 import * as S from "../styles"
-import { setFirstLetterUpperCase } from "../../../../utils/setFirstLetterUpperCase"
 
 export function Resumo({ product }) {
   const { state, price, nextStep, cubagens } = useProductProvider()
@@ -95,7 +94,7 @@ export function Resumo({ product }) {
       <S.Heading>Resumo</S.Heading>
       <S.ProductInfo>
         <div>
-          <span>Cor do produto:</span> <strong>{setFirstLetterUpperCase(state?.codColor?.descricao_cor)}</strong>
+          <span>Cor do produto:</span> <strong>{state?.codColor?.descricao_cor}</strong>
         </div>
         <div>
           <span>Personalização:</span> <strong>{state?.codImp?.descricao_impressao}</strong>

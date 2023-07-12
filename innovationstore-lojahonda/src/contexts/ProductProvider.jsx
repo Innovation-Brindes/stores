@@ -106,6 +106,7 @@ export function ProductProvider({ children }) {
   }
 
   const calculateProduct = useCallback(async () => {
+    setLoading(true)
     const fields = [
       state.codprod,
       state.codImp.codigo_impressao,
@@ -116,9 +117,9 @@ export function ProductProvider({ children }) {
     ]
 
     if (fields.some((field) => !field)) {
+      setLoading(false)
       return
     }
-    setLoading(true)
 
     const { codigo_impressao } = state?.codImp
 
@@ -137,7 +138,7 @@ export function ProductProvider({ children }) {
 
     setLoading(false)
     return response.data.preco
-  }, [state.codprod, state.codImp, state.codColor, state.batidas, state.productQuantity, state.entrega])
+  }, [state])
 
   useEffect(() => {
     calculateProduct()

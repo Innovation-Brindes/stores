@@ -1,11 +1,10 @@
-import { useCallback, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { ColorInputComponent } from "../../../ColorInput/styles"
 import * as S from "./styles"
 import { useProductProvider } from "../../../../../../contexts/ProductProvider"
-import { baseURL, buscaValorProduto } from "../../../../../../services/api"
+import { buscaValorProduto } from "../../../../../../services/api"
 import { Skeleton } from "../../../../../SkeletonLoading"
 import { formatPrice } from "../../../../../../utils/formatPrice"
-import axios from "axios"
 
 export function BoxBestOption({ product }) {
   const [selectedBestOption, setSelectedBestOption] = useState(null)
@@ -13,36 +12,56 @@ export function BoxBestOption({ product }) {
   const { state, handleSetProductQuantity } = useProductProvider()
   const [loading, setLoading] = useState(false)
 
-  const getQuantitys = useCallback(async () => {
-    try {
-      setLoading(true)
-      const response = await axios.get(
-        `https://api.innovationbrindes.com.br/api/produto/buscar-valor-quantidades-produto/${state.codprod}/${state.codImp.codigo_impressao}/${state.codColor.codigo_cor}/${state.batidas}/${state?.entrega?.prazo}`,
-      )
+  async function listQuantityPerPrice() {
+    setLoading(true)
+    let initialQuantitys = [1, 10, 30, 50, 100, 300, 500, 1000]
+    const result = []
 
-      setListQuantitys(response.data)
-    } catch (error) {
-      console.log(error)
+    for await (const quantity of initialQuantitys) {
+      let estoque = quantity
+
+      if (parseInt(state.codColor.estoque_disponivel) < quantity) {
+        estoque = state.codColor.estoque_disponivel
+      }
+
+      const param = {
+        codigo_produto: state.codprod,
+        codigo_impressao: state.codImp.codigo_impressao,
+        quantidade: estoque,
+        codigo_cor: state.codColor.codigo_cor,
+        batidas: state.batidas,
+        prazo_entrega: parseInt(state?.entrega?.prazo),
+      }
+
+      const response = await buscaValorProduto.post("", param)
+      const value = parseFloat(response.data.valor_unitario)
+
+      result.push({
+        quantity: estoque,
+        value,
+      })
     }
 
+    setListQuantitys(result)
     setLoading(false)
-  }, [state.codColor, state.codprod, state.codImp, state.batidas, state?.entrega])
+  }
 
   useEffect(() => {
-    getQuantitys()
-  }, [getQuantitys])
+    listQuantityPerPrice()
+  }, [state.codColor, state.codprod, state.codImp, state.batidas])
 
-  const handleSelectedBestOption = useCallback(
-    (item) => {
-      setSelectedBestOption(item)
-      handleSetProductQuantity(item?.quantity)
-    },
-    [handleSetProductQuantity],
-  )
+  function handleSelectedBestOption(item) {
+    setSelectedBestOption(item)
+    handleSetProductQuantity(item?.quantity)
+  }
 
   useEffect(() => {
     setSelectedBestOption(null)
-  }, [state.codColor, state.codprod, state.codImp, state.batidas, state?.entrega])
+  }, [state.codColor, state.codprod, state.codImp, state.batidas])
+
+  const bestOptionNotDuplicate = listQuantitys.filter((item, index) => {
+    return listQuantitys.findIndex((item2) => item2.value === item.value) === index
+  })
 
   return (
     <S.BoxBestOption>
@@ -58,9 +77,8 @@ export function BoxBestOption({ product }) {
             </Skeleton.Box>
           </Skeleton.Root>
         ))}
-
       {!loading &&
-        listQuantitys.map((item, index) => (
+        bestOptionNotDuplicate.map((item, index) => (
           <S.BoxBestOptionItem
             key={index}
             isSelected={selectedBestOption?.quantity === item.quantity}
