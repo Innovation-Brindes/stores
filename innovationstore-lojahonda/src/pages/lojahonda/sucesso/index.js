@@ -1,7 +1,7 @@
 import React from "react"
-import Sucesso from "../../components/Sucesso"
-import Header from "../../components/Header"
-import { getCategorias, getSegmentos } from "../../utils/getLinksHeader"
+import Sucesso from "../../../components/Sucesso"
+import Header from "../../../components/Header"
+import { getCategorias, getSegmentos } from "../../../utils/getLinksHeader"
 
 export default function SucessoPage(props) {
   return (
