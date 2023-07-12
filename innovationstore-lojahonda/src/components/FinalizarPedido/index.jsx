@@ -9,35 +9,28 @@ import {
   Text,
   usePrefersReducedMotion,
   keyframes,
-} from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import {
-  AiFillCaretRight,
-  AiFillCaretLeft,
-  AiOutlineRight,
-  AiOutlineCloudUpload,
-} from "react-icons/ai";
-import Faturamento from "./Faturamento";
-import Finalizar from "./Finalizar";
-import { ContainerBox } from "./styles";
-import { AnimateSharedLayout } from "framer-motion";
-import { CgFileDocument } from "react-icons/cg";
-import { AiOutlineArrowLeft } from "react-icons/ai";
-import { NextSeo } from "next-seo";
-import { FaGooglePay } from "react-icons/fa";
-import SolicitacaoLayout from "./SolicitacaoLayout";
-import { ButtonConfirmarSolicitacaoLayout } from "./SolicitacaoLayout/components/ContainerBodySolicitacaoLayout/styles";
-import { useRouter } from "next/router";
-import Link from "next/link";
+} from "@chakra-ui/react"
+import React, { useEffect, useState } from "react"
+import { AiFillCaretRight, AiFillCaretLeft, AiOutlineRight, AiOutlineCloudUpload } from "react-icons/ai"
+import Faturamento from "./Faturamento"
+import Finalizar from "./Finalizar"
+import { ContainerBox } from "./styles"
+import { AnimateSharedLayout } from "framer-motion"
+import { CgFileDocument } from "react-icons/cg"
+import { AiOutlineArrowLeft } from "react-icons/ai"
+import { NextSeo } from "next-seo"
+import { FaGooglePay } from "react-icons/fa"
+import SolicitacaoLayout from "./SolicitacaoLayout"
+import { ButtonConfirmarSolicitacaoLayout } from "./SolicitacaoLayout/components/ContainerBodySolicitacaoLayout/styles"
+import { useRouter } from "next/router"
+import Link from "next/link"
 
 const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
+  const [paginacao, setPaginacao] = useState(1)
+  const [loading, setLoading] = useState(false)
+  const [mobileView, setMobileView] = useState(false)
 
-
-  const [paginacao, setPaginacao] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [mobileView, setMobileView] = useState(false);
-
-  const router = useRouter();
+  const router = useRouter()
 
   const textEffect = keyframes`
  0% {
@@ -50,42 +43,36 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
   100% {
     opacity: 1;
   }
-`;
+`
 
-  const prefersReducedMotion = usePrefersReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion()
 
-  const animation = prefersReducedMotion
-    ? undefined
-    : `${textEffect} 0.7s ease-in both`;
+  const animation = prefersReducedMotion ? undefined : `${textEffect} 0.7s ease-in both`
 
   useEffect(() => {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      setMobileView(true);
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      setMobileView(true)
     } else {
-      setMobileView(false);
+      setMobileView(false)
     }
-  }, []);
+  }, [])
 
   const loadingConfirmar = async () => {
     try {
-      setLoading(true);
+      setLoading(true)
       const timer = setTimeout(() => {
-        setLoading(false);
-        clearTimeout(timer);
-      }, 1500);
+        setLoading(false)
+        clearTimeout(timer)
+      }, 1500)
     } catch (err) {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   const renderSwitch = () => {
     switch (paginacao) {
       case 1:
-        return <Faturamento dados_cliente={dados_cliente} mobileView={mobileView} />;
+        return <Faturamento dados_cliente={dados_cliente} mobileView={mobileView} />
       case 2:
         return (
           <SolicitacaoLayout
@@ -94,15 +81,13 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
             dados_layout={dados_layout}
             mobileView={mobileView}
           />
-        );
+        )
       case 3:
-        return (
-          <Finalizar setPaginacao={setPaginacao} mobileView={mobileView} />
-        );
+        return <Finalizar setPaginacao={setPaginacao} mobileView={mobileView} />
       default:
-        return <Faturamento dados_cliente={dados_cliente} />;
+        return <Faturamento dados_cliente={dados_cliente} />
     }
-  };
+  }
 
   return (
     <>
@@ -113,16 +98,14 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
       <ChakraProvider>
         <AnimateSharedLayout>
           <Box>
-            <Flex w="100%" justifyContent="center" >
+            <Flex w="100%" justifyContent="center">
               <Image
-                cursor='pointer'
-                onClick={() => router.push('/')}
+                cursor="pointer"
+                onClick={() => router.push("/lojahonda")}
                 display={mobileView ? "block" : "none"}
                 alt="logo-finalizar"
                 src={
-                  mobileView
-                    ? "images/logo-topo-finalizar-pedido-mobile.svg"
-                    : "/images/logo-topo-finalizar-pedido.png"
+                  mobileView ? "images/logo-topo-finalizar-pedido-mobile.svg" : "/images/logo-topo-finalizar-pedido.png"
                 }
                 ml={mobileView ? "10px" : "40px"}
                 mt={mobileView ? "25px" : "20px"}
@@ -131,18 +114,13 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
               />
             </Flex>
 
-            <Flex
-              justifyContent="space-around"
-              bgColor="white"
-              h="120px"
-              w="100%"
-            >
-              <Link zIndex={99} href={'/'} passHref>
+            <Flex justifyContent="space-around" bgColor="white" h="120px" w="100%">
+              <Link zIndex={99} href={"/"} passHref>
                 <a>
                   <Image
-                    position='relative'
+                    position="relative"
                     zIndex={99}
-                    cursor='pointer'
+                    cursor="pointer"
                     display={mobileView ? "none" : "block"}
                     alt="logo-finalizar"
                     src={
@@ -230,35 +208,16 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                     <FaGooglePay color="white" size="30px" />
                   </Badge>
                 </Flex>
-                <Flex
-                  layoutId="box-container"
-                  justifyContent="space-around"
-                  pt="10px"
-                  w="380px"
-                  h="50%"
-                  mx="auto"
-                >
-                  <Flex
-                    position="relative"
-                    color="black"
-                    left="-15px"
-                    textAlign="center"
-                    flexDir="column"
-                  >
+                <Flex layoutId="box-container" justifyContent="space-around" pt="10px" w="380px" h="50%" mx="auto">
+                  <Flex position="relative" color="black" left="-15px" textAlign="center" flexDir="column">
                     <Text>Faturamento</Text>
                     <Box w="100%" mt="-15px" borderBottom="1px solid black" />
                     <Text mt="-1px">Entrega</Text>
                   </Flex>
-                  <Text
-                    left="-13px"
-                    position="relative"
-                    color={paginacao > 1 ? "black" : "#dbdbdb"}
-                  >
+                  <Text left="-13px" position="relative" color={paginacao > 1 ? "black" : "#dbdbdb"}>
                     Upload
                   </Text>
-                  <Text color={paginacao === 3 ? "black" : "#dbdbdb"}>
-                    Finalizar
-                  </Text>
+                  <Text color={paginacao === 3 ? "black" : "#dbdbdb"}>Finalizar</Text>
                 </Flex>
               </Box>
               <Box
@@ -287,15 +246,9 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                   <Button
                     position="relative"
                     top="-25px"
-                    onClick={() => router.push("/carrinho")}
+                    onClick={() => router.push("/lojahonda/carrinho")}
                     leftIcon={
-                      mobileView ? (
-                        <AiOutlineArrowLeft
-                          fontSize={mobileView ? "28px" : ""}
-                        />
-                      ) : (
-                        <AiFillCaretLeft />
-                      )
+                      mobileView ? <AiOutlineArrowLeft fontSize={mobileView ? "28px" : ""} /> : <AiFillCaretLeft />
                     }
                     bgColor="#f5f5f5"
                     _hover={{ bgColor: "#f5f5f5" }}
@@ -321,8 +274,8 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                     h="35px"
                     fontSize="28px"
                     onClick={() => {
-                      setPaginacao(parseInt(paginacao) - 1);
-                      loadingConfirmar();
+                      setPaginacao(parseInt(paginacao) - 1)
+                      loadingConfirmar()
                     }}
                     leftIcon={<AiOutlineArrowLeft />}
                     colorScheme="whiteAlpha"
@@ -335,20 +288,13 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                 <div></div>
               )}
               {!mobileView && paginacao === 3 ? (
-                <Flex
-                  w="98%"
-                  maxW="1250px"
-                  mx="auto"
-                  mt="-20px"
-                  mb="10px"
-                  h="35px"
-                >
+                <Flex w="98%" maxW="1250px" mx="auto" mt="-20px" mb="10px" h="35px">
                   <Button
                     variant="ghost"
                     h="35px"
                     onClick={() => {
-                      setPaginacao(parseInt(paginacao) - 1);
-                      loadingConfirmar();
+                      setPaginacao(parseInt(paginacao) - 1)
+                      loadingConfirmar()
                     }}
                     leftIcon={<AiFillCaretLeft />}
                     colorScheme="whiteAlpha"
@@ -370,13 +316,7 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                 bgColor={paginacao === 3 ? "" : "white"}
                 mx="auto"
                 mb={paginacao === 2 ? "30px" : "0"}
-                boxShadow={
-                  mobileView
-                    ? "none"
-                    : paginacao === 3
-                      ? ""
-                      : "2px 2px 3px 2px #dbdbdb"
-                }
+                boxShadow={mobileView ? "none" : paginacao === 3 ? "" : "2px 2px 3px 2px #dbdbdb"}
                 borderRadius="15px"
               >
                 <Flex
@@ -409,8 +349,7 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                         fontSize="12px"
                         textAlign="center"
                       >
-                        Arquivos compatíveis:{" "}
-                        <strong>AI, CDR, JPG, PNG e PDF</strong>
+                        Arquivos compatíveis: <strong>AI, CDR, JPG, PNG e PDF</strong>
                       </Text>
                     </>
                   ) : (
@@ -426,35 +365,21 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                   )}
                 </Flex>
                 {renderSwitch()}
-                <Flex
-                  w="100%"
-                  h="150px"
-                  justifyContent="center"
-                  align="center"
-                  pt={mobileView ? "40px" : "60px"}
-                >
+                <Flex w="100%" h="150px" justifyContent="center" align="center" pt={mobileView ? "40px" : "60px"}>
                   {paginacao <= 1 ? (
-                    <Flex
-                      h="40px"
-                      mt={mobileView ? "15px" : "10px"}
-                      justify="center"
-                      alignItems="center"
-                      w="100%"
-                    >
+                    <Flex h="40px" mt={mobileView ? "15px" : "10px"} justify="center" alignItems="center" w="100%">
                       <ButtonConfirmarSolicitacaoLayout
-                        rightIcon={
-                          mobileView ? <AiOutlineRight /> : <AiFillCaretRight />
-                        }
+                        rightIcon={mobileView ? <AiOutlineRight /> : <AiFillCaretRight />}
                         type="submit"
                         onClick={() => {
-                          setPaginacao(parseInt(paginacao) + 1);
-                          loadingConfirmar();
+                          setPaginacao(parseInt(paginacao) + 1)
+                          loadingConfirmar()
                         }}
-                      // onKeyPress={(e) =>
-                      //   e.key == "Enter" ?
-                      //     resultado(form_descricao, idDescricao)
-                      //     :
-                      //     null}
+                        // onKeyPress={(e) =>
+                        //   e.key == "Enter" ?
+                        //     resultado(form_descricao, idDescricao)
+                        //     :
+                        //     null}
                       >
                         <span>AVANÇAR</span>
                       </ButtonConfirmarSolicitacaoLayout>
@@ -466,15 +391,11 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                 <Flex w="100%">
                   {!mobileView && paginacao === 1 ? (
                     <Button
-                      onClick={() => { router.push("/carrinho"); }}
+                      onClick={() => {
+                        router.push("/lojahonda/carrinho")
+                      }}
                       leftIcon={
-                        mobileView ? (
-                          <AiOutlineArrowLeft
-                            fontSize={mobileView ? "28px" : ""}
-                          />
-                        ) : (
-                          <AiFillCaretLeft />
-                        )
+                        mobileView ? <AiOutlineArrowLeft fontSize={mobileView ? "28px" : ""} /> : <AiFillCaretLeft />
                       }
                       bgColor="white"
                       _hover={{ bgColor: "white" }}
@@ -486,17 +407,11 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                   ) : !mobileView && paginacao === 2 ? (
                     <Button
                       onClick={() => {
-                        setPaginacao(parseInt(paginacao) - 1);
-                        loadingConfirmar();
+                        setPaginacao(parseInt(paginacao) - 1)
+                        loadingConfirmar()
                       }}
                       fontSize={mobileView ? "28px" : ""}
-                      leftIcon={
-                        mobileView ? (
-                          <AiOutlineArrowLeft />
-                        ) : (
-                          <AiFillCaretLeft />
-                        )
-                      }
+                      leftIcon={mobileView ? <AiOutlineArrowLeft /> : <AiFillCaretLeft />}
                       bgColor="white"
                       _hover={{ bgColor: "white" }}
                       _active={{ bgColor: "white", transform: "scale(0.90)" }}
@@ -514,7 +429,7 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
         </AnimateSharedLayout>
       </ChakraProvider>
     </>
-  );
-};
+  )
+}
 
-export default FinalizarPedido;
+export default FinalizarPedido

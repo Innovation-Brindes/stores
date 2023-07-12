@@ -92,7 +92,7 @@ export function Form({ infoEmb, transportadoraMaisBarata, seletedTransp }) {
     try {
       const response = await GerarOrcamento.post("", params)
       await sendShippingSelected()
-      router.push("/sucesso")
+      router.push("/lojahonda/sucesso")
       clearCart()
     } catch (error) {
       console.log(error)

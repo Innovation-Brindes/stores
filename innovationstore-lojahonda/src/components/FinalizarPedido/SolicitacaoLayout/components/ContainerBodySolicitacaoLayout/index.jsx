@@ -1,27 +1,21 @@
-import React, { useEffect, useState } from "react";
-import {
-  Flex,
-  Text,
-  Image,
-  useMediaQuery,
-  ChakraProvider,
-} from "@chakra-ui/react";
-import * as S from "./styles";
-import LdsEllipsisLoading from "../../../../../utils/LoadingLdsEllipsis/LdsEllipsis";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react"
+import { Flex, Text, Image, useMediaQuery, ChakraProvider } from "@chakra-ui/react"
+import * as S from "./styles"
+import LdsEllipsisLoading from "../../../../../utils/LoadingLdsEllipsis/LdsEllipsis"
+import { useRouter } from "next/router"
 
-import { transformToBase64 } from "../../../../../utils/transformToBase64";
-import { replaceImgNot64 } from "../../../../../utils/transformToBase64";
-import { AiFillCaretRight, AiOutlineRight } from "react-icons/ai";
-import { List } from "./List";
-import { baseURL } from "../../../../../services/api";
-import Toast from "../../../../../components/toast/index";
+import { transformToBase64 } from "../../../../../utils/transformToBase64"
+import { replaceImgNot64 } from "../../../../../utils/transformToBase64"
+import { AiFillCaretRight, AiOutlineRight } from "react-icons/ai"
+import { List } from "./List"
+import { baseURL } from "../../../../../services/api"
+import Toast from "../../../../../components/toast/index"
 
-const icon_upload = "/images/tela-upload/upload-icon.svg";
-const banner = "/images/tela-upload/banner-upload.jpg";
-const banner_mobile = "/images/tela-upload/banner-upload-mobile.png";
-const alert_icon = "/images/exclamacao.png";
-const loadingGif = "/images/loading.gif";
+const icon_upload = "/images/tela-upload/upload-icon.svg"
+const banner = "/images/tela-upload/banner-upload.jpg"
+const banner_mobile = "/images/tela-upload/banner-upload-mobile.png"
+const alert_icon = "/images/exclamacao.png"
+const loadingGif = "/images/loading.gif"
 
 const ContainerBodySolicitacaoLayout = ({
   mobileView,
@@ -31,37 +25,37 @@ const ContainerBodySolicitacaoLayout = ({
   paginacao,
   isSolicitation,
 }) => {
-  const [numeroNota, setNumeroNota] = useState([]);
-  const [numeroUnico, setNumeroUnico] = useState([]);
-  const [codProd, setCodProd] = useState([]);
-  const [loading, setLoading] = useState();
-  const [image, setImage] = useState([]);
-  const [desc, setDesc] = useState([]);
-  const [idTabela, setIdTabela] = useState([]);
-  const [buttonEditar, setButtonEditar] = useState([]);
-  const [arrayDados, setArrayDados] = useState({});
-  const [file, setFile] = useState([]);
-  const [isChecked, setIsChecked] = useState(false);
-  const [onlyFiles, setOnlyFiles] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [messageProgress, setMessageProgress] = useState("");
-  const [index, setIndex] = useState(0);
-  const [sequencia, setSequencia] = useState([]);
-  const [fileName, setFileName] = useState([]);
+  const [numeroNota, setNumeroNota] = useState([])
+  const [numeroUnico, setNumeroUnico] = useState([])
+  const [codProd, setCodProd] = useState([])
+  const [loading, setLoading] = useState()
+  const [image, setImage] = useState([])
+  const [desc, setDesc] = useState([])
+  const [idTabela, setIdTabela] = useState([])
+  const [buttonEditar, setButtonEditar] = useState([])
+  const [arrayDados, setArrayDados] = useState({})
+  const [file, setFile] = useState([])
+  const [isChecked, setIsChecked] = useState(false)
+  const [onlyFiles, setOnlyFiles] = useState(0)
+  const [progress, setProgress] = useState(0)
+  const [messageProgress, setMessageProgress] = useState("")
+  const [index, setIndex] = useState(0)
+  const [sequencia, setSequencia] = useState([])
+  const [fileName, setFileName] = useState([])
   const [toast, setToast] = useState({
     sucess: false,
     error: false,
     errorFileLenght: false,
     errorSize: false,
-  });
+  })
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const [isMaxWidth800] = useMediaQuery("(max-width: 800px)");
+  const [isMaxWidth800] = useMediaQuery("(max-width: 800px)")
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const indexDados = dados_layout?.map((data, index) => index);
+  const indexDados = dados_layout?.map((data, index) => index)
 
   // useEffect(() => {
   //   setOnlyFiles(indexDados.length - 1);
@@ -69,80 +63,76 @@ const ContainerBodySolicitacaoLayout = ({
 
   useEffect(() => {
     try {
-      setLoading(true);
+      setLoading(true)
       const timer = setTimeout(function () {
-        setLoading(false);
-        clearTimeout(timer);
-      }, 1500);
+        setLoading(false)
+        clearTimeout(timer)
+      }, 1500)
     } catch (err) {
-      setLoading(false);
+      setLoading(false)
     }
-  }, []);
+  }, [])
 
   const handleArrayIDTabela = (id) => {
-    setIdTabela([...idTabela, id]);
-  };
+    setIdTabela([...idTabela, id])
+  }
 
   const deleteArrayIDTabela = (id) => {
-    const array = idTabela.filter((item) => item !== id);
-    setIdTabela(array);
-  };
+    const array = idTabela.filter((item) => item !== id)
+    setIdTabela(array)
+  }
 
   const removeIdTabela = (id) => {
-    deleteArrayIDTabela(id);
-  };
+    deleteArrayIDTabela(id)
+  }
 
   const deleteNameFile = (id) => {
-    const array = fileName.filter((item) => item !== id);
-    setFileName(array);
-  };
+    const array = fileName.filter((item) => item !== id)
+    setFileName(array)
+  }
 
   const handleIdButtonEditar = (id) => {
-    setButtonEditar([...buttonEditar, id]);
-  };
+    setButtonEditar([...buttonEditar, id])
+  }
 
-  const numeroDoProduto = dados_layout.map((data) => data.codigo_produto);
-  const numerodaNota = dados_layout.map((data) => data.numero_nota);
-  const numeroDoUnico = dados_layout.map((data) => data.ad_numinno);
-  const sequenciaDados = dados_layout.map((data) => data.sequencia);
+  const numeroDoProduto = dados_layout.map((data) => data.codigo_produto)
+  const numerodaNota = dados_layout.map((data) => data.numero_nota)
+  const numeroDoUnico = dados_layout.map((data) => data.ad_numinno)
+  const sequenciaDados = dados_layout.map((data) => data.sequencia)
 
   useEffect(() => {
-    setCodProd(...codProd, numeroDoProduto);
-    setNumeroNota(...numeroNota, numerodaNota);
-    setNumeroUnico(...numeroUnico, numeroDoUnico);
-    setSequencia(...sequencia, sequenciaDados);
-  }, []);
+    setCodProd(...codProd, numeroDoProduto)
+    setNumeroNota(...numeroNota, numerodaNota)
+    setNumeroUnico(...numeroUnico, numeroDoUnico)
+    setSequencia(...sequencia, sequenciaDados)
+  }, [])
 
   useEffect(() => {
     if (file[0]) {
-      functionSalvar();
+      functionSalvar()
     }
-  }, [file]);
+  }, [file])
 
   const functionSalvar = async () => {
-    setIsSubmitting(true);
+    setIsSubmitting(true)
 
-    const response = await baseURL.post(
-      "pedido/upload-drive-encaminha-layout",
-      arrayDados,
-      {
-        onUploadProgress: (progressEvent) => {
-          const { loaded, total } = progressEvent;
-          let percent = Math.floor((loaded * 100) / total);
-          setMessageProgress(`${percent}%`);
-          if (percent < 100) {
-            setProgress(percent);
-          }
-        },
-      }
-    );
+    const response = await baseURL.post("pedido/upload-drive-encaminha-layout", arrayDados, {
+      onUploadProgress: (progressEvent) => {
+        const { loaded, total } = progressEvent
+        let percent = Math.floor((loaded * 100) / total)
+        setMessageProgress(`${percent}%`)
+        if (percent < 100) {
+          setProgress(percent)
+        }
+      },
+    })
 
-    setIsSubmitting(false);
-  };
+    setIsSubmitting(false)
+  }
 
   const enviarInfoCliente = async (e) => {
     if (file.length === 0) {
-      return setToast({ ...toast, errorFileLenght: true });
+      return setToast({ ...toast, errorFileLenght: true })
     }
 
     const params = {
@@ -151,38 +141,35 @@ const ContainerBodySolicitacaoLayout = ({
       sequencia: sequencia,
       numero_unico: numeroUnico,
       observacao: desc,
-    };
-
-    try {
-      const response = await baseURL.post(
-        "pedido/inserir-observacoes-envia-layout",
-        params
-      );
-
-      setLoading(false);
-
-      setToast({ sucess: true, error: false });
-      router.push("/solicitacao-layout/success");
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-      setToast({ sucess: false, error: true });
     }
 
-    setToast({ sucess: false, error: false, errorFileLenght: false });
-  };
+    try {
+      const response = await baseURL.post("pedido/inserir-observacoes-envia-layout", params)
+
+      setLoading(false)
+
+      setToast({ sucess: true, error: false })
+      router.push("/lojahonda/solicitacao-layout/success")
+    } catch (error) {
+      setLoading(false)
+      console.log(error)
+      setToast({ sucess: false, error: true })
+    }
+
+    setToast({ sucess: false, error: false, errorFileLenght: false })
+  }
 
   const enviarImagens = async (e) => {
-    let files = e.target.files[0];
+    let files = e.target.files[0]
 
     if (!files) {
-      return;
+      return
     }
 
     try {
       if (files.size > 15000000) {
-        setToast({ sucess: false, error: false, errorSize: true });
-        return;
+        setToast({ sucess: false, error: false, errorSize: true })
+        return
       }
 
       if (
@@ -194,15 +181,15 @@ const ContainerBodySolicitacaoLayout = ({
         files.type !== "application/octet-stream" &&
         files.type !== "application/postscript"
       ) {
-        alert("Tipo de arquivo não permitido");
-        return;
+        alert("Tipo de arquivo não permitido")
+        return
       }
 
-      setFileName((fileName) => [...fileName, files.name]);
+      setFileName((fileName) => [...fileName, files.name])
 
       if (isChecked) {
         await transformToBase64(files).then((result) => {
-          setImage([result]);
+          setImage([result])
           setArrayDados({
             codigo_produto: codProd,
             observacao: desc,
@@ -212,8 +199,8 @@ const ContainerBodySolicitacaoLayout = ({
             formatImage: result.substring(0, 30),
             fileName: result.substring(0, 30),
             validacao: isChecked,
-          });
-        });
+          })
+        })
       }
 
       if (!isChecked) {
@@ -227,35 +214,28 @@ const ContainerBodySolicitacaoLayout = ({
               formatImage: result.substring(0, 30),
               fileName: result.substring(0, 30),
               validacao: isChecked,
-            });
+            })
           }
-        });
+        })
       }
 
-      setFile([...file, files]);
+      setFile([...file, files])
       await transformToBase64(files).then((result) => {
-        setImage([...image, result]);
-      });
+        setImage([...image, result])
+      })
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
 
-    setToast({ sucess: false, error: false, errorSize: false });
-  };
+    setToast({ sucess: false, error: false, errorSize: false })
+  }
 
   const enviarDesc = (e) => {
-    setDesc([...desc, e.target.value]);
-  };
+    setDesc([...desc, e.target.value])
+  }
 
   return loading ? (
-    <Flex
-      justify="center"
-      w="98%"
-      maxW="1200px"
-      h="300px"
-      align="center"
-      mx="auto"
-    >
+    <Flex justify="center" w="98%" maxW="1200px" h="300px" align="center" mx="auto">
       <img
         alt="loading"
         style={{
@@ -269,11 +249,7 @@ const ContainerBodySolicitacaoLayout = ({
       {isMaxWidth800 ? (
         <Image src={"/images/banners/banner-mobile.png"} alt="logo" />
       ) : (
-        <Image
-          src={"/images/banners/banner-upload.jpg"}
-          alt="logo"
-          margin="0 auto"
-        />
+        <Image src={"/images/banners/banner-upload.jpg"} alt="logo" margin="0 auto" />
       )}
       {/* <S.BoxSpaceSolicitacaoLayout /> */}
 
@@ -346,19 +322,13 @@ const ContainerBodySolicitacaoLayout = ({
         toast={toast}
       />
 
-      <Flex
-        mt={mobileView ? "0" : "50px"}
-        h="40px"
-        alignItems="center"
-        justify="center"
-      >
+      <Flex mt={mobileView ? "0" : "50px"} h="40px" alignItems="center" justify="center">
         {!isMaxWidth800 && (
           <>
             <Image w={25} h={25} src={alert_icon} />
 
             <Text position="relative" fontSize="14px" mt="20px" ml="20px">
-              Só iremos produzir seu material após aprovação de crédito e da
-              amostra virtual aprovada pelo cliente.
+              Só iremos produzir seu material após aprovação de crédito e da amostra virtual aprovada pelo cliente.
             </Text>
           </>
         )}
@@ -377,13 +347,7 @@ const ContainerBodySolicitacaoLayout = ({
           onClick={() => enviarInfoCliente()}
           rightIcon={mobileView ? <AiOutlineRight /> : <AiFillCaretRight />}
         >
-          {loading ? (
-            <LdsEllipsisLoading w="80px" h="80px" left="3px" />
-          ) : isSolicitation ? (
-            "Confirmar"
-          ) : (
-            "Avançar"
-          )}
+          {loading ? <LdsEllipsisLoading w="80px" h="80px" left="3px" /> : isSolicitation ? "Confirmar" : "Avançar"}
         </S.ButtonConfirmarSolicitacaoLayout>
       </Flex>
       {!!isMaxWidth800 && (
@@ -391,13 +355,12 @@ const ContainerBodySolicitacaoLayout = ({
           <Image w={25} h={25} src={alert_icon} />
 
           <Text position="relative" fontSize="14px" mt="20px" ml="20px">
-            Só iremos produzir seu material após aprovação de crédito e da
-            amostra virtual aprovada pelo cliente.
+            Só iremos produzir seu material após aprovação de crédito e da amostra virtual aprovada pelo cliente.
           </Text>
         </Flex>
       )}
     </S.ContainerSolicitacaoLayout>
-  );
-};
+  )
+}
 
-export default ContainerBodySolicitacaoLayout;
+export default ContainerBodySolicitacaoLayout

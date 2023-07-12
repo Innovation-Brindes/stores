@@ -132,7 +132,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
           cor: null,
         }),
       )
-      router.push("/buscar")
+      router.push("/lojahonda/buscar")
     }
   }
 

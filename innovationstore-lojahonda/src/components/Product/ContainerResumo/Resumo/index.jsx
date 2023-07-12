@@ -86,7 +86,7 @@ export function Resumo({ product }) {
     }
 
     addToCart(produto)
-    router.push("/carrinho")
+    router.push("/lojahonda/carrinho")
   }
 
   return (
