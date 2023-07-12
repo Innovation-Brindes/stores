@@ -2,9 +2,9 @@ import { Flex } from "@chakra-ui/react"
 import Head from "next/head"
 import React from "react"
 
-import { Header } from "../../../../components/ConfirmacaoCompra/components/Header"
-import { Success as Sucesso } from "../../../../components/success/Success"
-import { baseURL } from "../../../../services/api"
+import { Header } from "../../../../../components/ConfirmacaoCompra/components/Header"
+import { Success as Sucesso } from "../../../../../components/success/Success"
+import { baseURL } from "../../../../../services/api"
 
 export async function getServerSideProps(ctx) {
   const { id } = ctx.params

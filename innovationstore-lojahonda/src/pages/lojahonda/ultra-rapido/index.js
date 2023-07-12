@@ -1,15 +1,15 @@
 import React from "react"
 import Moment from "moment"
-import UltraRapido from "../../components/UltraRapido"
-import Header from "../../components/Header"
+import UltraRapido from "../../../components/UltraRapido"
+import Header from "../../../components/Header"
 import {
   dadosProdutosSegmento,
   dadosProdutosUltraRapidoRandom,
   dadosSubCategorias,
   dadosSubCategoriasUltraRapido,
   formatarDataUltraRapido,
-} from "../../services/api"
-import { getCategorias, getSegmentos } from "../../utils/getLinksHeader"
+} from "../../../services/api"
+import { getCategorias, getSegmentos } from "../../../utils/getLinksHeader"
 
 export async function getStaticProps(context) {
   var subcategorias = await getSubcategoriaPorCategoria()

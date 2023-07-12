@@ -1,8 +1,8 @@
-import { Flex } from "@chakra-ui/react";
-import React from "react";
+import { Flex } from "@chakra-ui/react"
+import React from "react"
 
-import { Header } from "../../../../components/ConfirmacaoCompra/components/Header";
-import { Success as Sucesso } from "../../../../components/success/Success";
+import { Header } from "../../../../../components/ConfirmacaoCompra/components/Header"
+import { Success as Sucesso } from "../../../../../components/success/Success"
 
 const Success = () => {
   return (
@@ -16,13 +16,10 @@ const Success = () => {
         padding="1rem"
       >
         <Header />
-        <Sucesso
-          message="O Seu pagamento está em análise."
-          description="Em breve enviaremos o retorno da análise."
-        />
+        <Sucesso message="O Seu pagamento está em análise." description="Em breve enviaremos o retorno da análise." />
       </Flex>
     </>
-  );
-};
+  )
+}
 
-export default Success;
+export default Success
