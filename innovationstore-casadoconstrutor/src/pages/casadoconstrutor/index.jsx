@@ -139,9 +139,10 @@ function ifnull(a, b) {
 export default function Index(props) {
   return (
     <>
-      <Header subcategorias={props.linksSubcategorias} segmentos={props.linksSegmentos} />
+      {/* <Header subcategorias={props.linksSubcategorias} segmentos={props.linksSegmentos} />
       <Home produtos={props.produtos} categorias={props.categorias} subcategorias={props.subcategorias} />
-      <AcceptCookies />
+      <AcceptCookies /> */}
+      <h1>Casa do construtor</h1>
     </>
   )
 }
