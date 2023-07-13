@@ -211,7 +211,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
 
             <HomeContentSlideTopoFilterHeaderMobile>
               <HomeContentSlideTopoFilterHeaderMobileInfo>
-                <img src={bghome} alt="bg-home" />
+                <img src={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/no%20alvo.png"} alt="bg-home" />
                 <div>
                   <h1>Acerte no alvo!</h1>
                   <h2>
@@ -257,7 +257,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                     }
                   }}
                 >
-                  <ChevronDownIcon mt="12px" w={50} fontSize={38} color={cor_base_1} />
+                  <ChevronDownIcon mt="12px" w={50} fontSize={38} color={"#e2001b"} />
                 </HomeContentSlideTopoFilterControlItemArrow>
 
                 <Popover
@@ -555,7 +555,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                       thickness="4px"
                       speed="0.65s"
                       emptyColor="gray.200"
-                      color={"#58bc03"}
+                      color={"#e2001b"}
                       size="md"
                       position={"relative"}
                       marginLeft={"auto"}
@@ -564,7 +564,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                   ) : (
                     <RangeSlider
                       aria-label={["min", "max"]}
-                      colorScheme={"#95C620"}
+                      colorScheme={"#e2001b"}
                       defaultValue={[0, faixaDePreco[1]]}
                       min={faixaDePreco[0]}
                       max={faixaDePreco[1]}
@@ -587,8 +587,8 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                         setShowTooltip(false)
                       }}
                     >
-                      <RangeSliderTrack h={2} bg={"rgb(142,197,5,0.4)"}>
-                        <RangeSliderFilledTrack bg={"#95C620"} />
+                      <RangeSliderTrack h={2} bg={"#e2001b"}>
+                        <RangeSliderFilledTrack bg={"#e2001b"} />
                       </RangeSliderTrack>
                       <Tooltip
                         hasArrow
@@ -605,7 +605,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                             setValorDe(valorDe + 0.2)
                           }}
                           index={0}
-                          backgroundColor={"#FF4F00"}
+                          backgroundColor={"#e2001b"}
                         ></RangeSliderThumb>
                       </Tooltip>
 
@@ -624,7 +624,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                             setValorAte(valorAte - 0.2)
                           }}
                           index={1}
-                          backgroundColor={"#FF4F00"}
+                          backgroundColor={"#e2001b"}
                         ></RangeSliderThumb>
                       </Tooltip>
                     </RangeSlider>
@@ -634,7 +634,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
 
               <HomeContentSlideTopoFilterControlSubmit>
                 <Tooltip
-                  label="Selecione uma categoria para encontrarmos o seu brinde &#128515;"
+                  label="Selecione uma categoria para encontrarmos o seu brinde &#e2001b;"
                   paddingTop={15}
                   paddingLeft={4}
                   minWidth={"415px"}
@@ -661,7 +661,14 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
           </HomeContentSlideTopoFilter>
 
           <HomeContentSlideTopoBanner>
-            <Image width={1200} height={300} objectFit="cover" priority src={bghome} alt="bg-home" />
+            <Image
+              width={1200}
+              height={300}
+              objectFit="cover"
+              priority
+              src={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/no%20alvo%20honda.png"}
+              alt="bg-home"
+            />
             {/* <img src={bghome} alt="bg-home-mobile" className="mobile" /> */}
           </HomeContentSlideTopoBanner>
         </HomeContentSlideTopo>

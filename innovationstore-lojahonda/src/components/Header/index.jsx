@@ -138,7 +138,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
         <Container>
           <Link href="/lojahonda">
             <Image
-              src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo-topo.png"
+              src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo1.png"
               width={126}
               height={38}
               priority
@@ -154,7 +154,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
             >
               <MenuButton active={openMenu.subcategorias}>Brindes</MenuButton>
               <IoIosArrowDown
-                color="#95C620"
+                color="#E2001B"
                 className={`${openMenu.subcategorias ? "transform rotate-180" : ""} transition`}
               />
 
@@ -191,7 +191,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
               <MenuButton active={openMenu.segmentos}>Segmentos</MenuButton>
               <IoIosArrowDown
                 className={`${openMenu.segmentos ? "transform rotate-180" : ""} transition`}
-                color="#95C620"
+                color="#E2001B"
               />
 
               <MenuOpen
@@ -234,7 +234,8 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
               <LinkGroup>
                 <SpanLink
                   css={{
-                    background: "#E7F3CA",
+                    background: "#CFCFCF",
+                    color: "#E2001B",
                   }}
                 >
                   Confira
@@ -246,7 +247,8 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
               <LinkGroup>
                 <SpanLink
                   css={{
-                    background: "#FFE6DB",
+                    background: "#CFCFCF",
+                    color: "#E2001B",
                   }}
                 >
                   Exclusivo
@@ -264,8 +266,8 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
               <div className="group-whats">
                 <SpanLink
                   css={{
-                    background: "#95C620",
-                    color: "#fff!important",
+                    background: "#cfcfcf",
+                    color: "#E2001B!important",
                   }}
                 >
                   Central de atendimento
@@ -288,7 +290,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
               <IconContent border>
                 <FaShoppingCart />
               </IconContent>
-              <Link href="/carrinho">
+              <Link href="/lojahonda/carrinho">
                 <span>{cart?.length} itens</span>
               </Link>
             </IconGroup>

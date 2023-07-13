@@ -13,7 +13,7 @@ import {
   CardBoxProduto,
 } from "./styles"
 import { useRouter } from "next/router"
-import { Image } from "@chakra-ui/react"
+import Image from "next/image"
 
 const produtoExemplo = "/images/home/box-categoria/produto-promo-exemplo.jpg"
 // const novidades = "/images/home/box-categoria/pronto-em-1-dia-home-gif.gif";
@@ -31,9 +31,15 @@ export default function ItemPromocao({}) {
           <img alt="novidades" src={novidades} />
         </a>
       </Link>
-      <Link href="/ultra-rapido" passHref>
+      <Link href="/lojahonda/ultra-rapido" passHref>
         <a className="mobile">
-          <Image alt="novidades-mobile" src={"/images/home/umdiamobile.jpg"} paddingInline={"2rem"} />
+          <Image
+            alt="novidades-mobile"
+            src={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/48-horas%20mobile.jpg"}
+            objectFit="fill"
+            width={345}
+            height={345}
+          />
         </a>
       </Link>
       {/* <CardBoxHeader>

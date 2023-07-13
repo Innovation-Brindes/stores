@@ -34,7 +34,7 @@ export function AddresClient() {
   if (haveClientAddresCookies) {
     return (
       <ContainerAddressClient onClick={handleOpenPopover}>
-        <PopoverFrete isOpen={isPopoverOpen} onClose={handleClosePopover} />
+        {/* <PopoverFrete isOpen={isPopoverOpen} onClose={handleClosePopover} /> */}
         {!loadingRefreshCep ? (
           <ContainerAddress>
             <TfiLocationPin size={20} />

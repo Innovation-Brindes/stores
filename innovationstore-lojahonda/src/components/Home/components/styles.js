@@ -79,7 +79,7 @@ export const HomeContentSlideTopoFilterHeader = styled.div`
   h1 {
     font-size: 110px;
     font-family: "Open Sans";
-    color: #95c620;
+    color: #e2001b;
     font-weight: 700;
     line-height: 85%;
   }
@@ -88,7 +88,7 @@ export const HomeContentSlideTopoFilterHeader = styled.div`
     font-family: "Open Sans";
     font-weight: 700;
     line-height: 98%;
-    color: "#95C620";
+    color: "#e2001b";
 
     span {
       color: black;
@@ -104,7 +104,7 @@ export const HomeContentSlideTopoFilterHeader = styled.div`
     h1 {
       font-size: 89px;
       font-family: "Open Sans";
-      color: #95c620;
+      color: #e2001b;
       font-weight: 700;
       line-height: 85%;
     }
@@ -113,7 +113,7 @@ export const HomeContentSlideTopoFilterHeader = styled.div`
       font-family: "Open Sans";
       font-weight: 700;
       line-height: 98%;
-      color: #95c620;
+      color: #e2001b;
       span {
         color: black;
         font-weight: normal;
@@ -191,7 +191,7 @@ export const HomeContentSlideTopoFilterHeaderMobileInfo = styled.div`
       font-family: "Open Sans";
       font-weight: 700;
       line-height: 80%;
-      background: -webkit-linear-gradient(#7fbc04, #7fbc04, #58bc03, #58bc03);
+      background: -webkit-linear-gradient(#e2001b, #e2001b, #e2001b, #e2001b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -201,7 +201,7 @@ export const HomeContentSlideTopoFilterHeaderMobileInfo = styled.div`
       font-family: "Open Sans";
       font-weight: 700;
       line-height: 98%;
-      color: #58bc03;
+      color: #e2001b;
       span {
         color: black;
       }
@@ -728,7 +728,7 @@ export const HomeContentSlideTopoFilterControlSubmit = styled.div`
     width: 100%;
     max-width: 295px;
     height: 45px;
-    background-color: #95c620;
+    background-color: #e2001b;
     margin-top: 25px;
     border-radius: 10px;
     font-size: 20px;

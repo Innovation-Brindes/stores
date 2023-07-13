@@ -88,11 +88,11 @@ export function DrawerMobile() {
     <>
       <DrawerMobileButton onClick={onOpen}>
         <img
-          src="https://res.cloudinary.com/dktvxb98b/image/upload/v1686838575/cidades-mobile-4x-otimizado_1_gciq19.gif"
+          src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/frete-gratgis.gif"
           alt="Frete grátis para alguns estados"
         />
         {!addressClient && (
-          <Flex ml=".6rem" color="#0B73F8" alignItems="center" gap={1} marginBlock=".2rem">
+          <Flex ml=".6rem" color="#E2001B" alignItems="center" gap={1} marginBlock=".2rem">
             <TfiLocationPin size={20} />
             <Text as="span" m={0} fontSize="12px" onClick={onOpen}>
               Informe seu CEP
@@ -101,18 +101,18 @@ export function DrawerMobile() {
         )}
         {addressClient && (
           <Flex ml=".6rem" alignItems="center" padding={1}>
-            <TfiLocationPin size={15} color="#0B73F8" />
-            <Text as="span" m={0} fontSize="10px" color="#0B73F8" fontWeight="bold">
+            <TfiLocationPin size={15} color="#E2001B" />
+            <Text as="span" m={0} fontSize="10px" color="#E2001B" fontWeight="bold">
               Cep: {maskCep(addressClient.cep)} {addressClient.frete_gratis === "N" && "não é gratuito :("}
             </Text>
             {addressClient.frete_gratis === "S" && (
               <Text
                 as="span"
                 marginInline="5px"
-                color="#FFD500"
+                color="#fff"
                 fontSize="8px"
                 textTransform="uppercase"
-                bgColor="#0B73F8"
+                bgColor="#E2001B"
                 paddingBlock=".2rem"
                 paddingInline="5px"
                 fontWeight="bold"
@@ -167,7 +167,7 @@ export function DrawerMobile() {
                 null}
             </FormControl>
             <Button
-              bgColor="#0B73F8"
+              bgColor="#E2001B"
               width="100%"
               color="#fff"
               fontSize="20px"

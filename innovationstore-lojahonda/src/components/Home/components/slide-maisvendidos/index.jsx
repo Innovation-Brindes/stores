@@ -10,10 +10,9 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
 import Link from "next/link"
 import { Box } from "@chakra-ui/react"
 
-const b1 = "http://innovationbrindes.com.br/teste-imagens/camisetas.jpg"
-const b2 = "http://innovationbrindes.com.br/teste-imagens/ecologica.jpg"
-const b3 = "http://innovationbrindes.com.br/teste-imagens/fim_de_ano.jpg"
-const b4 = "http://innovationbrindes.com.br/teste-imagens/garrafas.jpg"
+const b2 = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-1.png"
+const b3 = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-3.png"
+const b4 = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-4.png"
 // const b1 = "/images/home/box-categoria/camisetas.jpg";
 // const b2 = "/images/home/box-categoria/ecologica.jpg";
 // const b3 = "/images/home/box-categoria/fim_de_ano.jpg";
@@ -25,17 +24,19 @@ export const SlideMaisVendidos = () => {
       naturalSlideWidth={100}
       isIntrinsicHeight={"230px"}
       naturalSlideHeight={"230px"}
-      totalSlides={5}
+      totalSlides={4}
       infinite={true}
     >
       <Slider style={{ width: "400px", height: "300px", margin: "0 auto 0 auto" }}>
         <Slide index={0}>
           <BoxCards>
-            <Link href={"/copo-termico-500ml-com-abridor-brindes-10151373687"} passHref>
+            <Link href={"/lojahonda/copo-termico-500ml-com-abridor-brindes-10151373687"} passHref>
               <a target="_blank" style={{ textDecoration: "none" }}>
                 <Box>
                   <HomeContentBodyCategoriasGridItemTextSlideVendido textAlign="center" color="black" as="h1" />
-                  <HomeContentBodyCategoriasGridItemImageSlideVendido src={"/images/bghome/copo-termico.jpg"} />
+                  <HomeContentBodyCategoriasGridItemImageSlideVendido
+                    src={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/4.png"}
+                  />
                 </Box>
               </a>
             </Link>
@@ -43,7 +44,7 @@ export const SlideMaisVendidos = () => {
         </Slide>
         <Slide index={1}>
           <BoxCards>
-            <Link href={"/segmento/ecologico/13"} passHref>
+            <Link href={"/lojahonda/segmento/ecologico/13"} passHref>
               <a target="_blank" style={{ textDecoration: "none" }}>
                 <Box>
                   <HomeContentBodyCategoriasGridItemTextSlideVendido textAlign="center" color="black" as="h1" />
@@ -69,16 +70,6 @@ export const SlideMaisVendidos = () => {
               <a target="_blank" style={{ textDecoration: "none" }}>
                 <HomeContentBodyCategoriasGridItemTextSlideVendido textAlign="center" color="black" as="h1" />
                 <HomeContentBodyCategoriasGridItemImageSlideVendido src={b4} />
-              </a>
-            </Link>
-          </BoxCards>
-        </Slide>
-        <Slide index={4}>
-          <BoxCards>
-            <Link href={"/bloco-plastico-anotacoes-brindes-promocional-10160614610"}>
-              <a target="_blank" style={{ textDecoration: "none" }}>
-                <HomeContentBodyCategoriasGridItemTextSlideVendido textAlign="center" color="black" as="h1" />
-                <HomeContentBodyCategoriasGridItemImageSlideVendido src={"/images/bghome/bloco-anotacoes.jpg"} />
               </a>
             </Link>
           </BoxCards>

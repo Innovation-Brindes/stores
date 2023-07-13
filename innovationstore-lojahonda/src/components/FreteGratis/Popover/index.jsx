@@ -167,7 +167,7 @@ export function Popover({ isOpen, onClose }) {
             paddingTop="4px"
           >
             {" "}
-            E verifique agora mesmo se o <strong style={{ color: "#0B73F8" }}>FRETE GRÁTIS</strong> está disponível para
+            E verifique agora mesmo se o <strong style={{ color: "#E2001B" }}>FRETE GRÁTIS</strong> está disponível para
             a sua região!
           </Text>
 
@@ -199,7 +199,7 @@ export function Popover({ isOpen, onClose }) {
           </FormControl>
 
           <Button
-            bgColor="#0B73F8"
+            bgColor="#E2001B"
             color="#fff"
             fontSize="20px"
             textTransform="uppercase"

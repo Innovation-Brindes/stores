@@ -23,6 +23,8 @@ import {
   CarouselInfoMobile,
   BotaoFecharRecesso,
   ImageFecharRecesso,
+  ProductImageContent,
+  ImageContent,
 } from "./styles"
 
 import Footer from "../Footer"
@@ -32,10 +34,12 @@ import ItemPromocao from "../../widgets/promocao-produto"
 import SlideCategoria from "./slide-categoria"
 import { ButtonBack, ButtonNext, CarouselProvider, Slide, Slider } from "pure-react-carousel"
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons"
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react"
+import { Box, Button, Flex, Text } from "@chakra-ui/react"
 import { SlideMaisVendidos } from "./components/slide-maisvendidos"
 import Link from "next/link"
 import BannerChaveiro from "./components/BannerChaveiro"
+import { ProductImage } from "./ProductImage"
+import Image from "next/image"
 
 // const imgrecesso = "/images/banners/recesso.png";
 
@@ -44,12 +48,12 @@ const banneresquerdo = "/images/setaesquerda.png"
 const banner_busca = "/images/banners/busca-detalhada.png"
 const loading = "/images/loading.gif"
 
-const osMaisVendidos = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/os-mais-vendidos.png"
-const nossasCategorias = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/nossas-categorias.png"
-const confiraTambem = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/confira-tambem.png"
-const ultraRapido = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/ultra-rapido-title.png"
-const precoOnline = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/preco-online.png"
-const tamanhoNegocio = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/negocio-title.png"
+const osMaisVendidos = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/tagsos-mais-vendidos.png"
+const nossasCategorias = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/tagsnossas-categorias.png"
+const confiraTambem = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/tagsconfira-tambem.png"
+const ultraRapido = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/tagsultra-rapido.png"
+const precoOnline = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/tagspre%C3%A7o-online.png"
+const tamanhoNegocio = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/tagsdo-tamanho.png"
 
 const bannerInfo1 = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-info-1.png"
 const bannerInfo2 = "https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-info-2.png"
@@ -279,7 +283,6 @@ class Home extends Component {
             <InnovationSiteHomeContentMobile>
               <HomeFilter subcategorias={this.props.subcategorias} />
 
-              <BannerChaveiro />
               <ItemPromocao />
               <HomeContentBodyTitle>
                 <img alt="o-mais-vendido" src={osMaisVendidos} />
@@ -398,80 +401,93 @@ class Home extends Component {
                 <HomeContentBodyCategorias>
                   <HomeContentBodyCategoriasGrid>
                     {/* https://innovationbrindes.com.br/copo-termico-500ml-com-abridor-brindes-10151373687 */}
-                    <Link href={"/copo-termico-500ml-com-abridor-brindes-10151373687"} passHref>
-                      <HomeContentBodyCategoriasGridItem
-                        target="_blank"
-                        bgimg={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/copo-termico.jpg"}
-                      />
+                    <Link href={"/lojahonda/mochila-saco-brindes-10321463723"} passHref>
+                      <ImageContent>
+                        <Image
+                          src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-1.png"
+                          objectFit={"fill"}
+                          alt="Copo térmico 500ml com abridor"
+                          width={370}
+                          height={300}
+                        />
+                      </ImageContent>
                     </Link>
-                    <Link href={"/segmento/ecologico/13"} passHref>
-                      <HomeContentBodyCategoriasGridItem
-                        target="_blank"
-                        bgimg={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/ecologica.jpg"}
-                      />
+                    <Link href={"/lojahonda/bloco-de-anotacao-brindes-10160613761"} passHref>
+                      <ImageContent>
+                        <Image
+                          src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-4.png"
+                          objectFit={"fill"}
+                          alt="Copo térmico 500ml com abridor"
+                          width={370}
+                          height={300}
+                        />
+                      </ImageContent>
                     </Link>
-                    <Link href={"/bloco-plastico-anotacoes-brindes-promocional-10160614610"} passHref>
-                      <HomeContentBodyCategoriasGridItem
-                        target="_blank"
-                        bgimg={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/bloco-anotacoes.jpg"}
-                      />
+                    <Link href={"/lojahonda/garrafa-termica-metal-brindes-personalizados-10150592632"} passHref>
+                      <ImageContent>
+                        <Image
+                          src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-3.png"
+                          objectFit={"fill"}
+                          alt="Copo térmico 500ml com abridor"
+                          width={370}
+                          height={300}
+                        />
+                      </ImageContent>
                     </Link>
-                    <Link href={"/categoria/squeeze-personalizado-para-brindes/1015092"} passHref>
-                      <HomeContentBodyCategoriasGridItem
-                        target="_blank"
-                        bgimg={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/garrafas.jpg"}
-                      />
+                    <Link href={"/lojahonda/copo-termico-500ml-com-abridor-brindes-10151373687"} passHref>
+                      <ImageContent>
+                        <Image
+                          src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-2.png"
+                          objectFit={"fill"}
+                          alt="Copo térmico 500ml com abridor"
+                          width={370}
+                          height={300}
+                        />
+                      </ImageContent>
                     </Link>
                   </HomeContentBodyCategoriasGrid>
 
                   {/*<ItemPromocao />*/}
-                  <Link href={"/ultra-rapido"}>
-                    <Flex
-                      flexDir={"column"}
-                      alignItems={"center"}
-                      justifyContent={"center"}
-                      textTransform={"uppercase"}
-                      fontSize={"1.2rem"}
-                      border={"1px solid #e5e5e5"}
-                      borderRadius={"15px"}
-                      cursor={"pointer"}
-                    >
-                      <Text as={"span"} mb={".2rem"}>
-                        Deixou pra <span style={{ fontWeight: "bold" }}>última hora?</span>
-                      </Text>
+                  <Link href={"/lojahonda/ultra-rapido"}>
+                    <ImageContent>
                       <Image
-                        src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/1dia.gif"
+                        src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/48%20hrs.png"
                         alt="1dia"
                         objectFit={"cover"}
+                        width={388}
+                        height={668}
                       />
-                    </Flex>
+                    </ImageContent>
                   </Link>
                 </HomeContentBodyCategorias>
                 <HomeContentBodyTitle>
-                  <img alt="nossas-categorias" src={nossasCategorias} style={{ position: "relative", top: "45px" }} />
+                  <Image
+                    alt="nossas-categorias"
+                    src={nossasCategorias}
+                    style={{ position: "relative", top: "45px" }}
+                    width={300}
+                    height={50}
+                  />
                 </HomeContentBodyTitle>
                 <HomeContentBodySlideCategorias>
                   <SlideCategoria />
                 </HomeContentBodySlideCategorias>
                 <HomeContentBodyTitle style={{ marginTop: "25px" }}>
-                  <img alt="confira-tambem" src={confiraTambem} />
+                  <Image alt="confira-tambem" src={confiraTambem} width={300} height={50} />
                 </HomeContentBodyTitle>
                 <HomeContentBodyBanner>
-                  <iframe
-                    style={{
-                      overflowX: "hidden",
-                      overflowY: "hidden",
-                      width: "1020px",
-                      height: "300px",
-                      borderRadius: "8px",
-                    }}
-                    src="images/banners/animados/rodape/index.html"
-                  />
+                  <ImageContent>
+                    <Image
+                      src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-rodape.jpg"
+                      width={1044}
+                      height={300}
+                    />
+                  </ImageContent>
                 </HomeContentBodyBanner>
                 <HomeContentBodyInfo>
                   <HomeContentBodyInfoCard>
                     <HomeContentBodyInfoCardHeader>
-                      <img alt="ultra-rapido" src={ultraRapido} />
+                      <Image alt="ultra-rapido" src={ultraRapido} width={300} height={50} />
                     </HomeContentBodyInfoCardHeader>
                     <HomeContentBodyInfoCardBody>
                       <img alt="banner-info-1" src={bannerInfo1} />

@@ -61,7 +61,7 @@ export function InputSearch() {
           <InputGroup>
             <Input
               _focus={{
-                borderColor: "#95c620",
+                borderColor: "#E2001B",
               }}
               width={"258px"}
               type="text"
@@ -71,7 +71,7 @@ export function InputSearch() {
               onFocus={() => openDataLabel()}
               onKeyPress={(e) =>
                 e.key === "Enter" && textoBuscado !== "" && textoBuscado != null
-                  ? (window.location.href = "/buscar/" + clickBuscarProduto())
+                  ? (window.location.href = "/lojahonda/buscar/" + clickBuscarProduto())
                   : ""
               }
             />
@@ -112,7 +112,7 @@ export function InputSearch() {
                   paddingInline="1rem"
                   paddingBlock="0.5rem"
                   _hover={{
-                    bgColor: "#95c620",
+                    bgColor: "#E2001B",
                     color: "#fff",
                   }}
                   cursor="pointer"

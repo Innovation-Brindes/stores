@@ -29,13 +29,13 @@ export const FreteGratisContent = styled("div", {
   gap: "9px",
   paddingRight: "20px",
   cursor: "pointer",
-  color: "#0B73F8",
+  color: "#E2001B",
   fontWeight: "600",
 
   variants: {
     backgroundColor: {
       true: {
-        backgroundColor: "#0B73F81A",
+        backgroundColor: "#f5f5f5",
       },
       false: {
         backgroundColor: "#F5F5F5",
@@ -56,9 +56,9 @@ export const TemFreteGratis = styled("div", {
   h1: {
     fontSize: "14px",
     fontWeight: "bold",
-    color: "#FFD500",
+    color: "#fff",
     textTransform: "uppercase",
-    backgroundColor: "#0B73F8",
+    backgroundColor: "#E2001B",
     padding: ".2rem .8rem",
     borderRadius: "13px",
     margin: "0",
@@ -114,7 +114,7 @@ export const SemFreteGratis = styled("div", {
 
 export const ImageContainer = styled("div", {
   display: "flex",
-  backgroundColor: "#0066ff",
+  backgroundColor: "#1f1f1f",
   flex: 1,
   alignItems: "center",
   justifyContent: "space-between",

@@ -88,7 +88,14 @@ export function ContainerImage({ product }) {
                       active={imageSelected.id === image.id}
                       onClick={() => handleImageSelected(image)}
                     >
-                      <Image src={image.url} alt={image.caracteristicas} width={427} height={322} priority />
+                      <Image
+                        src={image.url}
+                        alt={image.caracteristicas}
+                        width={427}
+                        height={322}
+                        placeholder="blur"
+                        blurDataURL={image.url}
+                      />
                     </S.ImageSliderContent>
                   </Slide>
                 )

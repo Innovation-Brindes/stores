@@ -57,7 +57,7 @@ export const MenuOpen = styled("div", {
     color: "#414042",
     padding: "10px 20px",
     margin: "0",
-    borderBottom: "1px solid #E7F3CA",
+    borderBottom: "1px solid #cfcfcf",
     width: "100%",
   },
 
@@ -133,7 +133,7 @@ export const MenuButton = styled("button", {
     display: "block",
     width: "0%",
     height: "2px",
-    backgroundColor: "#95C620",
+    backgroundColor: "#E2001B",
     transition: "all 0.1s ease-in-out",
   },
 
@@ -145,7 +145,7 @@ export const MenuButton = styled("button", {
       display: "block",
       width: "100%",
       height: "2px",
-      backgroundColor: "#95C620",
+      backgroundColor: "#E2001B",
     },
   },
 
@@ -159,7 +159,7 @@ export const MenuButton = styled("button", {
           display: "block",
           width: "100%",
           height: "2px",
-          backgroundColor: "#95C620",
+          backgroundColor: "#E2001B",
         },
       },
 
@@ -171,7 +171,7 @@ export const MenuButton = styled("button", {
           display: "block",
           width: "0%",
           height: "2px",
-          backgroundColor: "#95C620",
+          backgroundColor: "#E2001B",
         },
       },
     },
@@ -200,7 +200,7 @@ export const IconGroup = styled("div", {
     transition: "all 0.1s ease-in-out",
 
     "&:hover": {
-      color: "#95C620",
+      color: "#E2001B",
     },
 
     span: {
@@ -217,13 +217,13 @@ export const IconContent = styled("div", {
   borderRadius: "50%",
   border: "2px solid",
   borderColor: "$$border",
-  color: "#95C620",
+  color: "#E2001B",
 
   variants: {
     border: {
       true: {
         border: "2px solid",
-        borderColor: "#95C620",
+        borderColor: "#E2001B",
       },
       false: {
         border: "none",

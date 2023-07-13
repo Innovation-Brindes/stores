@@ -42,6 +42,12 @@ export const FontStyles = createGlobalStyle`
 }
 `
 
+export const ProductImageContent = styled.div`
+  background: ${(props) => (props.background ? `url(${props.background})` : "none")};
+  width: 361px;
+  height: 294px;
+`
+
 export const HomeContainer = styled(Box)`
   background-color: white;
   width: 100%;
@@ -336,11 +342,12 @@ export const HomeContentBodyTitle = styled(Box)`
 
 export const HomeContentBodyCategorias = styled(Box)`
   width: 100%;
-  height: 660px;
   /* background-color:green; */
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+
+  gap: 53px;
   @media screen and (max-width: 1350px) {
     width: 75%;
     position: relative;
@@ -377,14 +384,35 @@ export const HomeContentBodyBanner = styled(Box)`
   /* background-color:red; */
 `
 
+export const pulseAnimation = keyframes`
+  0% {
+    filter: brightness(100%);
+  }
+  50% {
+    filter: brightness(110%);
+  }
+  100% {
+    filter: brightness(100%);
+  }
+
+`
+
+export const ImageContent = styled.div`
+  cursor: pointer;
+
+  transition: 0.1s ease-in-out;
+
+
+  &:hover {
+    opacity: 0.8;
+  }
+`
+
 export const HomeContentBodyCategoriasGrid = styled(Grid)`
-  width: 70%;
-  height: 110%;
-  margin-left: auto;
-  margin-right: auto;
-  grid-template-columns: repeat(2, 460px);
+  grid-template-columns: repeat(2, 361px);
   place-items: center;
-  column-gap: 50px;
+  gap: 53px;
+  row-gap: 56px;
 
   @media screen and (max-width: 1370px) {
     width: 60%;

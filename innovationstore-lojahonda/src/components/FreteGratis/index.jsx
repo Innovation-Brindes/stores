@@ -70,7 +70,7 @@ export function FreteGratis() {
             )}
           </FreteGratisContent>
           <ImageContainer>
-            <img src="/gifs/frete-gratis/banner-gif-frete.gif" alt="Frete Grátis" />
+            <img src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/fretegratisdesktop.gif" alt="Frete Grátis" />
           </ImageContainer>
           <Popover isOpen={isOpen} onClose={handleClosePopover} setAddressClient={setAddressClient} />
         </FreteGratisContainer>

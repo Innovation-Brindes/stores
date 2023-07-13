@@ -1,4 +1,2 @@
-
-
-export const cor_base_1 = '#8EC505';
-export const cor_base_2 = '#FC5000';
+export const cor_base_1 = "#E2001B"
+export const cor_base_2 = "#E2001B"

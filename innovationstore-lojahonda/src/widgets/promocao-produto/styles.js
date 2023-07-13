@@ -8,6 +8,10 @@ export const CardBox = styled.div`
   /* background-color:#e5e5e5; */
   border-radius: 10px;
 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   img {
     display: block;
     object-fit: fill;

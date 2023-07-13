@@ -181,7 +181,7 @@ export const FooterContainerContantSlide3 = styled(Box)`
     }
 
     .carousel-indicators .active {
-      background-color: ${cor_base_1};
+      background-color: #e2001b;
     }
 
     .carousel-inner {
