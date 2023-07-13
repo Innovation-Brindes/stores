@@ -5,7 +5,7 @@ export default function Page404() {
   const router = useRouter()
 
   useEffect(() => {
-    router.replace("/")
+    router.replace("/lojahonda")
   })
 
   return null
