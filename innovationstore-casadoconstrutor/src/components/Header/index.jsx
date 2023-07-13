@@ -183,66 +183,6 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
               </MenuOpen>
             </ButtonGroup>
 
-            <ButtonGroup
-              onClick={() => {
-                handleOpenMenu("segmentos")
-              }}
-            >
-              <MenuButton active={openMenu.segmentos}>Segmentos</MenuButton>
-              <IoIosArrowDown
-                className={`${openMenu.segmentos ? "transform rotate-180" : ""} transition`}
-                color="#E2001B"
-              />
-
-              <MenuOpen
-                css={{
-                  display: openMenu.segmentos ? "flex" : "none",
-                  width: "300px",
-                }}
-                onMouseLeave={() => {
-                  setOpenMenu({
-                    ...openMenu,
-                    segmentos: false,
-                  })
-                }}
-              >
-                <h1>Catálogo de segmentos</h1>
-                {openMenu.segmentos &&
-                  segmentos.map((data, index) => (
-                    <li key={index}>
-                      <Link
-                        href={{
-                          pathname: `${"/casadoconstrutor/segmento/[slug]" + "/" + "[id]"}`,
-                          query: {
-                            slug: `${retira_acentos(data.descricao).toLowerCase().replace(/ /g, "-")}`,
-                            id: data.codigo_segmento,
-                          },
-                        }}
-                      >
-                        <a>{data.descricao}</a>
-                      </Link>
-                    </li>
-                  ))}
-              </MenuOpen>
-            </ButtonGroup>
-            <Link
-              href={{
-                pathname: `${"/casadoconstrutor/segmento/[slug]" + "/" + "[id]"}`,
-                query: { slug: "novidades", id: 6 },
-              }}
-            >
-              <LinkGroup>
-                <SpanLink
-                  css={{
-                    background: "#CFCFCF",
-                    color: "#E2001B",
-                  }}
-                >
-                  Confira
-                </SpanLink>
-                <MenuButton>Lançamentos</MenuButton>
-              </LinkGroup>
-            </Link>
             <Link href="/casadoconstrutor/ultra-rapido">
               <LinkGroup>
                 <SpanLink
