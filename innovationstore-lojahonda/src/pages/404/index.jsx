@@ -9,7 +9,7 @@ export default function Page404() {
 export const getServerSideProps = async (context) => {
   const { res } = context
 
-  res.writeHead(302, { Location: "/" })
+  res.writeHead(302, { Location: "/lojahonda" })
   res.end()
 
   return {
