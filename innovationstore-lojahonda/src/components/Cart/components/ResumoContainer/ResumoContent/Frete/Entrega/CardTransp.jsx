@@ -1,4 +1,4 @@
-import { Button, Grid, Text } from '@chakra-ui/react'
+import { Button, Grid, Text } from "@chakra-ui/react"
 
 export function CardTransp({ nome, prazo, frete, logo, onClick }) {
   return (
@@ -15,36 +15,26 @@ export function CardTransp({ nome, prazo, frete, logo, onClick }) {
         cursor="pointer"
         color="#818181"
         _hover={{
-          transition: 'all 0.2s ease-in-out',
-          transform: 'scale(1.02)',
-          border: '1px solid #FF4F00',
-          color: '#FF4F00',
+          transition: "all 0.2s ease-in-out",
+          transform: "scale(1.02)",
+          border: "1px solid #E2001B",
+          color: "#E2001B",
         }}
         bg="transparent"
         onClick={onClick}
         _focus={{
-          outline: 'none',
+          outline: "none",
         }}
-        position={'relative'}
+        position={"relative"}
       >
         <Grid w="100%" templateColumns="2fr .9fr 1fr">
           <Text as="span" fontSize="0.6875rem">
             {nome}
           </Text>
-          <Text
-            as="span"
-            fontSize="0.6875rem"
-            fontWeight={'bold'}
-            textTransform={'uppercase'}
-          >
+          <Text as="span" fontSize="0.6875rem" fontWeight={"bold"} textTransform={"uppercase"}>
             {prazo} dias
           </Text>
-          <Text
-            as="span"
-            fontSize="0.6875rem"
-            fontWeight={'bold'}
-            textAlign={'center'}
-          >
+          <Text as="span" fontSize="0.6875rem" fontWeight={"bold"} textAlign={"center"}>
             {frete}
           </Text>
         </Grid>

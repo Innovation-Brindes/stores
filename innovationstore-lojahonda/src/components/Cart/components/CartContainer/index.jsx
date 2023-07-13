@@ -31,7 +31,7 @@ export function CartContainer() {
         >
           <Flex paddingInline="0.688rem" alignItems="center" gap={2}>
             {" "}
-            <BsPlusCircleFill color="#FF4F00" size={25} />
+            <BsPlusCircleFill color="#E2001B" size={25} />
             <Text m="0" fontWeight="normal" color="#414042">
               adicionar mais produto
             </Text>

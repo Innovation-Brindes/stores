@@ -1,18 +1,19 @@
-import { Divider, Flex, Text } from "@chakra-ui/react"
+import { Flex, Text } from "@chakra-ui/react"
 import Image from "next/image"
 import { PaymentMethodContainer, PaymentMethodContent } from "./styles"
+import { Divider } from "../Footer/Divider"
 
 export function PaymentMethods() {
   return (
     <>
       <PaymentMethodContainer>
-        <Divider className="divider" orientation="horizontal" />
-        <Flex width="300px" alignItems="center" justifyContent="center">
-          <Text m={0} as="h1" color="#414042" fontSize="12px">
-            Formas de pagamento
-          </Text>
-        </Flex>
-        <Divider className="divider" orientation="horizontal" />
+        <Divider>
+          <Flex width="200px" alignItems="center" justifyContent="center">
+            <Text m={0} as="h1" color="#414042" fontSize="12px">
+              Formas de pagamento
+            </Text>
+          </Flex>
+        </Divider>
       </PaymentMethodContainer>
       <PaymentMethodContent>
         <Image

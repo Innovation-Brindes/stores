@@ -33,7 +33,7 @@ export function HeaderCart() {
           fontWeight="bold"
           textTransform={"uppercase"}
           letterSpacing="0.1rem"
-          bgColor="#95C620"
+          bgColor="#E2001B"
           color="white"
           paddingBlock=".4rem"
           paddingInline={isMedia ? "1rem" : "5rem"}

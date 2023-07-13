@@ -56,14 +56,13 @@ export function InputSearch() {
 
   return (
     <HeaderContentInput>
-      <Flex alignItems="center" justifyContent="center" onMouseLeave={() => closeDataLabel()}>
+      <Flex alignItems="center" justifyContent="center" onMouseLeave={() => closeDataLabel()} w="100%">
         <Box position="relative" w="100%">
           <InputGroup>
             <Input
               _focus={{
                 borderColor: "#E2001B",
               }}
-              width={"258px"}
               type="text"
               placeholder="Pesquise"
               onChange={(e) => setTextoBuscado(e.target.value)}

@@ -30,7 +30,7 @@ export function ResumoContent() {
               <Box position="relative" mt="1rem">
                 <Button
                   bgColor="#FFE6DB"
-                  color="#FF4F00"
+                  color="#E2001B"
                   minH="2.4rem"
                   _hover={{
                     filter: "brightness(0.9)",

@@ -17,7 +17,7 @@ export function CardTransp({ nome, prazo, frete, logo, onClick }) {
         _hover={{
           transition: "all 0.2s ease-in-out",
           transform: "scale(1.02)",
-          border: "1px solid #FF4F00",
+          border: "1px solid #E2001B",
         }}
         bg="transparent"
         onClick={onClick}
@@ -30,7 +30,7 @@ export function CardTransp({ nome, prazo, frete, logo, onClick }) {
           <Text as="span" fontSize="0.6875rem">
             {nome}
           </Text>
-          <Text as="span"  fontSize="11px" textTransform='lowercase' color='#818181'>
+          <Text as="span" fontSize="11px" textTransform="lowercase" color="#818181">
             {prazo}
             {parseInt(prazo) === 1 ? " Dia útil" : " Dias úteis"}
           </Text>

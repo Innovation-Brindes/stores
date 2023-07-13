@@ -146,7 +146,9 @@ const Footer = forwardRef((props, ref) => {
           <FooterContainer>
             <FooterContainer>
               <div className="hidden md:block">
-                <Divider>Conheça mais sobre a Innovation Brindes</Divider>
+                <Divider>
+                  <div className="w-[400px] text-center">Conheça mais sobre a Innovation Brindes</div>
+                </Divider>
               </div>
               <FooterContainerText2>
                 <br />
@@ -266,7 +268,6 @@ const Footer = forwardRef((props, ref) => {
                 , sp canetas, brindes personalizados sp
               </FooterContainerText2>
 
-              {/* <FooterSocialMediaComponent /> */}
               <NewFooter />
             </FooterContainer>
           </FooterContainer>

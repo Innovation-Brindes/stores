@@ -2,7 +2,43 @@ import { Modal, RangeSlider } from "@chakra-ui/react"
 import styled from "styled-components"
 import { Flex } from "@chakra-ui/react"
 
-export const colorBaseUltraRapido = "#f37a1f"
+export const colorBaseUltraRapido = "#E2001B"
+
+export const SetaSlider = styled.div`
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: ${colorBaseUltraRapido};
+  position: relative;
+
+  top: ${(props) => props.top};
+  right: ${(props) => props.right};
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 0 10px 10px;
+    border-color: transparent transparent #fff transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    ${(props) =>
+      props.arrowRight &&
+      `
+      transform: translate(-50%, -50%) rotate(315deg);
+    `}
+
+    ${(props) =>
+      props.arrowLeft &&
+      `
+      transform: translate(-50%, -50%) rotate(135deg);
+    `}
+  }
+`
 
 export const UltraRapidoContentSlide = styled.div`
   width: 100%;
@@ -107,7 +143,7 @@ export const UltraRapidoContentSlideTopoFilterHeader = styled.div`
   }
   p {
     font-size: 18px;
-    font-family: "Gisha";
+    font-family: "Open Sans";
   }
 
   @media screen and (max-width: 1366px) {
@@ -131,7 +167,7 @@ export const UltraRapidoContentSlideTopoFilterHeader = styled.div`
     }
     p {
       font-size: 15px;
-      font-family: "Gisha";
+      font-family: "Open Sans";
     }
   }
   @media screen and (max-width: 1200px) {
@@ -155,7 +191,7 @@ export const UltraRapidoContentSlideTopoFilterHeader = styled.div`
     }
     p {
       font-size: 15px;
-      font-family: "Gisha";
+      font-family: "Open Sans";
     }
   }
 
@@ -171,7 +207,7 @@ export const UltraRapidoContentSlideTopoFilterHeaderMobile = styled.div`
   /* background-color:red; */
   p {
     font-size: 15px;
-    font-family: "Gisha";
+    font-family: "Open Sans";
     padding-left: 5px;
   }
   @media screen and (max-width: 768px) {
@@ -213,7 +249,7 @@ export const UltraRapidoContentSlideTopoFilterHeaderMobileInfo = styled.div`
     p {
       width: 127px;
       font-size: 12px;
-      font-family: "Gisha";
+      font-family: "Open Sans";
     }
   }
 
@@ -387,7 +423,7 @@ export const UltraRapidoContentSlideTopoFilterBodyBrindesContentGridColumn = sty
     width: 100%;
     font-size: 12px;
     margin: 2px;
-    font-family: "Gisha";
+    font-family: "Open Sans";
     margin-bottom: 5px;
     padding-left: 6px;
     cursor: pointer;
@@ -510,7 +546,7 @@ export const UltraRapidoContentSlideTopoFilterBodyBrindesMobileContentGridColumn
     width: 100%;
     font-size: 14px;
     margin: 2px;
-    font-family: "Gisha";
+    font-family: "Open Sans";
     margin-bottom: 5px;
     padding-left: 6px;
     cursor: pointer;
@@ -558,7 +594,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
     width: ${(props) => (props.wH ? props.wH : "70px")};
     height: 50px;
     font-size: ${(props) => (props.h1F ? props.h1F : 16)}px;
-    font-family: "Gisha";
+    font-family: "Open Sans";
     border-right: 1px solid #dadada;
     margin-left: 15px;
     display: flex;
@@ -575,7 +611,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
     align-items: center;
     cursor: pointer;
     span {
-      font-family: "Gisha";
+      font-family: "Open Sans";
       margin-left: 5px;
     }
   }
@@ -584,7 +620,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
     min-width: ${(props) => (props.value ? "120px" : "250px;")};
     height: ${(props) => (props.value ? "20px" : "50px")};
     font-size: ${(props) => (props.value ? "16px" : "13px")};
-    font-family: "Gisha";
+    font-family: "Open Sans";
     display: flex;
     align-items: center;
     margin-left: ${(props) => (props.value ? "0px" : "15px")};
@@ -613,7 +649,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
   }
 
   input::placeholder {
-    font-family: "Gisha";
+    font-family: "Open Sans";
   }
 
   div {
@@ -623,7 +659,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
     label {
       width: 30px;
       font-size: 16px;
-      font-family: "Gisha";
+      font-family: "Open Sans";
       font-weight: 600;
     }
 
@@ -631,7 +667,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
       width: 100%;
       outline: none;
       font-size: 16px;
-      font-family: "Gisha";
+      font-family: "Open Sans";
       font-weight: 600;
 
       ::placeholder {
@@ -651,7 +687,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
     }
 
     input::placeholder {
-      font-family: "Gisha";
+      font-family: "Open Sans";
     }
   }
 
@@ -686,7 +722,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
     }
 
     input::placeholder {
-      font-family: "Gisha";
+      font-family: "Open Sans";
     }
 
     div {
@@ -696,7 +732,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
       label {
         width: 30px;
         font-size: 16px;
-        font-family: "Gisha";
+        font-family: "Open Sans";
         font-weight: 600;
       }
 
@@ -704,7 +740,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemTextCenter = styled.div
         width: 100%;
         outline: none;
         font-size: 16px;
-        font-family: "Gisha";
+        font-family: "Open Sans";
         font-weight: 600;
 
         ::placeholder {
@@ -788,7 +824,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemText = styled.div`
     width: ${(props) => (props.wH ? props.wH : "70px")};
     height: 50px;
     font-size: ${(props) => (props.h1F ? props.h1F : 16)}px;
-    font-family: "Gisha";
+    font-family: "Open Sans";
     border-right: 1px solid #dadada;
     margin-left: 15px;
     display: flex;
@@ -805,7 +841,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemText = styled.div`
     align-items: center;
     cursor: pointer;
     span {
-      font-family: "Gisha";
+      font-family: "Open Sans";
       margin-left: 5px;
     }
   }
@@ -814,7 +850,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemText = styled.div`
     min-width: ${(props) => (props.value ? "120px" : "250px;")};
     height: ${(props) => (props.value ? "20px" : "50px")};
     font-size: ${(props) => (props.value ? "16px" : "13px")};
-    font-family: "Gisha";
+    font-family: "Open Sans";
     display: flex;
     align-items: center;
     margin-left: ${(props) => (props.value ? "0px" : "15px")};
@@ -842,7 +878,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemText = styled.div`
   }
 
   input::placeholder {
-    font-family: "Gisha";
+    font-family: "Open Sans";
   }
 
   div {
@@ -852,7 +888,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemText = styled.div`
     label {
       width: 30px;
       font-size: 16px;
-      font-family: "Gisha";
+      font-family: "Open Sans";
       font-weight: 600;
     }
 
@@ -860,7 +896,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemText = styled.div`
       width: 100%;
       outline: none;
       font-size: 16px;
-      font-family: "Gisha";
+      font-family: "Open Sans";
       font-weight: 600;
 
       ::placeholder {
@@ -900,7 +936,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemText = styled.div`
     }
 
     input::placeholder {
-      font-family: "Gisha";
+      font-family: "Open Sans";
     }
 
     div {
@@ -910,7 +946,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemText = styled.div`
       label {
         width: 30px;
         font-size: 16px;
-        font-family: "Gisha";
+        font-family: "Open Sans";
         font-weight: 600;
       }
 
@@ -918,7 +954,7 @@ export const UltraRapidoContentSlideTopoFilterControlItemText = styled.div`
         width: 100%;
         outline: none;
         font-size: 16px;
-        font-family: "Gisha";
+        font-family: "Open Sans";
         font-weight: 600;
 
         ::placeholder {
@@ -952,9 +988,10 @@ export const UltraRapidoContentSlideTopoFilterControlSubmit = styled(Flex)`
     background-color: ${colorBaseUltraRapido};
     border-radius: 10px;
     font-size: 16px;
-    font-family: "Gisha Bold";
+    font-family: "Open Sans";
     letter-spacing: 0.1rem;
     color: white;
+    text-transform: uppercase;
   }
 
   @media screen and (max-width: 1366px) {

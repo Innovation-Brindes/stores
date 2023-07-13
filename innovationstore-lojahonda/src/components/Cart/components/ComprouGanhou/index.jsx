@@ -44,13 +44,12 @@ export function ComprouGanhou({ valor }) {
     setValue(getBrindes())
   }, [valor])
 
-
   return (
     <Flex>
       <Flex gap={2}>
-        <Icon as={AiFillGift} color={"#4BA3BA"} fontSize={"1.5rem"} />
+        <Icon as={AiFillGift} color={"#E2001B"} fontSize={"1.5rem"} />
         <Flex flexDir={"column"}>
-          <Text m={0} color={"#4BA3BA"} fontWeight={"bold"} fontSize={".9rem"}>
+          <Text m={0} color={"#E2001B"} fontWeight={"bold"} fontSize={".9rem"}>
             Comprou, Ganhou
           </Text>
           <Flex alignItems={"center"} gap={2}>

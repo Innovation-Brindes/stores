@@ -35,7 +35,7 @@ export function StepPersonalizacao({ product }) {
             <S.Personalizacao onClick={() => handleSelectedPersonalizacao(personalizacao)}>
               <ColorInputComponent
                 backgroundColor={
-                  selectedPersonalizacao?.codigo_impressao === personalizacao.codigo_impressao ? "#FF4F00" : "#fff"
+                  selectedPersonalizacao?.codigo_impressao === personalizacao.codigo_impressao ? "#E2001B" : "#fff"
                 }
               />
 

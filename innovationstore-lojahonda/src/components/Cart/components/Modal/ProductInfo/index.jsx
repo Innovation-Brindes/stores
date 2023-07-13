@@ -1,36 +1,31 @@
-import { Flex, Text } from "@chakra-ui/layout";
-import { Image } from "@chakra-ui/image";
-import { useCart } from "../../../../../contexts/useCart";
-import { Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/table";
-import { formatPrice } from "../../../../../utils/formatPrice";
-import { useEffect } from "react";
-import { useMediaQuery } from "@chakra-ui/react";
-import { useState } from "react";
-import { setFirstLetterUpperCase } from "../../../../../utils/setFirstLetterUpperCase";
+import { Flex, Text } from "@chakra-ui/layout"
+import { Image } from "@chakra-ui/image"
+import { useCart } from "../../../../../contexts/useCart"
+import { Table, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/table"
+import { formatPrice } from "../../../../../utils/formatPrice"
+import { useEffect } from "react"
+import { useMediaQuery } from "@chakra-ui/react"
+import { useState } from "react"
+import { setFirstLetterUpperCase } from "../../../../../utils/setFirstLetterUpperCase"
 
 export function ProductInfo({ itemEdit }) {
-  useEffect(() => {
-  }, [itemEdit]);
-  const { valores } = useCart();
+  useEffect(() => {}, [itemEdit])
+  const { valores } = useCart()
 
-  const [isLargerThan768] = useMediaQuery("(max-width: 768px)");
-  const [isMobile, setIsMobile] = useState(false);
+  const [isLargerThan768] = useMediaQuery("(max-width: 768px)")
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     if (isLargerThan768) {
-      setIsMobile(true);
+      setIsMobile(true)
     } else {
-      setIsMobile(false);
+      setIsMobile(false)
     }
-  }, [isLargerThan768]);
-
+  }, [isLargerThan768])
 
   return (
     <>
-      <Flex
-        flexDir="column"
-        {...(isMobile && { alignItems: "center", width: "100%" })}
-      >
+      <Flex flexDir="column" {...(isMobile && { alignItems: "center", width: "100%" })}>
         <Flex
           alignItems="center"
           justifyContent="flex-start"
@@ -41,21 +36,11 @@ export function ProductInfo({ itemEdit }) {
           borderRadius="13px"
           {...(isMobile && { width: "100%" })}
         >
-          <Text
-            as="h1"
-            m="0"
-            fontSize="1rem"
-            fontWeight="bold"
-            paddingTop="2rem"
-            paddingBottom="2rem"
-          >
-            <Text as="span" color="#FF4F00">
+          <Text as="h1" m="0" fontSize="1rem" fontWeight="bold" paddingTop="2rem" paddingBottom="2rem">
+            <Text as="span" color="#E2001B">
               Item 1{" "}
             </Text>{" "}
-            {setFirstLetterUpperCase(itemEdit?.nome_prod) +
-              " - " +
-              itemEdit.codprod +
-              " - "}
+            {setFirstLetterUpperCase(itemEdit?.nome_prod) + " - " + itemEdit.codprod + " - "}
           </Text>
           <Flex
             alignItems="flex-start"
@@ -71,9 +56,7 @@ export function ProductInfo({ itemEdit }) {
                 {setFirstLetterUpperCase(itemEdit?.cor_produto?.desc)}
               </Text>
               <Text as="h2" m="0" fontSize="0.875rem" fontWeight="400">
-                {typeof itemEdit?.tipo_gravacao === "string"
-                  ? itemEdit?.tipo_gravacao
-                  : itemEdit?.tipo_gravacao?.desc}
+                {typeof itemEdit?.tipo_gravacao === "string" ? itemEdit?.tipo_gravacao : itemEdit?.tipo_gravacao?.desc}
               </Text>
               <Text as="h2" m="0" fontSize="0.875rem" fontWeight="400">
                 {itemEdit?.batidas} Impressões
@@ -117,5 +100,5 @@ export function ProductInfo({ itemEdit }) {
         </Table>
       </Flex>
     </>
-  );
+  )
 }

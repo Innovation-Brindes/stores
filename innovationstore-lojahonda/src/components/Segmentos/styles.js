@@ -5,79 +5,26 @@ import { cor_base_1 } from "../../services/cores"
 export const SegmentoContainer = styled(Box)`
   height: auto;
   overflow: hidden;
-  margin-top: -14px;
 `
 export const SegmentoContainerContent = styled(Box)`
   height: 100%;
 `
 export const SegmentoContainerSlide = styled(Box)`
-  .topo {
-    width: 100%;
-    max-width: 1570px;
-    height: 465px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 
-    .frame {
-      overflow-x: "hidden";
-      overflow-y: "hidden";
-      width: 100%;
-      max-width: 1900px;
-      height: 465px;
-    }
-    .framelg {
-      overflow-x: "hidden";
-      overflow-y: "hidden";
-      width: 100%;
-      max-width: 1900px;
-      height: 520px;
-    }
-    .frame_mobile {
-      overflow-x: "hidden";
-      overflow-y: "hidden";
-      width: 100%;
-      height: 520px;
-    }
-
-    @media screen and (max-width: 1700px) {
-      height: 420px;
-    }
-
-    @media screen and (max-width: 1450px) {
-      height: 370px;
-    }
-
-    @media screen and (max-width: 768px) {
-      height: 520px;
-    }
+  .mobile {
+    display: none;
   }
-  .topolg {
-    width: 100%;
-    max-width: 1900px;
-    height: 465px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
 
-    @media screen and (max-width: 1700px) {
-      height: 420px;
-    }
-
-    @media screen and (max-width: 1450px) {
-      height: 370px;
-    }
-  }
   @media screen and (max-width: 768px) {
-    width: 400px;
-    height: 380px;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  @media screen and (max-width: 400px) {
-    width: 100%;
+    .web {
+      display: none;
+    }
+    .mobile {
+      display: block;
+    }
   }
 `
 export const SegmentoContainerGridProdutos = styled(Box)`
@@ -215,11 +162,13 @@ export const GridProdutosProdutos = styled(Grid)`
   height: auto;
   overflow: hidden;
   position: relative;
+  margin: 0 auto;
+  display: grid;
+  padding-top: 20px;
+  margin-top: -20px;
+
   /* background-color:red; */
   z-index: 999;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 30px;
   justify-content: space-evenly;
   top: 0vw;
   /* background-color: white; */
@@ -227,8 +176,7 @@ export const GridProdutosProdutos = styled(Grid)`
 
   @media screen and (max-width: 768px) {
     width: 400px;
-    margin-top: -80px;
-    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-columns: repeat(2, 1fr);
   }
 `
 export const ProdutosLoading = styled(Box)`

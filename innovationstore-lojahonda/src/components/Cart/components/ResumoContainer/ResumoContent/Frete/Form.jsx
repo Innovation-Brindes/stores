@@ -168,7 +168,7 @@ export function Form({ infoEmb, transportadoraMaisBarata, seletedTransp }) {
             error={errors?.email_parceiro}
           />
           <Button
-            bgColor="#ff4f00"
+            bgColor="#E2001B"
             color="white"
             minH="2.4rem"
             mt="1rem"

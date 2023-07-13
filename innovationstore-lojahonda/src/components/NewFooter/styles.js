@@ -91,15 +91,16 @@ export const FeaturesContent = styled.div`
 `
 
 export const BodyFooterContainer = styled.div`
+  margin-top: 38px;
   display: flex;
   flex: 1;
 
   flex-wrap: wrap;
 
-  color: #95c620;
+  color: #e2001b;
   font-weight: bold;
   padding-inline: 140px;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   max-width: 1366px;
   margin-inline: auto;
@@ -119,6 +120,7 @@ export const InnovationContainer = styled.div`
 
   h1 {
     font-size: 14px;
+    font-weight: bold;
   }
 
   h2 {
@@ -137,6 +139,15 @@ export const InnovationContent = styled.div`
   font-weight: normal;
 
   white-space: nowrap;
+
+  h2 {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      color: #e2001b;
+    }
+  }
 `
 
 export const SegmentosContainer = styled.div`
@@ -217,6 +228,16 @@ export const SoAquiContainer = styled.div`
 
   h1 {
     font-size: 14px;
+    font-weight: bold;
+  }
+
+  h2 {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      color: #e2001b;
+    }
   }
 
   @media (max-width: 768px) {
@@ -233,6 +254,7 @@ export const ContainerHorario = styled.div`
 
   h1 {
     font-size: 14px;
+    font-weight: bold;
   }
 
   @media (max-width: 768px) {
@@ -252,6 +274,15 @@ export const AtendimentoContainer = styled.div`
     font-size: 14px;
   }
 
+  h2 {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+      color: #e2001b;
+    }
+  }
+
   @media (max-width: 768px) {
     margin-left: 0;
     padding-bottom: 15px;
@@ -261,7 +292,7 @@ export const AtendimentoContainer = styled.div`
 
 export const PaymentMethodContainer = styled.div`
   display: flex;
-  margin-top: 3rem;
+  margin-top: 1rem;
   width: 100%;
   max-width: 1366px;
 
@@ -278,8 +309,7 @@ export const PaymentMethodContent = styled.div`
   display: flex;
   align-items: center;
   gap: 22px;
-  margin-top: 0.4rem;
-
+  margin-top: 0.8rem;
   @media (max-width: 768px) {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -295,5 +325,44 @@ export const ContainerFeaturesMobile = styled.div`
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
     margin-top: 2rem;
+  }
+`
+
+export const ImageContent = styled.div`
+  width: 100%;
+  padding-block: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #e2001b;
+`
+
+export const SiteSeguroContainer = styled.div`
+  display: flex;
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 1366px;
+
+  flex-direction: column;
+
+  @media (max-width: 768px) {
+    .divider {
+      display: none;
+    }
+
+    justify-content: center;
+  }
+`
+
+export const SiteSeguroContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 0.4rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 `

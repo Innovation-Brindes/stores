@@ -7,7 +7,7 @@ import Footer from "../../components/Footer"
 
 // import bgPrecoHome from '../../images/precohome.png';
 
-import { Box } from "@chakra-ui/react"
+import { Box, Flex, Select } from "@chakra-ui/react"
 import {
   FilterSelect,
   GridProdutosProdutos,
@@ -331,56 +331,51 @@ class Segmento extends Component {
           <SegmentoContainer>
             <SegmentoContainerContent>
               <SegmentoContainerSlide>
-                <SegmentoContainerSlide className={"topo" + (this.state.segmento == 5 ? " topolg" : "")}>
-                  {this.state.isMobile ? (
-                    <iframe className={"frame_mobile"} src={this.state.slide_img_mobile} />
-                  ) : this.state.slide_img != null ? (
-                    <iframe
-                      className={"frame" + (this.state.segmento == 5 ? " framelg" : "")}
-                      src={this.state.slide_img}
-                    />
-                  ) : (
-                    <></>
-                  )}
+                <SegmentoContainerSlide>
+                  <img
+                    className="mobile"
+                    src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/novidades%20mobile.png"
+                  />
+                  <img className="web" src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/novidade.jpg" />
                 </SegmentoContainerSlide>
               </SegmentoContainerSlide>
               <SegmentoContainerGridProdutos>
-                <SegmentoContainerGridProdutosFilter>
-                  <FilterSelect onChange={(e) => this.handleOrderBy(e)}>
-                    <option>Ordenar produtos</option>
-                    <option>Menor Valor</option>
-                    <option>Maior Valor</option>
-                  </FilterSelect>
-                </SegmentoContainerGridProdutosFilter>
-
                 <ProdutosLoading style={{ display: this.state.loadingProd, backgroundColor: "white", zIndex: 8 }}>
                   <ProdutosLoadingImage>
                     <img alt="loading" src={loading} />
                   </ProdutosLoadingImage>
                 </ProdutosLoading>
-                <GridProdutosProdutos>
-                  {this.state.dados.map((data) => {
-                    return (
-                      <GridProductDefault
-                        prod_nome={data.prod_nome}
-                        codigo_prod={data.prod_cod}
-                        url_prod={data.url_prod}
-                        img_prod={"/images/produtos" + data.img_prod}
-                        descricao={data.descricao}
-                        caracteristicas={data.caracteristicas}
-                        valor_home={data.valor_home}
-                        ultrarapido={data.ultrarapido}
-                        selo={data.selo}
-                        segmento={data.segmento}
-                        url_site={this.state.url_site}
-                        cores={data.cores}
-                        estoque={data.estoque}
-                        state={this.state}
-                        selo_prod={data.selo_prod}
-                      />
-                    )
-                  })}
-                </GridProdutosProdutos>
+                <div className="flex justify-center mt-5 relative max-w-fit mx-auto ">
+                  <GridProdutosProdutos>
+                    {this.state.dados.map((data) => {
+                      return (
+                        <GridProductDefault
+                          prod_nome={data.prod_nome}
+                          codigo_prod={data.prod_cod}
+                          url_prod={data.url_prod}
+                          img_prod={"/images/produtos" + data.img_prod}
+                          descricao={data.descricao}
+                          caracteristicas={data.caracteristicas}
+                          valor_home={data.valor_home}
+                          ultrarapido={data.ultrarapido}
+                          selo={data.selo}
+                          segmento={data.segmento}
+                          url_site={this.state.url_site}
+                          cores={data.cores}
+                          estoque={data.estoque}
+                          state={this.state}
+                          selo_prod={data.selo_prod}
+                        />
+                      )
+                    })}
+                  </GridProdutosProdutos>
+                  <div className="absolute top-0 right-[-12rem]">
+                    <Select placeholder="Ordenar produtos" onChange={(e) => this.handleOrderBy(e)} maxWidth="200px">
+                      <option>Menor Valor</option>
+                      <option>Maior Valor</option>
+                    </Select>
+                  </div>
+                </div>
               </SegmentoContainerGridProdutos>
             </SegmentoContainerContent>
           </SegmentoContainer>

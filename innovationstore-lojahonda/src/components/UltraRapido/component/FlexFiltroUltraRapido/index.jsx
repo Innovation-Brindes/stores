@@ -42,6 +42,7 @@ import {
   UltraRapidoContentSlideTopoFilterControlItemCenter,
   UltraRapidoContentSlideTopoFilterControlItemTextCenter,
   ContainerRangeSlider,
+  SetaSlider,
 } from "./styles"
 import { useRouter } from "next/router"
 import { IoIosArrowForward } from "react-icons/io"
@@ -184,7 +185,7 @@ const Index = (props) => {
               <h2>{selectCategoria.name}</h2>
             ) : (
               <p>
-                <strong>escolha a categoria de brinde que procura</strong>
+                <strong style={{ fontSize: "13px" }}>escolha a categoria de brinde que procura</strong>
               </p>
             )}
           </UltraRapidoContentSlideTopoFilterControlItemText>
@@ -208,8 +209,9 @@ const Index = (props) => {
             onOpen={open}
             onClose={close}
             styleConfig={{ outline: "none" }}
+            zIndex={9999}
           >
-            <PopoverContent style={{ outline: "none" }}>
+            <PopoverContent style={{ outline: "none" }} zIndex={9999}>
               <UltraRapidoContentSlideTopoFilterBodyBrindes view={true}>
                 <UltraRapidoContentSlideTopoFilterBodyBrindesContent view={true}>
                   <UltraRapidoContentSlideTopoFilterBodyBrindesContentGrid>
@@ -458,7 +460,7 @@ const Index = (props) => {
         </UltraRapidoContentSlideTopoFilterControlItem>
 
         <UltraRapidoContentSlideTopoFilterControlItemCenter>
-          <UltraRapidoContentSlideTopoFilterControlItemTextCenter wid={90} wH={"100px"}>
+          <UltraRapidoContentSlideTopoFilterControlItemTextCenter wid={110} wH={"100px"}>
             <h1>Quantidade</h1>
             <input
               id="quantidade"
@@ -612,14 +614,7 @@ const Index = (props) => {
                       }}
                       style={{ width: "100%", height: "100%", backgroundColor: "transparent" }}
                     >
-                      <Image
-                        position="relative"
-                        top="-10px"
-                        w={50}
-                        h={50}
-                        alt="seta-direita"
-                        src="/images/seta-ultra-rapido-direita.svg"
-                      />
+                      <SetaSlider arrowLeft top="1px" right="-5px" />
                     </div>
                   </RangeSliderThumb>
                 </Tooltip>
@@ -649,14 +644,7 @@ const Index = (props) => {
                       }}
                       style={{ width: "100%", height: "100%", backgroundColor: "transparent" }}
                     >
-                      <Image
-                        position="relative"
-                        top="-10px"
-                        w={50}
-                        h={50}
-                        alt="seta-esquerda"
-                        src="/images/seta-ultra-rapido-esquerda.svg"
-                      />
+                      <SetaSlider arrowRight top="1px" right="5px" />
                     </div>
                   </RangeSliderThumb>
                 </Tooltip>

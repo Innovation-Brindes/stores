@@ -150,22 +150,25 @@ class UltraRapido extends Component {
               mx={this.state.mobileView ? "auto" : "auto"}
               h={this.state.mobileView ? "auto" : "auto"}
               w={this.state.mobileView ? "100vw" : "100%"}
+              mb={this.state.mobileView ? "10px" : "0px"}
               objectFit="cover"
               src={
                 this.state.mobileView
-                  ? `https://homolog.innovationbrindes.com.br/images/banners/banner-ultra-rapido/banner-ultra-rapido-mobile-${this.state.sortBanner}.png`
-                  : `https://homolog.innovationbrindes.com.br/images/banners/banner-ultra-rapido/banner-ultra-rapido-${this.state.sortBanner}.png`
+                  ? `https://imgproductioncrm.s3.us-east-2.amazonaws.com/48-horas%20mobile.jpg`
+                  : `https://imgproductioncrm.s3.us-east-2.amazonaws.com/48-horas.jpg`
               }
               alt="banner-ultra-rapido"
             />
-            <ContainerFlexUtilize>
-              <Text color={colorBaseUltraRapido} fontSize="22px" fontFamily="Helvetica Neue LT Std bold">
-                Utilize o filtro de pesquisa abaixo
-              </Text>
-              <Text color="#494949" ml="5px" fontSize="22px" fontFamily="Helvetica Neue LT Std bold">
-                e encontre o brinde desejado com a agilidade que procura!
-              </Text>
-            </ContainerFlexUtilize>
+            {!this.state.mobileView && (
+              <ContainerFlexUtilize>
+                <Text color={colorBaseUltraRapido} fontSize="22px" fontFamily="Open Sans">
+                  Utilize o filtro de pesquisa abaixo
+                </Text>
+                <Text color="#494949" ml="5px" fontSize="22px" fontFamily="Open Sans">
+                  e encontre o brinde desejado com a agilidade que procura!
+                </Text>
+              </ContainerFlexUtilize>
+            )}
 
             <FlexFiltroUltraRapido subcategorias={this.state.subcategorias} />
 
@@ -176,7 +179,7 @@ class UltraRapido extends Component {
               fontSize={this.state.mobileView ? "10px" : "12px"}
               color="gray"
               textAlign="center"
-              fontFamily="Helvetica Neue LT Std"
+              fontFamily="Open Sans"
             >
               *Para pedido aprovados até as 14hrs, de segunda a quinta (exceto feriados). Retirada após as 8h30.
             </Text>
@@ -193,7 +196,7 @@ class UltraRapido extends Component {
                 w="304px"
                 mx="auto"
                 alt="rapidinho"
-                src="/images/banners/banner-ultra-rapido/rapidinho.png"
+                src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/tagsda-semana.png"
               />
             </Flex>
 

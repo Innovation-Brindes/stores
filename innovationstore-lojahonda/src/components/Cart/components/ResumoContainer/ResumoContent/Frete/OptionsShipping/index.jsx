@@ -141,11 +141,11 @@ export function OptionsShipping({
           mx="auto"
           borderRadius="23px"
           fontSize="15px"
-          color="#FF4F00"
+          color="#E2001B"
           bg="transparent"
-          border="1px solid #FF4F00"
+          border="1px solid #E2001B"
           _hover={{
-            bg: "#FF4F00",
+            bg: "#E2001B",
             color: "#fff",
           }}
           onClick={() => {
@@ -199,7 +199,7 @@ export function OptionsShipping({
           // isGdSp &&
           addressClient?.frete_gratis === "S" && (
             <Grid
-              bgColor="#0B73F8"
+              bgColor="#414042"
               alignItems="center"
               w="100%"
               templateColumns={!loading ? "2fr 1.5fr 1fr" : "1fr"}
@@ -209,7 +209,7 @@ export function OptionsShipping({
               borderRadius="6px"
               paddingBlock="5px"
               paddingInline="10px"
-              border="1px solid #0B73F8"
+              border="1px solid #414042"
               onClick={() => handleStepCartValue(motoEntregaOrFreteGratis)}
               cursor="pointer"
               mb=".5rem"

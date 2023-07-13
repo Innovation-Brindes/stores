@@ -418,7 +418,7 @@ export function Frete() {
                           border="1px solid #CFCFCF"
                           borderRadius="10px"
                           _focus={{
-                            border: "1px solid #ff4f00",
+                            border: "1px solid #E2001B",
                           }}
                           ref={inputRef}
                           {...rest}
@@ -432,7 +432,7 @@ export function Frete() {
                     </InputMask>
 
                     <Button
-                      bgColor="#ff4f00"
+                      bgColor="#E2001B"
                       color="white"
                       paddingBlock="1.5rem"
                       paddingInline="1.7rem"
@@ -510,7 +510,7 @@ export function Frete() {
               <Icon as={RiAlertFill} w={6} h={6} color={"#CFCFCF"} />
               <Text m={0} as={"span"} fontSize={"8.5px"} color={"#919191"} lineHeight="1rem">
                 *Nos comprometemos a produzir seus produtos no prazo <br /> solicitado em seu orçamento.{" "}
-                <span style={{ color: "#FF4F00" }}>
+                <span style={{ color: "#E2001B" }}>
                   Não nos responsabilizamos por <br /> eventuais atrasos na entrega de seus produtos quando <br />{" "}
                   realizadas por meio de transportadoras ou correios.
                 </span>
@@ -553,7 +553,7 @@ export function Frete() {
                 <Icon
                   as={IoIosArrowDropdown}
                   fontSize="1.8rem"
-                  color={"#FF4F00"}
+                  color={"#E2001B"}
                   onClick={() => {
                     handleStepCart("entrega")
                     setSeletedTransp(null)
@@ -576,7 +576,7 @@ export function Frete() {
             <PaymentMethods totalPedido={totalPed} />
             {stepCart === 3 && (
               <Button
-                bgColor="#ff4f00"
+                bgColor="#E2001B"
                 color="white"
                 minH="2.4rem"
                 mt="1rem"

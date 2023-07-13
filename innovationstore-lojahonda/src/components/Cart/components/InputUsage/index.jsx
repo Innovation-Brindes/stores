@@ -1,11 +1,8 @@
-import { Flex, forwardRef, Input, Text } from "@chakra-ui/react";
-import { useEffect } from "react";
-import ReactInputMask from "react-input-mask";
+import { Flex, forwardRef, Input, Text } from "@chakra-ui/react"
+import { useEffect } from "react"
+import ReactInputMask from "react-input-mask"
 
-const InputUsage = (
-  { placeholder, name, type, error, value, isType, ...rest },
-  ref
-) => {
+const InputUsage = ({ placeholder, name, type, error, value, isType, ...rest }, ref) => {
   return (
     <>
       <Flex flexDir="column" width="100%">
@@ -17,7 +14,7 @@ const InputUsage = (
           type={type}
           {...rest}
           _focus={{
-            border: "1px solid #ff4f00",
+            border: "1px solid #E2001B",
           }}
         />
         {error && (
@@ -27,7 +24,7 @@ const InputUsage = (
         )}
       </Flex>
     </>
-  );
-};
+  )
+}
 
-export default forwardRef(InputUsage);
+export default forwardRef(InputUsage)

@@ -168,7 +168,10 @@ export const TagInfo = styled.span`
 `
 
 export const HeaderContentInput = styled.div`
-  width: 258px;
+  display: flex;
+  flex: 1;
+
+  max-width: 375px;
   .click-lupa {
     width: 35px;
     height: 35px;

@@ -203,7 +203,7 @@ export function EditeSeuProduto({
             alignItems="center"
             padding="1rem"
             bg="#FFF5F1"
-            color="#FF4F00"
+            color="#E2001B"
             boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
             borderBottomRadius="10px"
           >
@@ -403,7 +403,7 @@ export function EditeSeuProduto({
                 borderBottom="1px dashed #cecece"
                 w="100%"
                 flex="1"
-                bg={item.maisRapido ? "#FF4F00" : item.value > 7 ? "#95C620" : "transparent"}
+                bg={item.maisRapido ? "#E2001B" : item.value > 7 ? "#95C620" : "transparent"}
                 color={item.maisRapido ? "#fff" : item.value > 7 ? "#fff" : "#414042"}
                 marginBlock=".5rem"
               >
@@ -417,7 +417,7 @@ export function EditeSeuProduto({
         </Steps>
         <Steps title="Quantidade" error={errors.quantidade?.message}>
           <Flex w="100%" alignItems="center" justifyContent="flex-start" flexDir="column">
-            <Text as="h1" m="0" color="#FF4F00" fontSize="1.25rem" fontWeight={"bold"}>
+            <Text as="h1" m="0" color="#E2001B" fontSize="1.25rem" fontWeight={"bold"}>
               Digite a quantidade desejada
             </Text>
             <Flex position="relative" mt=".3rem">
@@ -425,7 +425,7 @@ export function EditeSeuProduto({
                 w="100%"
                 maxW="9.375rem"
                 mt=".3rem"
-                _focus={{ borderColor: "#FF4F00" }}
+                _focus={{ borderColor: "#E2001B" }}
                 padding={1}
                 type="number"
                 size="sm"
@@ -449,7 +449,7 @@ export function EditeSeuProduto({
                   editProduct()
                 }}
               >
-                <IoIosRefreshCircle size="2rem" color="#FF4F00" />
+                <IoIosRefreshCircle size="2rem" color="#E2001B" />
                 <Text m="0" as="span" color="#414042" fontSize="0.85rem">
                   atualizar
                 </Text>
@@ -516,7 +516,7 @@ export function EditeSeuProduto({
               marginBottom="1rem"
               minW="18.5rem"
               minH="2.75rem"
-              bgColor="#FF4F00"
+              bgColor="#E2001B"
               color="#fff"
               borderRadius="23px"
               onClick={() => finalizeEdit()}

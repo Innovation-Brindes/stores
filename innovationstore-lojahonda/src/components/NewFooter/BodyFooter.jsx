@@ -34,72 +34,23 @@ export function BodyFooter() {
         <InnovationContent>
           <h2>Como comprar</h2>
           <h2>Política de troca e correções</h2>
-          <Link href="/enderecos">
+          <Link href="/lojahonda/enderecos">
             <h2>Endereços</h2>
           </Link>
         </InnovationContent>
       </InnovationContainer>
-      <SegmentosContainer>
-        {" "}
-        <h1>SEGMENTOS</h1>
-        <Wrapper>
-          <LineContainerAttributes containerHeight="200px" height="86%">
-            {!links.length ? (
-              <div>Carregando...</div>
-            ) : (
-              links.map((link, index) => {
-                if (index < 10) {
-                  return (
-                    <Text
-                      m={0}
-                      color="#414042"
-                      textDecoration={"none"}
-                      key={link.id_segmento}
-                      as="a"
-                      href={link.url_segmento}
-                    >
-                      {link.descricao}
-                    </Text>
-                  )
-                }
-              })
-            )}
-          </LineContainerAttributes>
-          <SegmentosRowContent>
-            {!links.length ? (
-              <div>Carregando...</div>
-            ) : (
-              links.map((link, index) => {
-                if (index >= 10) {
-                  return (
-                    <Text
-                      m={0}
-                      color="#414042"
-                      textDecoration={"none"}
-                      key={link.id_segmento}
-                      as="a"
-                      href={link.url_segmento}
-                    >
-                      {link.descricao}
-                    </Text>
-                  )
-                }
-              })
-            )}
-          </SegmentosRowContent>
-        </Wrapper>
-      </SegmentosContainer>
+
       <SoAquiContainer>
         <h1>SÓ AQUI</h1>
         <LineContainerAttributes height="75%" containerHeight="70px">
-          <Link href="/segmento/novidades/6">
+          <Link href="/lojahonda/segmento/novidades/6">
             <h2>Lançamentos</h2>
           </Link>
           <Link href="/ultra-rapido">
             <h2>Pronto em 48 horas</h2>
           </Link>
 
-          <Link href="/regulamento-compre-ganhe">
+          <Link href="/lojahonda/regulamento-compre-ganhe">
             <h2>Compre e ganhe</h2>
           </Link>
         </LineContainerAttributes>

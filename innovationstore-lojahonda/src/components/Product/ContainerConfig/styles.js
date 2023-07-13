@@ -2,7 +2,7 @@ import { Accordion, AccordionButton, AccordionItem, AccordionPanel, AccordionIco
 import styled from "styled-components"
 
 export const Heading = styled.h1`
-  color: #ff4f00;
+  color: #e2001b;
   font-size: 20px;
   font-weight: bold;
 `
@@ -49,20 +49,20 @@ export const ButtonEdit = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #ff4f00;
+  color: #e2001b;
 `
 
 export const Icon = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 2px solid #ff4f00;
+  border: 2px solid #e2001b;
   display: flex;
   justify-content: center;
   align-items: center;
 
   svg {
-    color: #ff4f00;
+    color: #e2001b;
     font-size: 20px;
   }
 `

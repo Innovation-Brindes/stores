@@ -48,8 +48,8 @@ export function StepPrazoProducao({ product }) {
   }, [product])
 
   function backgroundColor(mais_rapido, mais_barato) {
-    if (mais_rapido) return "#FF4F00"
-    if (mais_barato) return "#95C620"
+    if (mais_rapido) return "#E2001B"
+    if (mais_barato) return "#E2001B"
   }
   function textColor(mais_rapido, mais_barato) {
     if (mais_rapido) return "#fff"
@@ -62,7 +62,7 @@ export function StepPrazoProducao({ product }) {
         <>
           <S.GroupProducao key={producao.prazo}>
             <S.Producao onClick={() => handleSelectedProducao(producao)}>
-              <ColorInputComponent backgroundColor={selectedProducao?.prazo === producao.prazo ? "#FF4F00" : "#fff"} />
+              <ColorInputComponent backgroundColor={selectedProducao?.prazo === producao.prazo ? "#E2001B" : "#fff"} />
               <S.ProducaoTextColor
                 color={textColor(producao.mais_rapido, producao.mais_barato)}
                 backgroundColor={backgroundColor(producao.mais_rapido, producao.mais_barato)}
