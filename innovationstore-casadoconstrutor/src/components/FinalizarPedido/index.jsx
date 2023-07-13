@@ -101,7 +101,7 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
             <Flex w="100%" justifyContent="center">
               <Image
                 cursor="pointer"
-                onClick={() => router.push("/lojahonda")}
+                onClick={() => router.push("/casadoconstrutor")}
                 display={mobileView ? "block" : "none"}
                 alt="logo-finalizar"
                 src={
@@ -246,7 +246,7 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                   <Button
                     position="relative"
                     top="-25px"
-                    onClick={() => router.push("/lojahonda/carrinho")}
+                    onClick={() => router.push("/casadoconstrutor/carrinho")}
                     leftIcon={
                       mobileView ? <AiOutlineArrowLeft fontSize={mobileView ? "28px" : ""} /> : <AiFillCaretLeft />
                     }
@@ -392,7 +392,7 @@ const FinalizarPedido = ({ dados_layout, dados_cliente }) => {
                   {!mobileView && paginacao === 1 ? (
                     <Button
                       onClick={() => {
-                        router.push("/lojahonda/carrinho")
+                        router.push("/casadoconstrutor/carrinho")
                       }}
                       leftIcon={
                         mobileView ? <AiOutlineArrowLeft fontSize={mobileView ? "28px" : ""} /> : <AiFillCaretLeft />

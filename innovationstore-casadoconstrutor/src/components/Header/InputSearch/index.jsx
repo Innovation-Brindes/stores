@@ -71,7 +71,7 @@ export function InputSearch() {
               onFocus={() => openDataLabel()}
               onKeyPress={(e) =>
                 e.key === "Enter" && textoBuscado !== "" && textoBuscado != null
-                  ? (window.location.href = "/lojahonda/buscar/" + clickBuscarProduto())
+                  ? (window.location.href = "/casadoconstrutor/buscar/" + clickBuscarProduto())
                   : ""
               }
             />

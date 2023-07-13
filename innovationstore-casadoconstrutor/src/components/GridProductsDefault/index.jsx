@@ -51,7 +51,7 @@ export function GridProductDefault(props) {
 
   return (
     <a
-      href={props.gridTelaProduto ? "/lojahonda/" + props.url_prod : "/lojahonda/" + props.url_prod}
+      href={props.gridTelaProduto ? "/casadoconstrutor/" + props.url_prod : "/casadoconstrutor/" + props.url_prod}
       style={{ textDecoration: "none" }}
     >
       <LinkBoxProductContainer

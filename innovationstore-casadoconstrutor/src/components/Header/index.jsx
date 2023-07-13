@@ -125,7 +125,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
             <IconContent border>
               <FaShoppingCart />
             </IconContent>
-            <Link href="/lojahonda/carrinho">
+            <Link href="/casadoconstrutor/carrinho">
               <span>{cart?.length} itens</span>
             </Link>
           </IconGroup>
@@ -136,7 +136,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
         transition-all duration-500 font-sans`}
       >
         <Container>
-          <Link href="/lojahonda">
+          <Link href="/casadoconstrutor">
             <Image
               src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo1.png"
               width={126}
@@ -177,7 +177,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                 <div className="content">
                   {openMenu.subcategorias &&
                     subcategorias.map((data, index) => (
-                      <Links key={index} data={data} pathname={"/lojahonda/categoria/[slug]" + "/" + "[id]"} />
+                      <Links key={index} data={data} pathname={"/casadoconstrutor/categoria/[slug]" + "/" + "[id]"} />
                     ))}
                 </div>
               </MenuOpen>
@@ -212,7 +212,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                     <li key={index}>
                       <Link
                         href={{
-                          pathname: `${"/lojahonda/segmento/[slug]" + "/" + "[id]"}`,
+                          pathname: `${"/casadoconstrutor/segmento/[slug]" + "/" + "[id]"}`,
                           query: {
                             slug: `${retira_acentos(data.descricao).toLowerCase().replace(/ /g, "-")}`,
                             id: data.codigo_segmento,
@@ -227,7 +227,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
             </ButtonGroup>
             <Link
               href={{
-                pathname: `${"/lojahonda/segmento/[slug]" + "/" + "[id]"}`,
+                pathname: `${"/casadoconstrutor/segmento/[slug]" + "/" + "[id]"}`,
                 query: { slug: "novidades", id: 6 },
               }}
             >
@@ -243,7 +243,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                 <MenuButton>Lançamentos</MenuButton>
               </LinkGroup>
             </Link>
-            <Link href="/lojahonda/ultra-rapido">
+            <Link href="/casadoconstrutor/ultra-rapido">
               <LinkGroup>
                 <SpanLink
                   css={{
@@ -290,7 +290,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
               <IconContent border>
                 <FaShoppingCart />
               </IconContent>
-              <Link href="/lojahonda/carrinho">
+              <Link href="/casadoconstrutor/carrinho">
                 <span>{cart?.length} itens</span>
               </Link>
             </IconGroup>

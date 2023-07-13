@@ -401,7 +401,7 @@ class Home extends Component {
                 <HomeContentBodyCategorias>
                   <HomeContentBodyCategoriasGrid>
                     {/* https://innovationbrindes.com.br/copo-termico-500ml-com-abridor-brindes-10151373687 */}
-                    <Link href={"/lojahonda/mochila-saco-brindes-10321463723"} passHref>
+                    <Link href={"/casadoconstrutor/mochila-saco-brindes-10321463723"} passHref>
                       <ImageContent>
                         <Image
                           src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-1.png"
@@ -412,7 +412,7 @@ class Home extends Component {
                         />
                       </ImageContent>
                     </Link>
-                    <Link href={"/lojahonda/bloco-de-anotacao-brindes-10160613761"} passHref>
+                    <Link href={"/casadoconstrutor/bloco-de-anotacao-brindes-10160613761"} passHref>
                       <ImageContent>
                         <Image
                           src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-4.png"
@@ -423,7 +423,7 @@ class Home extends Component {
                         />
                       </ImageContent>
                     </Link>
-                    <Link href={"/lojahonda/garrafa-termica-metal-brindes-personalizados-10150592632"} passHref>
+                    <Link href={"/casadoconstrutor/garrafa-termica-metal-brindes-personalizados-10150592632"} passHref>
                       <ImageContent>
                         <Image
                           src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-3.png"
@@ -434,7 +434,7 @@ class Home extends Component {
                         />
                       </ImageContent>
                     </Link>
-                    <Link href={"/lojahonda/copo-termico-500ml-com-abridor-brindes-10151373687"} passHref>
+                    <Link href={"/casadoconstrutor/copo-termico-500ml-com-abridor-brindes-10151373687"} passHref>
                       <ImageContent>
                         <Image
                           src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-2.png"
@@ -448,7 +448,7 @@ class Home extends Component {
                   </HomeContentBodyCategoriasGrid>
 
                   {/*<ItemPromocao />*/}
-                  <Link href={"/lojahonda/ultra-rapido"}>
+                  <Link href={"/casadoconstrutor/ultra-rapido"}>
                     <ImageContent>
                       <Image
                         src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/48%20hrs.png"

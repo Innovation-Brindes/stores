@@ -87,7 +87,7 @@ export function Resumo({ product }) {
     }
 
     addToCart(produto)
-    router.push("/lojahonda/carrinho")
+    router.push("/casadoconstrutor/carrinho")
   }
 
   return (

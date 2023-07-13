@@ -149,7 +149,7 @@ const ContainerBodySolicitacaoLayout = ({
       setLoading(false)
 
       setToast({ sucess: true, error: false })
-      router.push("/lojahonda/solicitacao-layout/success")
+      router.push("/casadoconstrutor/solicitacao-layout/success")
     } catch (error) {
       setLoading(false)
       console.log(error)

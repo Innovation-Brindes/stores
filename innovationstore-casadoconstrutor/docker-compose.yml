@@ -2,8 +2,8 @@ version: "3.7"
 
 services:
   app:
-    image: innovationstore/innovationstore:lojahonda
+    image: innovationstore/innovationstore:casadoconstrutor
     build: .
     ports:
-      - 3000:3000
+      - 3535:3535
     command: npm run start

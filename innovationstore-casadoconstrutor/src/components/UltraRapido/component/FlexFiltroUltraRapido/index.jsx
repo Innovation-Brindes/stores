@@ -109,7 +109,7 @@ const Index = (props) => {
           cor: null,
         }),
       )
-      router.push("/lojahonda/buscar/ultra-rapido")
+      router.push("/casadoconstrutor/buscar/ultra-rapido")
     }
   }
 

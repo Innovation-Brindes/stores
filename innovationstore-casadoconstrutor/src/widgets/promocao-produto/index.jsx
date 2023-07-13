@@ -31,7 +31,7 @@ export default function ItemPromocao({}) {
           <img alt="novidades" src={novidades} />
         </a>
       </Link>
-      <Link href="/lojahonda/ultra-rapido" passHref>
+      <Link href="/casadoconstrutor/ultra-rapido" passHref>
         <a className="mobile">
           <Image
             alt="novidades-mobile"

@@ -370,7 +370,7 @@ export const ConfirmarCompra = ({ id, dataInfoClientes, data, dadosPix }) => {
     } else if (paymentType.includes("BOLETO")) {
       boletoSubmit()
       setMethod("BOLETO")
-      router.push(`/lojahonda/confirmacao-compra/boleto/success/${id}`)
+      router.push(`/casadoconstrutor/confirmacao-compra/boleto/success/${id}`)
       getIpUser()
       typeof window !== "undefined" && window.scrollTo(0, 0)
     }

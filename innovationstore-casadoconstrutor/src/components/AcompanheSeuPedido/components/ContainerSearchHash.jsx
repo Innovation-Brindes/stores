@@ -20,7 +20,7 @@ const ContainerSearchHash = ({ cod_hash, getDadosAcompanharPedido }) => {
   }, [])
   // EAC0D3DD-7F76-45C3-B6AA-240040978317
   const onClickPageHash = async () => {
-    router.push(`/lojahonda/acompanhe-seu-pedido/${hash}`)
+    router.push(`/casadoconstrutor/acompanhe-seu-pedido/${hash}`)
 
     // const response = await AcompanharPedido.get(hash);
 

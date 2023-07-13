@@ -30,7 +30,7 @@ export const SlideMaisVendidos = () => {
       <Slider style={{ width: "400px", height: "300px", margin: "0 auto 0 auto" }}>
         <Slide index={0}>
           <BoxCards>
-            <Link href={"/lojahonda/copo-termico-500ml-com-abridor-brindes-10151373687"} passHref>
+            <Link href={"/casadoconstrutor/copo-termico-500ml-com-abridor-brindes-10151373687"} passHref>
               <a target="_blank" style={{ textDecoration: "none" }}>
                 <Box>
                   <HomeContentBodyCategoriasGridItemTextSlideVendido textAlign="center" color="black" as="h1" />
@@ -44,7 +44,7 @@ export const SlideMaisVendidos = () => {
         </Slide>
         <Slide index={1}>
           <BoxCards>
-            <Link href={"/lojahonda/segmento/ecologico/13"} passHref>
+            <Link href={"/casadoconstrutor/segmento/ecologico/13"} passHref>
               <a target="_blank" style={{ textDecoration: "none" }}>
                 <Box>
                   <HomeContentBodyCategoriasGridItemTextSlideVendido textAlign="center" color="black" as="h1" />
