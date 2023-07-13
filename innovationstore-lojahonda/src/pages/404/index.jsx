@@ -1,18 +1,12 @@
+import { useEffect } from "react"
+import { useRouter } from "next/router"
+
 export default function Page404() {
-  return (
-    <>
-      <h1>Redirecionando..</h1>
-    </>
-  )
-}
+  const router = useRouter()
 
-export const getServerSideProps = async (context) => {
-  const { res } = context
+  useEffect(() => {
+    router.replace("/")
+  })
 
-  res.writeHead(302, { Location: "/lojahonda" })
-  res.end()
-
-  return {
-    props: {},
-  }
+  return null
 }
