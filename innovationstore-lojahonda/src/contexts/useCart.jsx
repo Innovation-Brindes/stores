@@ -6,7 +6,7 @@ const CartContext = createContext()
 export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, [], () => {
     if (typeof window !== "undefined") {
-      const localData = localStorage.getItem("@innovationbrindes-cart-v1")
+      const localData = localStorage.getItem("@innovationstore-honda-cart-v1")
       return localData ? JSON.parse(localData) : []
     }
   })
@@ -79,7 +79,7 @@ export const CartProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    localStorage.setItem("@innovationbrindes-cart-v1", JSON.stringify(cart))
+    localStorage.setItem("@innovationstore-honda-cart-v1", JSON.stringify(cart))
   }, [cart])
 
   function addToCart(item) {

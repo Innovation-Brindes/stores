@@ -9,18 +9,18 @@ export function CookiesSessionProvider({ children }) {
 
   const cookies = parseCookies()
 
-  const addressClientCookies = cookies["@innovationbrindes/addressClient:0.0.1"]
+  const addressClientCookies = cookies["@innovationstore-honda/addressClient:0.0.1"]
 
   const haveClientAddresCookies = !!addressClientCookies
 
   const handleAddressClient = useCallback(async () => {
     if (addressClient) {
-      setCookie(undefined, "@innovationbrindes/addressClient:0.0.1", JSON.stringify(addressClient), {
+      setCookie(undefined, "@innovationstore-honda/addressClient:0.0.1", JSON.stringify(addressClient), {
         maxAge: 60 * 60 * 24 * 30, // 30 days
         path: "/",
       })
     } else {
-      destroyCookie(undefined, "@innovationbrindes/addressClient:0.0.1", {
+      destroyCookie(undefined, "@innovationstore-honda/addressClient:0.0.1", {
         path: "/",
       })
     }
