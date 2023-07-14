@@ -10,6 +10,14 @@ export const Container = styled.div`
   background-color: #f5f5f5;
 `
 
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+`
+
 export const LoginContainer = styled.div`
   width: 100%;
   max-width: 600px;

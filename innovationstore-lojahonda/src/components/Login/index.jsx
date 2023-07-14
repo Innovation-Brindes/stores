@@ -9,9 +9,11 @@ import { useState } from "react"
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
 import { useAuth } from "../../contexts/AuthProvider"
 import { useRouter } from "next/router"
+import Link from "next/link"
+import axios from "axios"
 
 const schema = yup.object().shape({
-  user: yup.string().required("Campo obrigatório"),
+  email: yup.string().email("E-mail inválido").required("Campo obrigatório"),
   password: yup.string().required("Campo obrigatório"),
 })
 
@@ -31,10 +33,23 @@ export function Login() {
   const [showPassword, setShowPassword] = useState(false)
 
   const onSubmit = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000))
-    console.log(data)
+    const response = await axios.post(
+      "https://api.innovationbrindes.com.br/api/site/v2/innovation-store/valida-login",
+      {
+        email: data.email,
+        senha: data.password,
+      },
+    )
 
-    await login(data.user, data.password)
+    const dataLogin = response.data
+
+    if (dataLogin === "Usuário não encontrado") {
+      return alert("Email ou senha incorretos")
+    }
+
+    const { id: token, nome } = dataLogin
+
+    await login(nome, token)
 
     router.push("/lojahonda/painel/relatorios")
   }
@@ -42,11 +57,6 @@ export function Login() {
   return (
     <S.Container>
       <S.LoginContainer>
-        {/* <S.HeroSection>
-          <S.ImageContent>
-            <img src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo2.png" />
-          </S.ImageContent>
-        </S.HeroSection> */}
         <S.LoginSection>
           <S.ImageContent>
             <Image src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo2.png" width={203} height={63} />
@@ -61,7 +71,7 @@ export function Login() {
               <S.FormTitle>Entrar</S.FormTitle>
               <S.InputGroup>
                 <BiSolidUserCircle />
-                <S.FormInput placeholder="Usuário" {...register("user")} />
+                <S.FormInput placeholder="Usuário" {...register("email")} />
               </S.InputGroup>
               {errors.user && <S.FormError>{errors.user.message}</S.FormError>}
 
@@ -78,7 +88,12 @@ export function Login() {
               <S.FormButton type="submit" disabled={isSubmitting}>
                 {isSubmitting ? "Carregando..." : "Entrar"}
               </S.FormButton>
-              <S.FormLink href="#">Esqueci minha senha</S.FormLink>
+              <S.Wrapper>
+                <S.FormLink href="#">Esqueci minha senha</S.FormLink>
+                <Link href="/lojahonda" passHref>
+                  <S.FormLink>Voltar para home</S.FormLink>
+                </Link>
+              </S.Wrapper>
             </S.Form>
           </S.FormContainer>
         </S.LoginSection>
