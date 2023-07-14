@@ -11,6 +11,7 @@ import "../globals.css"
 import { ChakraProvider } from "@chakra-ui/react"
 
 import { ProductProvider } from "../contexts/ProductProvider"
+import { AuthProvider } from "../contexts/AuthProvider"
 
 globalStyles()
 
@@ -45,16 +46,18 @@ function MyApp({ Component, pageProps }) {
       ></script>
 
       <ChakraProvider>
-        <ProductProvider>
-          <CartProvider>
-            <CookiesSessionProvider>
-              <WhatsAppProvider>
-                <Component {...pageProps} />
-                <WhatsAppChat />
-              </WhatsAppProvider>
-            </CookiesSessionProvider>
-          </CartProvider>
-        </ProductProvider>
+        <AuthProvider>
+          <ProductProvider>
+            <CartProvider>
+              <CookiesSessionProvider>
+                <WhatsAppProvider>
+                  <Component {...pageProps} />
+                  <WhatsAppChat />
+                </WhatsAppProvider>
+              </CookiesSessionProvider>
+            </CartProvider>
+          </ProductProvider>
+        </AuthProvider>
       </ChakraProvider>
     </React.Fragment>
   )

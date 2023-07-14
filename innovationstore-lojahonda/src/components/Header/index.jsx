@@ -23,8 +23,11 @@ import {
 import Image from "next/image"
 import { IoIosArrowDown } from "react-icons/io"
 import { InputSearch } from "./InputSearch"
-import { FaPhoneAlt, FaShoppingCart } from "react-icons/fa"
+import { FaPhoneAlt, FaShoppingCart, FaUser } from "react-icons/fa"
 import { MobileControl } from "./styled"
+import { useAuth } from "../../contexts/AuthProvider"
+import { BiLogIn, BiLogInCircle, BiLogOutCircle } from "react-icons/bi"
+import { UserComponentLogin } from "./UserComponentLogin/index.jsx"
 
 export default function HeaderComponent({ segmentos, subcategorias }) {
   const [display_init, setDisplayInit] = useState(0)
@@ -33,6 +36,13 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
     segmentos: false,
     subcategorias: false,
   })
+
+  const {
+    state: { user, token, isAuthenticated },
+    logout,
+  } = useAuth()
+
+  console.log(user)
 
   useEffect(() => {
     const timer = setTimeout(function () {
@@ -252,7 +262,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                 <span>{cart?.length} itens</span>
               </Link>
             </IconGroup>
-            {/* <Divider />
+            <Divider />
             <IconGroup
               css={{
                 fontWeight: "bold",
@@ -261,8 +271,17 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
               <IconContent border>
                 <FaUser />
               </IconContent>
-              <span>Entrar</span>
-            </IconGroup> */}
+              {!isAuthenticated && (
+                <Link href={"/lojahonda/login"}>
+                  <span>Entrar</span>
+                </Link>
+              )}
+              {isAuthenticated && (
+                <>
+                  <UserComponentLogin user={user} logout={logout} />
+                </>
+              )}
+            </IconGroup>
           </InfosContent>
         </Container>
       </div>

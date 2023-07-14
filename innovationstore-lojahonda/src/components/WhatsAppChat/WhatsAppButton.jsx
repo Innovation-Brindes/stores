@@ -6,10 +6,20 @@ import { FaWhatsapp } from "react-icons/fa"
 import { useWhatsApp } from "../../contexts/WhatsAppProvider"
 import { WhatsAppButton as PulseWhatsAppButton } from "./styles"
 import { AiFillCloseCircle } from "react-icons/ai"
+import { useEffect } from "react"
 
 export function WhatsAppButton() {
   const { openChat, setOpenChat } = useWhatsApp()
   const [buttonVisible, setButtonVisible] = useState(true)
+  const [isNotLogin, setIsNotLogin] = useState(false)
+
+  useEffect(() => {
+    if (window !== "undefined") {
+      const isNotLogin = window !== "undefined" && window.location.pathname === "/lojahonda/login"
+
+      setIsNotLogin(isNotLogin)
+    }
+  }, [])
 
   return (
     <Flex
@@ -18,8 +28,9 @@ export function WhatsAppButton() {
       right="20px"
       justifyContent="center"
       alignItems="center"
-      display={buttonVisible ? "flex" : "none"}
+      // display={buttonVisible ? "flex" : "none"}
       zIndex="999999"
+      display={isNotLogin || buttonVisible ? "none" : "flex"}
     >
       <PulseWhatsAppButton
         position="fixed"
