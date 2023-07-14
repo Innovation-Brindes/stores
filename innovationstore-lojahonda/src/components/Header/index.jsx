@@ -42,8 +42,6 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
     logout,
   } = useAuth()
 
-  console.log(user)
-
   useEffect(() => {
     const timer = setTimeout(function () {
       setDisplayInit(1)
