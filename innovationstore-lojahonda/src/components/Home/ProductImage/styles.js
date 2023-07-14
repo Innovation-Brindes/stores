@@ -59,7 +59,7 @@ export const ProductImageContent = styled.div`
 
       font-size: 20px;
       color: #fff;
-      background-color: #e2001b;
+      background-color: #cc0000;
       border-radius: 23px;
 
       text-transform: uppercase;

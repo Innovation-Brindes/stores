@@ -9,17 +9,17 @@ export function Steps({ title, children, error }) {
           <Box as="span" flex="1" textAlign="left">
             {title}
           </Box>
-          <Flex color="#E2001B" gap="1rem" alignItems="center" justifyContent="center">
+          <Flex color="#cc0000" gap="1rem" alignItems="center" justifyContent="center">
             <Text m="0">Editar</Text>
             <Flex
               w="1.8rem"
               h="1.8rem"
               borderRadius="50%"
-              border="2px solid #E2001B"
+              border="2px solid #cc0000"
               alignItems="center"
               justifyContent="center"
             >
-              <AccordionIcon color="#E2001B" />
+              <AccordionIcon color="#cc0000" />
             </Flex>
           </Flex>
         </AccordionButton>

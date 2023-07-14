@@ -242,7 +242,7 @@ export const ButtonConfira = styled(Button)`
     background: ${(props) =>
       props.isUltraRapido
         ? `linear-gradient(90deg, ${colorBaseUltraRapido} 0%, #FFDB58 100%)`
-        : `linear-gradient(90deg, #E2001B 0%, ${cor_base_1} 100%)`};
+        : `linear-gradient(90deg, #cc0000 0%, ${cor_base_1} 100%)`};
     transition: all ease 0.2s;
     color: white;
   }
@@ -278,8 +278,8 @@ export const LinkBoxProductContainer = styled(Box)`
 
   @keyframes pulse {
     0% {
-      -moz-box-shadow: ${(props) => (props.isUltraRapido ? `0 0 0 0 ${colorBaseUltraRapido}` : `0 0 0 0 #E2001B`)};
-      box-shadow: ${(props) => (props.isUltraRapido ? `0 0 0 0 ${colorBaseUltraRapido}` : `0 0 0 0 #E2001B`)};
+      -moz-box-shadow: ${(props) => (props.isUltraRapido ? `0 0 0 0 ${colorBaseUltraRapido}` : `0 0 0 0 #cc0000`)};
+      box-shadow: ${(props) => (props.isUltraRapido ? `0 0 0 0 ${colorBaseUltraRapido}` : `0 0 0 0 #cc0000`)};
     }
     70% {
       -moz-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0);

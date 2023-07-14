@@ -257,7 +257,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                     }
                   }}
                 >
-                  <ChevronDownIcon mt="12px" w={50} fontSize={38} color={"#e2001b"} />
+                  <ChevronDownIcon mt="12px" w={50} fontSize={38} color={"#cc0000"} />
                 </HomeContentSlideTopoFilterControlItemArrow>
 
                 <Popover
@@ -555,7 +555,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                       thickness="4px"
                       speed="0.65s"
                       emptyColor="gray.200"
-                      color={"#e2001b"}
+                      color={"#cc0000"}
                       size="md"
                       position={"relative"}
                       marginLeft={"auto"}
@@ -564,7 +564,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                   ) : (
                     <RangeSlider
                       aria-label={["min", "max"]}
-                      colorScheme={"#e2001b"}
+                      colorScheme={"#cc0000"}
                       defaultValue={[0, faixaDePreco[1]]}
                       min={faixaDePreco[0]}
                       max={faixaDePreco[1]}
@@ -587,8 +587,8 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                         setShowTooltip(false)
                       }}
                     >
-                      <RangeSliderTrack h={2} bg={"#e2001b"}>
-                        <RangeSliderFilledTrack bg={"#e2001b"} />
+                      <RangeSliderTrack h={2} bg={"#cc0000"}>
+                        <RangeSliderFilledTrack bg={"#cc0000"} />
                       </RangeSliderTrack>
                       <Tooltip
                         hasArrow
@@ -605,7 +605,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                             setValorDe(valorDe + 0.2)
                           }}
                           index={0}
-                          backgroundColor={"#e2001b"}
+                          backgroundColor={"#cc0000"}
                         ></RangeSliderThumb>
                       </Tooltip>
 
@@ -624,7 +624,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                             setValorAte(valorAte - 0.2)
                           }}
                           index={1}
-                          backgroundColor={"#e2001b"}
+                          backgroundColor={"#cc0000"}
                         ></RangeSliderThumb>
                       </Tooltip>
                     </RangeSlider>
@@ -634,7 +634,7 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
 
               <HomeContentSlideTopoFilterControlSubmit>
                 <Tooltip
-                  label="Selecione uma categoria para encontrarmos o seu brinde &#e2001b;"
+                  label="Selecione uma categoria para encontrarmos o seu brinde &#cc0000;"
                   paddingTop={15}
                   paddingLeft={4}
                   minWidth={"415px"}

@@ -120,16 +120,16 @@ export default function Sucesso() {
             alignItems="center"
             justifyContent="center"
             borderRadius="50%"
-            border="3px solid #E2001B"
+            border="3px solid #cc0000"
             width="5rem"
             height="5rem"
             padding="1rem"
           >
-            <FaRegHandPeace size="2.5rem" color="#E2001B" />
+            <FaRegHandPeace size="2.5rem" color="#cc0000" />
           </Flex>
 
           <Text textAlign="center" m="0">
-            <Text m="0" as="span" color="#E2001B">
+            <Text m="0" as="span" color="#cc0000">
               PRONTO!
             </Text>{" "}
             Seu orçamento foi gerado com sucesso!

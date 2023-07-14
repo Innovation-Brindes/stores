@@ -136,11 +136,11 @@ export function Resumo({ product }) {
       <S.ContainerActions>
         <Button.Root
           label="Adicionar ao carrinho"
-          background="#E2001B"
+          background="#cc0000"
           color="#fff"
           onClick={() => handleAddProductCart()}
         />
-        <Button.Root label="baixar orçamento" border="#E2001B" color="#E2001B" onClick={nextStep} />
+        <Button.Root label="baixar orçamento" border="#cc0000" color="#cc0000" onClick={nextStep} />
       </S.ContainerActions>
     </>
   )

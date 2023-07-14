@@ -17,8 +17,8 @@ export function CardTransp({ nome, prazo, frete, logo, onClick }) {
         _hover={{
           transition: "all 0.2s ease-in-out",
           transform: "scale(1.02)",
-          border: "1px solid #E2001B",
-          color: "#E2001B",
+          border: "1px solid #cc0000",
+          color: "#cc0000",
         }}
         bg="transparent"
         onClick={onClick}

@@ -68,7 +68,7 @@ export const BuscarContentFiltroContentHeader = styled.div`
     font-size: ${(props) => (props.isUltraRapido ? "40px" : "60px")};
     font-family: "Open Sans";
     font-weight: bold;
-    color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#E2001B")};
+    color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#cc0000")};
   }
   h2 {
     height: 77px;
@@ -77,7 +77,7 @@ export const BuscarContentFiltroContentHeader = styled.div`
     font-weight: bold;
     color: ${(props) => (props.isUltraRapido ? "#494949" : "#494949")};
     span {
-      color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#E2001B")};
+      color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#cc0000")};
     }
   }
   p {
@@ -97,7 +97,7 @@ export const BuscarContentFiltroContentHeader = styled.div`
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#E2001B")};
+    background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#cc0000")};
     border-radius: 7px;
     font-family: "Open Sans";
     font-weight: bold;
@@ -171,7 +171,7 @@ export const BuscarContentFiltroContentHeaderMobileTitle = styled.div`
   display: flex;
   justify-content: space-between;
   /* display:${(props) => (props.viewMenuMobile ? "block" : "none")}; */
-  background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#E2001B")};
+  background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#cc0000")};
   align-items: center;
   margin-bottom: 10px;
   h1 {
@@ -354,7 +354,7 @@ export const BuscarContentFiltroContentControlItem = styled.div`
   button {
     width: 100px;
     height: 40px;
-    background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#E2001B")};
+    background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#cc0000")};
     font-size: 14;
     font-family: "Open Sans";
     font-weight: bold;
@@ -1118,8 +1118,8 @@ export const BuscarContentFiltroContentSubmit = styled.div`
   button {
     width: 100%;
     height: 50px;
-    /* background-color: #E2001B; */
-    background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#E2001B")};
+    /* background-color: #cc0000; */
+    background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#cc0000")};
     border-radius: 10px;
     font-size: 18px;
     font-family: "Open Sans";
@@ -1137,7 +1137,7 @@ export const BuscarContentFiltroContentControlItemSubmit = styled.div`
   button {
     width: 100%;
     height: 60px;
-    background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#E2001B")};
+    background-color: ${(props) => (props.isUltraRapido ? `${colorBaseUltraRapido}` : "#cc0000")};
     margin-top: ${(props) => (props.isUltraRapido && props.viewMenuMobile ? "50px" : "20px")};
     font-size: 15px;
     font-family: "Open Sans";

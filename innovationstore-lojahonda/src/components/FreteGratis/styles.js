@@ -29,7 +29,7 @@ export const FreteGratisContent = styled("div", {
   gap: "9px",
   paddingRight: "20px",
   cursor: "pointer",
-  color: "#E2001B",
+  color: "#cc0000",
   fontWeight: "600",
 
   variants: {
@@ -58,7 +58,7 @@ export const TemFreteGratis = styled("div", {
     fontWeight: "bold",
     color: "#fff",
     textTransform: "uppercase",
-    backgroundColor: "#E2001B",
+    backgroundColor: "#cc0000",
     padding: ".2rem .8rem",
     borderRadius: "13px",
     margin: "0",

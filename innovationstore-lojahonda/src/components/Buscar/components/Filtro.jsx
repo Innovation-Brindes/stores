@@ -947,7 +947,7 @@ export default function FiltroBusca({
                     thickness="4px"
                     speed="0.65s"
                     emptyColor="gray.200"
-                    color={isUltraRapido ? "#fca62e" : "#E2001B"}
+                    color={isUltraRapido ? "#fca62e" : "#cc0000"}
                     size="md"
                     position={"relative"}
                     marginLeft={"auto"}
@@ -956,7 +956,7 @@ export default function FiltroBusca({
                 ) : (
                   <RangeSlider
                     aria-label={["min", "max"]}
-                    colorScheme={isUltraRapido ? "#fca62e" : "#E2001B"}
+                    colorScheme={isUltraRapido ? "#fca62e" : "#cc0000"}
                     defaultValue={[0, faixaDePreco[1]]}
                     min={faixaDePreco[0]}
                     max={faixaDePreco[1]}
@@ -992,8 +992,8 @@ export default function FiltroBusca({
                       }
                     }}
                   >
-                    <RangeSliderTrack h={2} bg={isUltraRapido ? "#FAFAD2" : "#E2001B"}>
-                      <RangeSliderFilledTrack bg={isUltraRapido ? "#fca62e" : "#E2001B"} />
+                    <RangeSliderTrack h={2} bg={isUltraRapido ? "#FAFAD2" : "#cc0000"}>
+                      <RangeSliderFilledTrack bg={isUltraRapido ? "#fca62e" : "#cc0000"} />
                     </RangeSliderTrack>
 
                     <Tooltip

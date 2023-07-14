@@ -165,9 +165,10 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
         <Container>
           <Link href="/lojahonda">
             <Image
-              src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo1.png"
+              src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo-honda.png"
               width={126}
               height={38}
+              quality={100}
               priority
               className="cursor-pointer"
             />
@@ -181,7 +182,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
             >
               <MenuButton active={openMenu.subcategorias}>Brindes</MenuButton>
               <IoIosArrowDown
-                color="#E2001B"
+                color="#cc0000"
                 className={`${openMenu.subcategorias ? "transform rotate-180" : ""} transition`}
               />
 
@@ -220,7 +221,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                 <SpanLink
                   css={{
                     background: "#CFCFCF",
-                    color: "#E2001B",
+                    color: "#cc0000",
                   }}
                 >
                   Confira
@@ -233,7 +234,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                 <SpanLink
                   css={{
                     background: "#CFCFCF",
-                    color: "#E2001B",
+                    color: "#cc0000",
                   }}
                 >
                   Exclusivo
@@ -252,7 +253,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                 <SpanLink
                   css={{
                     background: "#cfcfcf",
-                    color: "#E2001B!important",
+                    color: "#cc0000!important",
                   }}
                 >
                   Central de atendimento

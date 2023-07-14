@@ -97,7 +97,7 @@ export const BodyFooterContainer = styled.div`
 
   flex-wrap: wrap;
 
-  color: #e2001b;
+  color: #cc0000;
   font-weight: bold;
   padding-inline: 140px;
   justify-content: center;
@@ -145,7 +145,7 @@ export const InnovationContent = styled.div`
 
     &:hover {
       text-decoration: underline;
-      color: #e2001b;
+      color: #cc0000;
     }
   }
 `
@@ -236,7 +236,7 @@ export const SoAquiContainer = styled.div`
 
     &:hover {
       text-decoration: underline;
-      color: #e2001b;
+      color: #cc0000;
     }
   }
 
@@ -279,7 +279,7 @@ export const AtendimentoContainer = styled.div`
 
     &:hover {
       text-decoration: underline;
-      color: #e2001b;
+      color: #cc0000;
     }
   }
 
@@ -335,7 +335,7 @@ export const ImageContent = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: #e2001b;
+  background-color: #cc0000;
 `
 
 export const SiteSeguroContainer = styled.div`

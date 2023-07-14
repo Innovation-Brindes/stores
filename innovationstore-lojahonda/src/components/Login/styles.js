@@ -54,7 +54,7 @@ export const ImageContent = styled.div`
   align-items: center;
   justify-content: center;
 
-  background-color: ${({ background }) => background || "#e2001b"};
+  background-color: ${({ background }) => background || "#cc0000"};
 `
 
 export const HeroSection = styled.div`
@@ -151,10 +151,10 @@ export const InputGroup = styled.div`
   }
 
   &:focus-within {
-    border: 1px solid #e2001b;
+    border: 1px solid #cc0000;
 
     svg {
-      color: #e2001b;
+      color: #cc0000;
     }
   }
 `
@@ -170,11 +170,11 @@ export const FormInput = styled.input`
 export const FormButton = styled.button`
   width: 100%;
   height: 40px;
-  border: 1px solid #e2001b;
+  border: 1px solid #cc0000;
   border-radius: 4px;
   padding: 0 1rem;
   color: #fff;
-  background-color: #e2001b;
+  background-color: #cc0000;
   font-size: 1rem;
   font-weight: 500;
   outline: none;
@@ -183,11 +183,11 @@ export const FormButton = styled.button`
 
   &:hover {
     background-color: #fff;
-    color: #e2001b;
+    color: #cc0000;
   }
 
   &:disabled {
-    background-color: #e2001b;
+    background-color: #cc0000;
     filter: brightness(0.5);
     color: #fff;
     cursor: not-allowed;
@@ -213,7 +213,7 @@ export const FormLink = styled.a`
 
 export const FormError = styled.p`
   margin: 0;
-  color: #e2001b;
+  color: #cc0000;
   font-size: 0.8rem;
   font-weight: 500;
   align-self: flex-start;

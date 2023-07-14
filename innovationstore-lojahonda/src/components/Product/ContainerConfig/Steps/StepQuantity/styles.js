@@ -42,7 +42,7 @@ export const BoxQuantity = styled.div`
 
   h1 {
     font-size: 20px;
-    color: #e2001b;
+    color: #cc0000;
     font-weight: 700;
   }
 
@@ -103,7 +103,7 @@ export const IconInputQuantity = styled.button`
 
   svg {
     font-size: 30px;
-    color: #e2001b;
+    color: #cc0000;
   }
 
   span {
@@ -119,7 +119,7 @@ export const SelectBestOption = styled.div`
 
   > h1 {
     font-size: 20px;
-    color: #e2001b;
+    color: #cc0000;
     font-weight: 700;
     text-align: center;
   }

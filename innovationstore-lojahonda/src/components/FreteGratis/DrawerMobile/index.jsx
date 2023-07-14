@@ -92,7 +92,7 @@ export function DrawerMobile() {
           alt="Frete grátis para alguns estados"
         />
         {!addressClient && (
-          <Flex ml=".6rem" color="#E2001B" alignItems="center" gap={1} marginBlock=".2rem">
+          <Flex ml=".6rem" color="#cc0000" alignItems="center" gap={1} marginBlock=".2rem">
             <TfiLocationPin size={20} />
             <Text as="span" m={0} fontSize="12px" onClick={onOpen}>
               Informe seu CEP
@@ -101,8 +101,8 @@ export function DrawerMobile() {
         )}
         {addressClient && (
           <Flex ml=".6rem" alignItems="center" padding={1}>
-            <TfiLocationPin size={15} color="#E2001B" />
-            <Text as="span" m={0} fontSize="10px" color="#E2001B" fontWeight="bold">
+            <TfiLocationPin size={15} color="#cc0000" />
+            <Text as="span" m={0} fontSize="10px" color="#cc0000" fontWeight="bold">
               Cep: {maskCep(addressClient.cep)} {addressClient.frete_gratis === "N" && "não é gratuito :("}
             </Text>
             {addressClient.frete_gratis === "S" && (
@@ -112,7 +112,7 @@ export function DrawerMobile() {
                 color="#fff"
                 fontSize="8px"
                 textTransform="uppercase"
-                bgColor="#E2001B"
+                bgColor="#cc0000"
                 paddingBlock=".2rem"
                 paddingInline="5px"
                 fontWeight="bold"
@@ -167,7 +167,7 @@ export function DrawerMobile() {
                 null}
             </FormControl>
             <Button
-              bgColor="#E2001B"
+              bgColor="#cc0000"
               width="100%"
               color="#fff"
               fontSize="20px"

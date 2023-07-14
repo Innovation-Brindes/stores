@@ -38,7 +38,7 @@ export function InfoValores() {
         </Text>
       </Flex>
       <Flex justifyContent="space-between" alignItems="center">
-        <Text as="h1" color="#E2001B" fontSize="20px" fontWeight="bold" letterSpacing="0rem" textAlign="center" m="0">
+        <Text as="h1" color="#cc0000" fontSize="20px" fontWeight="bold" letterSpacing="0rem" textAlign="center" m="0">
           Total
         </Text>
         <Text m="0" as="h1" color="#000" fontSize="20px" fontWeight="bold" letterSpacing="0rem" textAlign="center">

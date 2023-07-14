@@ -144,7 +144,7 @@ export function HeaderItem({ index, item, setAnimationDelete }) {
       id={`item-${item.id_hash}`}
     >
       <Flex paddingLeft={!isMedia && "2.563rem"} width="300px" alignItems="center" justifyContent={"space-between"}>
-        <Text m="0" color="#E2001B" fontWeight="bold" fontSize="15px">
+        <Text m="0" color="#cc0000" fontWeight="bold" fontSize="15px">
           Item {index + 1}
         </Text>
         <Button

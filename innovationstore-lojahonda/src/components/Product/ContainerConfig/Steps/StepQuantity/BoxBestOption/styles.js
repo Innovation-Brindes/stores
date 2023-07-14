@@ -13,7 +13,7 @@ export const BoxBestOptionItem = styled.div`
 
   padding-inline: 15px;
   padding-block: 5px;
-  border: 1px solid ${(props) => (props.isSelected ? "#E2001B" : "#cfcfcf")};
+  border: 1px solid ${(props) => (props.isSelected ? "#cc0000" : "#cfcfcf")};
   cursor: pointer;
   border-radius: 5px;
 

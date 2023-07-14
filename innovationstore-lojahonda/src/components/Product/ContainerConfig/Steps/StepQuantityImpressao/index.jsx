@@ -34,7 +34,7 @@ export function StepQuantityImpressao({ product }) {
           <S.GroupImpressao key={impressao.qtd_batida}>
             <S.Impressao onClick={() => handleSelectedImpressao(impressao)}>
               <ColorInputComponent
-                backgroundColor={selectedImpressao?.qtd_batida === impressao.qtd_batida ? "#E2001B" : "#fff"}
+                backgroundColor={selectedImpressao?.qtd_batida === impressao.qtd_batida ? "#cc0000" : "#fff"}
               />
               {impressao.qtd_batida} {impressao.qtd_batida === 1 ? "Impressão" : "Impressões"}
             </S.Impressao>

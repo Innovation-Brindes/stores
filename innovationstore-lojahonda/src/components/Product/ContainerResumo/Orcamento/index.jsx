@@ -119,8 +119,8 @@ export function Orcamento() {
           </ProductValueContent>
 
           <ContainerActions>
-            <Button.Root label="Adicionar ao carrinho" background="#E2001B" color="#fff" />
-            <Button.Root label="Ver resumo" background="#FFE6DB" color="#E2001B" onClick={previousStep}>
+            <Button.Root label="Adicionar ao carrinho" background="#cc0000" color="#fff" />
+            <Button.Root label="Ver resumo" background="#FFE6DB" color="#cc0000" onClick={previousStep}>
               <Button.Icon icon={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/resumo.svg"} />
             </Button.Root>
           </ContainerActions>
@@ -191,7 +191,7 @@ export function Orcamento() {
 
           <Button.Root
             label={!loading ? "Baixar" : "Gerando orçamento..."}
-            background="#E2001B"
+            background="#cc0000"
             color="#fff"
             type="submit"
             isDisabled={!acceptedTerms}

@@ -25,11 +25,11 @@ export function NossoCarro({ handleStepCartValue, valorFrete }) {
       alignItems="center"
       justifyContent="flex-start"
       gap="6px"
-      color="#E2001B"
+      color="#cc0000"
       paddingInline="9px"
       mt=".5rem"
       cursor={"pointer"}
-      border={"1px solid #E2001B"}
+      border={"1px solid #cc0000"}
       borderRadius="6px"
       height="35px"
       onClick={() => handleStepCartValue("nossoCarro")}

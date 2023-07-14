@@ -146,7 +146,7 @@ export function EditModal() {
         <ModalOverlay />
         <ModalContent borderRadius="1rem">
           <ModalHeader
-            color="#E2001B"
+            color="#cc0000"
             ml="auto"
             mr="4rem"
             fontFamily={"Open Sans, sans-serif"}
@@ -160,7 +160,7 @@ export function EditModal() {
           >
             Edite as Configurações do seu Produto <br />
             {isMobile && (
-              <Text as="span" fontSize=".8rem" color="#E2001B" ml="auto" textAlign="start">
+              <Text as="span" fontSize=".8rem" color="#cc0000" ml="auto" textAlign="start">
                 Item 1{" "}
                 <Text as="span" color="#000000">
                   {setFirstLetterUpperCase(itemEdit?.nome_prod)} - {itemEdit?.codprod} -

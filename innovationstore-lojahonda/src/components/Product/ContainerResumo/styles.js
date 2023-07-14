@@ -1,7 +1,7 @@
 import styled, { keyframes } from "styled-components"
 
 export const Heading = styled.h1`
-  color: #e2001b;
+  color: #cc0000;
   font-size: 20px;
   font-weight: bold;
 `
@@ -78,7 +78,7 @@ export const ProductTotalPrice = styled.div`
   gap: 20px;
 
   span {
-    color: #e2001b;
+    color: #cc0000;
     font-weight: bold;
   }
 
@@ -138,7 +138,7 @@ export const Loader = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: conic-gradient(#0000 10%, #e2001b);
+  background: conic-gradient(#0000 10%, #cc0000);
   -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
 
   animation: ${animationLoading} 1s linear infinite;

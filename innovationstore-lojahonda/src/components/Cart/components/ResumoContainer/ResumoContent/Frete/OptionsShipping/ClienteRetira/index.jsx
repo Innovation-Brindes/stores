@@ -8,11 +8,11 @@ export function ClienteRetira({ handleStepCartValue }) {
       templateColumns="2fr 2fr 1fr"
       gap="6px"
       bgColor="#fff"
-      color="#E2001B"
+      color="#cc0000"
       paddingInline="10px"
       cursor={"pointer"}
       borderRadius="6px"
-      border="1px solid #E2001B"
+      border="1px solid #cc0000"
       onClick={() => handleStepCartValue("clienteRetira")}
       height="35px"
       alignItems="center"

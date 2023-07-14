@@ -26,7 +26,7 @@ export function ResumoContainer() {
       paddingBottom="2rem"
     >
       {stepCart !== 2 && stepCart !== "entrega" && stepCart !== "retirada" && (
-        <Text as="h1" color="#E2001B" fontSize="20px" fontWeight="bold" letterSpacing="0rem" textAlign="start">
+        <Text as="h1" color="#cc0000" fontSize="20px" fontWeight="bold" letterSpacing="0rem" textAlign="start">
           Resumo carrinho
         </Text>
       )}

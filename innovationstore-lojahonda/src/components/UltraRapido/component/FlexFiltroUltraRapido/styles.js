@@ -2,7 +2,7 @@ import { Modal, RangeSlider } from "@chakra-ui/react"
 import styled from "styled-components"
 import { Flex } from "@chakra-ui/react"
 
-export const colorBaseUltraRapido = "#E2001B"
+export const colorBaseUltraRapido = "#cc0000"
 
 export const SetaSlider = styled.div`
   width: 25px;

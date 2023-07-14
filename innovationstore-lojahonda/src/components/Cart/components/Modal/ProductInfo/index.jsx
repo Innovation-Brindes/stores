@@ -37,7 +37,7 @@ export function ProductInfo({ itemEdit }) {
           {...(isMobile && { width: "100%" })}
         >
           <Text as="h1" m="0" fontSize="1rem" fontWeight="bold" paddingTop="2rem" paddingBottom="2rem">
-            <Text as="span" color="#E2001B">
+            <Text as="span" color="#cc0000">
               Item 1{" "}
             </Text>{" "}
             {setFirstLetterUpperCase(itemEdit?.nome_prod) + " - " + itemEdit.codprod + " - "}

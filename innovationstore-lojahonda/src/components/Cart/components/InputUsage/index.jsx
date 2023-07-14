@@ -14,7 +14,7 @@ const InputUsage = ({ placeholder, name, type, error, value, isType, ...rest }, 
           type={type}
           {...rest}
           _focus={{
-            border: "1px solid #E2001B",
+            border: "1px solid #cc0000",
           }}
         />
         {error && (

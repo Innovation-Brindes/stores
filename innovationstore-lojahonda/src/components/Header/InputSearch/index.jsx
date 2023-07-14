@@ -61,7 +61,7 @@ export function InputSearch() {
           <InputGroup>
             <Input
               _focus={{
-                borderColor: "#E2001B",
+                borderColor: "#cc0000",
               }}
               type="text"
               placeholder="Pesquise"
@@ -111,7 +111,7 @@ export function InputSearch() {
                   paddingInline="1rem"
                   paddingBlock="0.5rem"
                   _hover={{
-                    bgColor: "#E2001B",
+                    bgColor: "#cc0000",
                     color: "#fff",
                   }}
                   cursor="pointer"

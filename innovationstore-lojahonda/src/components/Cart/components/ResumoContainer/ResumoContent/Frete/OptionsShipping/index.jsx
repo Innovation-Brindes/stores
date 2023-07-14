@@ -141,11 +141,11 @@ export function OptionsShipping({
           mx="auto"
           borderRadius="23px"
           fontSize="15px"
-          color="#E2001B"
+          color="#cc0000"
           bg="transparent"
-          border="1px solid #E2001B"
+          border="1px solid #cc0000"
           _hover={{
-            bg: "#E2001B",
+            bg: "#cc0000",
             color: "#fff",
           }}
           onClick={() => {

@@ -85,7 +85,7 @@ export function BoxBestOption({ product }) {
             onClick={() => handleSelectedBestOption(item)}
           >
             <ColorInputComponent
-              backgroundColor={selectedBestOption?.quantity === item.quantity ? "#E2001B" : "#fff"}
+              backgroundColor={selectedBestOption?.quantity === item.quantity ? "#cc0000" : "#fff"}
             />
             <S.BoxBestOptionItemContent>
               <S.BoxBestOptionItemContentHeader>

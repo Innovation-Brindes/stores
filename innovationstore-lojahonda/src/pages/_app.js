@@ -12,6 +12,14 @@ import { ChakraProvider } from "@chakra-ui/react"
 
 import { ProductProvider } from "../contexts/ProductProvider"
 import { AuthProvider } from "../contexts/AuthProvider"
+import dynamic from "next/dynamic"
+
+const TopProgressBar = dynamic(
+  () => {
+    return import("../components/TopProgressBar")
+  },
+  { ssr: false },
+)
 
 globalStyles()
 
@@ -28,6 +36,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href="../../images/logo-icon.png" />
         <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon-192x192.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <link rel="stylesheet" type="text/css" href="/nprogress.css" />
       </Head>
 
       <link
@@ -51,6 +60,7 @@ function MyApp({ Component, pageProps }) {
             <CartProvider>
               <CookiesSessionProvider>
                 <WhatsAppProvider>
+                  <TopProgressBar />
                   <Component {...pageProps} />
                   <WhatsAppChat />
                 </WhatsAppProvider>
