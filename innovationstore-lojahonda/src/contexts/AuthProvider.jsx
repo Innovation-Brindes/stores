@@ -106,7 +106,7 @@ export function AuthProvider({ children }) {
       path: "/",
     })
 
-    router.push("/lojahonda/login")
+    router.push("/lojahonda/")
   }
 
   useEffect(() => {
