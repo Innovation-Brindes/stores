@@ -47,7 +47,7 @@ export const Header = styled.div`
   align-items: center;
   justify-content: center;
   padding: 1rem 1rem;
-  background-color: #e7f3ca;
+  background-color: #f4cccc;
   width: 100%;
   gap: 10px;
 `
@@ -60,7 +60,7 @@ export const Content = styled.div`
   }
 
   span {
-    color: #72a904;
+    color: #cc0000;
     font-weight: bold;
     text-decoration: underline;
     cursor: pointer;
@@ -81,7 +81,7 @@ export const Footer = styled.div`
 `
 
 export const Button = styled.button`
-  background-color: #7fbc04;
+  background-color: #cc0000;
   color: #fff;
   border: none;
   padding: 0.5rem 1rem;

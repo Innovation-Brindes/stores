@@ -43,13 +43,13 @@ export function AcceptCookies() {
   return (
     <S.Container showCookie={state.showCookie}>
       <S.Header>
-        <Image src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo%20mobile-01.svg" width={30} height={30} />
+        {/* <Image src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo%20mobile-01.svg" width={30} height={30} /> */}
         <span>Consentimento de cookies</span>
       </S.Header>
       <S.Content>
         <h1>
           Nós utilizamos os cookies para personalizar anúncios, gerar dados estatísticos e garantir que você tenha a
-          melhor experiência na Innovation!. <br />{" "}
+          melhor experiência na Innovationstore - Honda!. <br />{" "}
           <Link href="/politica-de-privacidade">
             <span>Conheça a Política de Privacidade</span>
           </Link>{" "}
@@ -57,7 +57,7 @@ export function AcceptCookies() {
           <Link href="/politica-de-cookies">
             <span>Política de Cookies</span>
           </Link>{" "}
-          da Innovation.{" "}
+          da Innovationstore - Honda.{" "}
         </h1>
       </S.Content>
       <S.Footer>
