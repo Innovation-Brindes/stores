@@ -409,6 +409,8 @@ class Home extends Component {
                           alt="Copo térmico 500ml com abridor"
                           width={370}
                           height={300}
+                          placeholder="blur"
+                          blurDataURL="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-1.png"
                         />
                       </ImageContent>
                     </Link>
@@ -420,6 +422,8 @@ class Home extends Component {
                           alt="Copo térmico 500ml com abridor"
                           width={370}
                           height={300}
+                          placeholder="blur"
+                          blurDataURL="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-4.png"
                         />
                       </ImageContent>
                     </Link>
@@ -431,6 +435,8 @@ class Home extends Component {
                           alt="Copo térmico 500ml com abridor"
                           width={370}
                           height={300}
+                          placeholder="blur"
+                          blurDataURL="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-3.png"
                         />
                       </ImageContent>
                     </Link>
@@ -442,6 +448,8 @@ class Home extends Component {
                           alt="Copo térmico 500ml com abridor"
                           width={370}
                           height={300}
+                          placeholder="blur"
+                          blurDataURL="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-honda-2.png"
                         />
                       </ImageContent>
                     </Link>
@@ -456,6 +464,8 @@ class Home extends Component {
                         objectFit={"cover"}
                         width={388}
                         height={668}
+                        placeholder="blur"
+                        blurDataURL="https://imgproductioncrm.s3.us-east-2.amazonaws.com/48%20hrs.png"
                       />
                     </ImageContent>
                   </Link>
