@@ -23,6 +23,8 @@ export const LoginContainer = styled.div`
     grid-template-columns: 1fr;
     height: 100%;
     box-shadow: none;
+
+    padding: 0 1rem;
   }
 `
 
@@ -95,11 +97,19 @@ export const TitleContainer = styled.div`
     margin-bottom: 1rem;
     color: #1f1f1f;
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `
 
 export const FormContainer = styled.div`
   width: 100%;
   max-width: 400px;
+
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `
 
 export const Form = styled.form`
@@ -143,7 +153,6 @@ export const InputGroup = styled.div`
 
 export const FormInput = styled.input`
   width: 100%;
-  color: #fff;
   background-color: transparent;
   font-size: 1rem;
   font-weight: 500;

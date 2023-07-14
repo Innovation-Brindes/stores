@@ -118,13 +118,30 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
           />
         </div>
         <InfosContent>
-          <IconGroup>
+          {/* <IconGroup>
             <IconContent border>
               <FaPhoneAlt />
             </IconContent>
-            <span>
-              <span>SP +55 11</span> 2649-6030
-            </span>
+            <span>2649-6030</span>
+          </IconGroup> */}
+          <IconGroup
+            css={{
+              fontWeight: "bold",
+            }}
+          >
+            <IconContent border>
+              <FaUser />
+            </IconContent>
+            {!isAuthenticated && (
+              <Link href={"/lojahonda/login"}>
+                <span>Entrar</span>
+              </Link>
+            )}
+            {isAuthenticated && (
+              <>
+                <UserComponentLogin user={user} logout={logout} />
+              </>
+            )}
           </IconGroup>
           <Divider />
           <IconGroup

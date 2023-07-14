@@ -10,8 +10,6 @@ export const getServerSideProps = async (context) => {
 
   const { "@innovationstore-honda/user:0.0.1": user, "@innovationstore-honda/token:0.0.1": token } = cookies
 
-  console.log(user, token)
-
   if (!user || !token) {
     return {
       redirect: {
