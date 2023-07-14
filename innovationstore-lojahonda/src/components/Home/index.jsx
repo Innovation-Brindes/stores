@@ -477,13 +477,22 @@ class Home extends Component {
                     style={{ position: "relative", top: "45px" }}
                     width={300}
                     height={50}
+                    placeholder="blur"
+                    blurDataURL={nossasCategorias}
                   />
                 </HomeContentBodyTitle>
                 <HomeContentBodySlideCategorias>
                   <SlideCategoria />
                 </HomeContentBodySlideCategorias>
                 <HomeContentBodyTitle style={{ marginTop: "25px" }}>
-                  <Image alt="confira-tambem" src={confiraTambem} width={300} height={50} />
+                  <Image
+                    alt="confira-tambem"
+                    src={confiraTambem}
+                    width={300}
+                    height={50}
+                    placeholder="blur"
+                    blurDataURL={confiraTambem}
+                  />
                 </HomeContentBodyTitle>
                 <HomeContentBodyBanner>
                   <ImageContent>
@@ -491,16 +500,32 @@ class Home extends Component {
                       src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-rodape.jpg"
                       width={1044}
                       height={300}
+                      placeholder="blur"
+                      blurDataURL="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-rodape.jpg"
                     />
                   </ImageContent>
                 </HomeContentBodyBanner>
                 <HomeContentBodyInfo>
                   <HomeContentBodyInfoCard>
                     <HomeContentBodyInfoCardHeader>
-                      <Image alt="ultra-rapido" src={ultraRapido} width={300} height={50} />
+                      <Image
+                        alt="ultra-rapido"
+                        src={ultraRapido}
+                        width={300}
+                        height={50}
+                        placeholder="blur"
+                        blurDataURL={ultraRapido}
+                      />
                     </HomeContentBodyInfoCardHeader>
                     <HomeContentBodyInfoCardBody>
-                      <img alt="banner-info-1" src={bannerInfo1} />
+                      <Image
+                        alt="banner-info-1"
+                        src={bannerInfo1}
+                        width={255}
+                        height={133}
+                        placeholder="blur"
+                        blurDataURL={bannerInfo1}
+                      />
                       <h1>Brindes ultra-rápidos!</h1>
                       <p>
                         Para quem precisa de agilidade: <br /> diversos itens prontos para{" "}
@@ -511,10 +536,24 @@ class Home extends Component {
 
                   <HomeContentBodyInfoCard>
                     <HomeContentBodyInfoCardHeader>
-                      <img alt="preco-online" src={precoOnline} />
+                      <Image
+                        alt="preco-online"
+                        src={precoOnline}
+                        width={255}
+                        height={133}
+                        placeholder="blur"
+                        blurDataURL={precoOnline}
+                      />
                     </HomeContentBodyInfoCardHeader>
                     <HomeContentBodyInfoCardBody>
-                      <img alt="banner-info-2" src={bannerInfo2} />
+                      <img
+                        alt="banner-info-2"
+                        src={bannerInfo2}
+                        width={255}
+                        height={133}
+                        placeholder="blur"
+                        blurDataURL={bannerInfo2}
+                      />
                       <h1>
                         Preço e estoque
                         <br />
