@@ -1,6 +1,6 @@
 import { Flex, Grid, Text } from "@chakra-ui/react"
 
-export function ClienteRetira({ handleStepCartValue }) {
+export function ClienteRetira({ handleStepCartValue, name }) {
   return (
     <Grid
       fontSize="11px"
@@ -13,14 +13,14 @@ export function ClienteRetira({ handleStepCartValue }) {
       cursor={"pointer"}
       borderRadius="6px"
       border="1px solid #cc0000"
-      onClick={() => handleStepCartValue("clienteRetira")}
+      onClick={handleStepCartValue}
       height="35px"
       alignItems="center"
     >
       <Flex flexDir="column">
         <Flex textTransform="uppercase" flexDir="column">
           <Text m="0" fontWeight="bold" fontSize="11px">
-            Retire / Fábrica{" "}
+            {name}{" "}
           </Text>
           <Text as="span" fontSize="9px" color="#919191">
             São paulo - Capital

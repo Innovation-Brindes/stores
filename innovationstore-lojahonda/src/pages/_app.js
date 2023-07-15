@@ -13,6 +13,9 @@ import { ChakraProvider } from "@chakra-ui/react"
 import { ProductProvider } from "../contexts/ProductProvider"
 import { AuthProvider } from "../contexts/AuthProvider"
 import dynamic from "next/dynamic"
+import { GlobalStyled } from "../styles/globalStyles"
+import { ThemeProvider } from "styled-components"
+import { defaultTheme } from "../theme/default"
 
 const TopProgressBar = dynamic(
   () => {
@@ -60,9 +63,12 @@ function MyApp({ Component, pageProps }) {
             <CartProvider>
               <CookiesSessionProvider>
                 <WhatsAppProvider>
-                  <TopProgressBar />
-                  <Component {...pageProps} />
-                  <WhatsAppChat />
+                  <ThemeProvider theme={defaultTheme}>
+                    <TopProgressBar />
+                    <GlobalStyled />
+                    <Component {...pageProps} />
+                    <WhatsAppChat />
+                  </ThemeProvider>
                 </WhatsAppProvider>
               </CookiesSessionProvider>
             </CartProvider>

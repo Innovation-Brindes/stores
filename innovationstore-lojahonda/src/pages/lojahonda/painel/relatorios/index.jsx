@@ -1,4 +1,6 @@
+import Head from "next/head"
 import Header from "../../../../components/Header"
+import { Relatorios } from "../../../../components/Painel"
 import { getCategorias, getSegmentos } from "../../../../utils/getLinksHeader"
 import nookies from "nookies"
 
@@ -30,8 +32,13 @@ export const getServerSideProps = async (context) => {
 export default function RelatoriosPage({ ...props }) {
   return (
     <div>
+      <Head>
+        <title>Relatórios | Painel Administrativo</title>
+
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
       <Header subcategorias={props.linksSubcategorias} segmentos={props.linksSegmentos} />
-      <h1>Relatorios</h1>
+      <Relatorios />
     </div>
   )
 }

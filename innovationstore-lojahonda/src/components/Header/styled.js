@@ -171,7 +171,7 @@ export const HeaderContentInput = styled.div`
   display: flex;
   flex: 1;
 
-  max-width: 375px;
+  max-width: 300px;
   .click-lupa {
     width: 35px;
     height: 35px;

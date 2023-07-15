@@ -100,11 +100,38 @@ export function OptionsShipping({
       preco: 0,
     }
 
+    const pierServ = {
+      nome: "Pier Serv",
+      originalName: "Pier Serv",
+      prazo: 2,
+      isPierServ: true,
+      frete: 0,
+    }
+
+    const profileLog = {
+      nome: "Profile Log",
+      originalName: "Profile Log",
+      prazo: 2,
+      isProfileLog: true,
+      frete: 0,
+    }
+
+    const autlog = {
+      nome: "Autlog",
+      originalName: "Autlog",
+      prazo: 2,
+      isAutlog: true,
+      frete: 0,
+    }
+
     const changeOptions = {
       clienteRetira: clienteRetira,
       nossoCarro: nossoCarro,
       freteGratis: freteGratis,
       motoEntrega: motoEntrega,
+      pierServ: pierServ,
+      profileLog: profileLog,
+      autlog: autlog,
     }
 
     // if (transportadoraMaisBarata?.motoEntrega) {
@@ -236,7 +263,17 @@ export function OptionsShipping({
         }
         {!loading && (
           <>
-            {<ClienteRetira handleStepCartValue={handleStepCartValue} />}
+            <Flex flexDir="column" gap={2}>
+              {
+                <ClienteRetira
+                  name="Retire / Fábrica"
+                  handleStepCartValue={() => handleStepCartValue("clienteRetira")}
+                />
+              }
+              {<ClienteRetira name="Pier Serv" handleStepCartValue={() => handleStepCartValue("pierServ")} />}
+              {<ClienteRetira handleStepCartValue={() => handleStepCartValue("autlog")} name="Autlog" />}
+              {<ClienteRetira handleStepCartValue={() => handleStepCartValue("profileLog")} name="ProfileLog" />}
+            </Flex>
             {isGdSp && !verifyIsFreeSP && (
               <NossoCarro handleStepCartValue={handleStepCartValue} valorFrete={valorFreteNossoCarro} />
             )}

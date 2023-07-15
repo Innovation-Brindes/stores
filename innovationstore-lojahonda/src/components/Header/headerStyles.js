@@ -13,6 +13,11 @@ export const Container = styled("div", {
 
   "--webkit-font-smoothing": "antialiased",
 
+  img: {
+    width: "200px",
+    height: "auto",
+  },
+
   //display none no mobile
   "@media (max-width: 768px)": {
     display: "none",
