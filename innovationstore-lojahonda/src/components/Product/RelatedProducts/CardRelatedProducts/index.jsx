@@ -33,7 +33,7 @@ export function CardRelatedProducts({ item }) {
       <a target="_blank">
         <S.CardContainer>
           <S.CardImageContainer>
-            <img src={item.imagens_produto[0].url} alt="Adaptador Universal Tomada" />
+            <img src={item.imagem_home_store} alt="Adaptador Universal Tomada" />
           </S.CardImageContainer>
           <S.CardContent>
             <h1>{item.nome}</h1>

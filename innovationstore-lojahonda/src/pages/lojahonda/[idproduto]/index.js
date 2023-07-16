@@ -101,7 +101,7 @@ async function getRelatedProducts(cod_prod) {
         preco_home: prod.preco_home,
         list_cores: prod.cores,
         estoque: prod.estoque,
-        imagens_produto_store: prod.imagens_produto_store ?? "",
+        imagem_home_store: prod.imagem_home_store ?? "",
       })
     }
 
