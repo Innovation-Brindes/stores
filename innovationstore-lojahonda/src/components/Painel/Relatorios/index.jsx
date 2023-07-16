@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Tr } from "./Tr"
 import { Summary } from "./Summary"
 import { formatPrice } from "../../../utils/formatPrice"
+import { CardMobile } from "./CardMobile"
 
 export function Relatorios({ relatorios }) {
   const [cnpj, setCnpj] = useState("")
@@ -148,6 +149,11 @@ export function Relatorios({ relatorios }) {
             ))}
           </tbody>
         </S.Table>
+        <S.ContainerCardMobile>
+          {data.map((item, index) => (
+            <CardMobile key={index} item={item} />
+          ))}
+        </S.ContainerCardMobile>
       </S.TableContainer>
     </S.RelatoriosContainer>
   )

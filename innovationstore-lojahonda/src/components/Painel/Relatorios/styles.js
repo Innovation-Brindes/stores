@@ -181,6 +181,11 @@ export const TableTitleSummary = styled(BaseFlex)`
   gap: 90px;
 
   padding: 12px 0;
+
+  @media (max-width: 768px) {
+    padding: 6px 0;
+    text-align: center;
+  }
 `
 
 export const TableContainer = styled(BaseFlex)`
@@ -191,6 +196,10 @@ export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
   margin: 5px 0;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   thead {
     tr {
@@ -224,5 +233,57 @@ export const Table = styled.table`
         border-bottom: 1px solid #fff;
       }
     }
+  }
+`
+
+export const CardRelatorioMobile = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+
+    padding: 10px 10px;
+    border-bottom: 1px solid #f5f5f5;
+
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+
+  h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: ${({ theme }) => theme.primary};
+  }
+
+  span {
+    font-size: 14px;
+    font-weight: 700;
+    color: #414042;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #414042;
+    margin: 0;
+  }
+`
+
+export const ContainerCardMobile = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 0 10px;
   }
 `
