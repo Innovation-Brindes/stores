@@ -69,7 +69,7 @@ const MenuHeaderMobile = (data) => {
                 <TagInfo left={1} fSize={10} pTop={"2px"} top={7} lSpacing={"0.08rem"}>
                   Confira
                 </TagInfo>
-                <Link href="/segmento/novidades/6">
+                <Link href="/lojahonda/segmento/novidades/6">
                   <a>Lançamentos</a>
                 </Link>
               </BoxMenuSegmentos>
@@ -78,7 +78,7 @@ const MenuHeaderMobile = (data) => {
                 <TagInfo left={1} fSize={10} pTop={"2px"} top={7} lSpacing={"0.08rem"}>
                   Exclusivo
                 </TagInfo>
-                <Link href="/ultra-rapido">
+                <Link href="/lojahonda/ultra-rapido">
                   <a>Pronto em 48 Horas</a>
                 </Link>
               </BoxMenuSegmentos>
@@ -97,7 +97,7 @@ const MenuHeaderMobile = (data) => {
                     flexDirection="row"
                     _hover={{ color: "gray" }}
                     as="a"
-                    href={"/categoria/" + item.url_site + "/" + item.cod_grupo}
+                    href={"/lojahonda/categoria/" + item.url_site + "/" + item.cod_grupo}
                     borderBottom={`0.3px solid #E8E8E8`}
                   >
                     <ListIcon as={BiCategory} mt={1} />
