@@ -106,7 +106,7 @@ export function Popover({ isOpen, onClose }) {
       left="0"
       width="100%"
       height="100vh"
-      zIndex="9"
+      zIndex="99999999999999999"
       alignItems="center"
       justifyContent="center"
       fontFamily="Open Sans"

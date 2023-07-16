@@ -143,7 +143,7 @@ export function ModalCompreGanhe({ value }) {
                   })
                 }
               >
-                <Icon as={FcPrevious} fill={"#017D9D"} stroke={"#017D9D"} fontSize={"2rem"} />
+                <Icon as={FcPrevious} fill={"#CC0000"} stroke={"#CC0000"} fontSize={"2rem"} />
               </Flex>
               <Flex
                 height={"43px"}
@@ -159,21 +159,21 @@ export function ModalCompreGanhe({ value }) {
                   })
                 }
               >
-                <Icon as={FcNext} color={"#017D9D"} fontSize={"2rem"} />
+                <Icon as={FcNext} color={"#CC0000"} fontSize={"2rem"} />
               </Flex>
             </Flex>
             <Text
               as={"h1"}
               paddingLeft={!isMobile && "34px"}
               m={0}
-              color={"#017D9D"}
+              color={"#CC0000"}
               fontSize={"42px"}
               textAlign={!isMobile ? "left" : "center"}
               fontWeight={"bold"}
               position={"relative"}
               zIndex={!isMobile && "3"}
             >
-              Aqui você <br /> <span style={{ color: "#95C620" }}> ganha </span> mais!
+              Aqui você <br /> <span style={{ color: "#CC0000" }}> ganha </span> mais!
             </Text>
             <Text
               display={!isMobile ? "block" : "none"}
@@ -190,7 +190,9 @@ export function ModalCompreGanhe({ value }) {
             </Text>
             {Array.from({ length: 5 }).map((_, index) => (
               <Image
-                src={`/images/compre-ganhe/compre-ganhe-${isMobile ? "mobile" : "desk"}-${index + 1}.png`}
+                src={`https://imgproductioncrm.s3.us-east-2.amazonaws.com/compre-ganhe-${
+                  isMobile ? "mobile" : "desk"
+                }-${index + 1}.png`}
                 transition={"all .3s ease-in-out"}
                 opacity={activeLabel === index + 1 ? 1 : 0}
                 visibility={activeLabel === index + 1 ? "visible" : "hidden"}
@@ -221,7 +223,7 @@ export function ModalCompreGanhe({ value }) {
                 w={"230px"}
                 h={"230px"}
                 borderRadius={"50%"}
-                bgColor={"#017D9D"}
+                bgColor={"#CC0000"}
                 color={"#FFFFFF"}
                 alignItems={"center"}
                 justifyContent={"center"}
@@ -255,9 +257,9 @@ export function ModalCompreGanhe({ value }) {
                     w={"20px"}
                     h={"20px"}
                     borderRadius={"50%"}
-                    bgColor={index + 1 === activeLabel ? "#017D9D" : "#FFFFFF"}
-                    border={"1px solid #017D9D"}
-                    color={index + 1 === activeLabel ? "#FFFFFF" : "#017D9D"}
+                    bgColor={index + 1 === activeLabel ? "#CC0000" : "#FFFFFF"}
+                    border={"1px solid #CC0000"}
+                    color={index + 1 === activeLabel ? "#FFFFFF" : "#CC0000"}
                     onClick={() => changeLabel(headerLabels[index])}
                     cursor={"pointer"}
                     position={"relative"}
@@ -281,7 +283,7 @@ export function ModalCompreGanhe({ value }) {
                   as={"h3"}
                   fontSize={!isMobile ? "16px" : "14px"}
                   pt={"17px"}
-                  color={"#017D9D"}
+                  color={"#CC0000"}
                   fontWeight={"bold"}
                   {...(isMobile && {
                     textAlign: "left!important",

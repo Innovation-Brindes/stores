@@ -26,7 +26,7 @@ export function Header({ activeLabel, changeLabel, isMobile, animation }) {
               paddingBottom={"14.5px"}
               position={"relative"}
               animation={`${animation} 1s`}
-              color={activeLabel === label.value ? "#017D9D" : "#414042"}
+              color={activeLabel === label.value ? "#CC0000" : "#414042"}
               _after={{
                 content: "''",
                 position: "absolute",
@@ -34,7 +34,7 @@ export function Header({ activeLabel, changeLabel, isMobile, animation }) {
                 transition: "all .3s ease-in-out",
                 width: "100%",
                 height: "3px",
-                backgroundColor: "#017D9D",
+                backgroundColor: "#CC0000",
                 bottom: "-2px",
               }}
               onClick={() => changeLabel(label)}
@@ -43,7 +43,7 @@ export function Header({ activeLabel, changeLabel, isMobile, animation }) {
                 w={"28px"}
                 h={"28px"}
                 borderRadius={"50%"}
-                bgColor={activeLabel === label.value ? "#017D9D" : "#414042"}
+                bgColor={activeLabel === label.value ? "#CC0000" : "#414042"}
                 transition={"all .3s ease-in-out"}
                 color={"#FFFFFF"}
                 justifyContent={"center"}

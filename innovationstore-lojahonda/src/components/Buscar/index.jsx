@@ -11,7 +11,7 @@ import {
 import Footer from "../../components/Footer"
 // import bgPrecoHome from '../../images/precohome.png';
 // import loading from "../../resources/images/loading.gif";
-import { Box, Center, Image } from "@chakra-ui/react"
+import { Box, Center, Image, Spinner } from "@chakra-ui/react"
 import {
   BuscarContent,
   BuscarContentFilter,
@@ -1328,7 +1328,7 @@ class Buscar extends Component {
                       </Center>
                     ) : (
                       <Center>
-                        <img alt="loading" src={loading} />
+                        <Spinner size="lg" color="#CC0000" />
                       </Center>
                     )}
                   </GridProdutsLoading>
