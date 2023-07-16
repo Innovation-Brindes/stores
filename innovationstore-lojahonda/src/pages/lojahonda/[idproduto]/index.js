@@ -217,9 +217,9 @@ export async function getStaticPaths() {
 
   const topProducts = ["4636", "1916", "0040", "040", "40", "4411", "3687"]
 
-  // const uniqueProduct = produtos.filter((item) => {
-  //   return topProducts.includes(item.codigo_produto)
-  // })
+  const uniqueProduct = produtos.filter((item) => {
+    return topProducts.includes(item.codigo_produto)
+  })
 
   // const paths = uniqueProduct.map((item) => ({
   //   params: {

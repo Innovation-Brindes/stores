@@ -29,7 +29,7 @@ export function CardRelatedProducts({ item }) {
   }
 
   return (
-    <Link href={`/${item.url_produto}`} passHref>
+    <Link href={`/lojahonda/${item.url_produto}`} passHref>
       <a target="_blank">
         <S.CardContainer>
           <S.CardImageContainer>
