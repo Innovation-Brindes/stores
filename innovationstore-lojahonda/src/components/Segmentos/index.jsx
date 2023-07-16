@@ -7,7 +7,7 @@ import Footer from "../../components/Footer"
 
 // import bgPrecoHome from '../../images/precohome.png';
 
-import { Box, Flex, Select } from "@chakra-ui/react"
+import { Box, Flex, Select, Spinner } from "@chakra-ui/react"
 import {
   FilterSelect,
   GridProdutosProdutos,
@@ -138,6 +138,7 @@ class Segmento extends Component {
             ultrarapido: parseInt(prod.prazo_minimo_entrega) == 1 ? "S" : "N",
             estoque: prod.estoque,
             selo_prod: prod.selo_prod,
+            imagem_home_store: prod.imagem_home_store,
           })
         }
 
@@ -342,7 +343,7 @@ class Segmento extends Component {
               <SegmentoContainerGridProdutos>
                 <ProdutosLoading style={{ display: this.state.loadingProd, backgroundColor: "white", zIndex: 8 }}>
                   <ProdutosLoadingImage>
-                    <img alt="loading" src={loading} />
+                    <Spinner color="#CC0000" size={"lg"} />
                   </ProdutosLoadingImage>
                 </ProdutosLoading>
                 <div className="flex justify-center mt-5 relative max-w-fit mx-auto ">
@@ -353,7 +354,7 @@ class Segmento extends Component {
                           prod_nome={data.prod_nome}
                           codigo_prod={data.prod_cod}
                           url_prod={data.url_prod}
-                          img_prod={"/images/produtos" + data.img_prod}
+                          img_prod={data.imagem_home_store}
                           descricao={data.descricao}
                           caracteristicas={data.caracteristicas}
                           valor_home={data.valor_home}

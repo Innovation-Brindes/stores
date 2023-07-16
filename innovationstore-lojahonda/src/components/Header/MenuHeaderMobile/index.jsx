@@ -49,18 +49,15 @@ const MenuHeaderMobile = (data) => {
         <DrawerOverlay />
         <DrawerContent fontFamily={"Open sans"}>
           <DrawerHeader h="70px" borderBottomWidth="1.5px">
-            <Flex>
+            <Flex justifyContent="center">
               <ImageMenuHeader
                 onClick={() => (window.location.href = "/")}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3, duration: 1 }}
                 alt="logo-tipo-mobile"
-                src={logotipo}
+                src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo-honda.png"
               />
-              <TextMenuHeader initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                Catálogo de brindes
-              </TextMenuHeader>
             </Flex>
           </DrawerHeader>
           <DrawerHeader h="70px" borderBottomWidth="1.5px">

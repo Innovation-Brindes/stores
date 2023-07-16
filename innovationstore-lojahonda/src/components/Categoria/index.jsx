@@ -8,7 +8,7 @@ import Footer from "../../components/Footer"
 
 // import bgPrecoHome from '../../images/precohome.png';
 // import loading from "../../resources/images/loading.gif";
-import { Box, Flex, Grid, Icon, Select, Text } from "@chakra-ui/react"
+import { Box, Center, Flex, Grid, Icon, Select, Spinner, Text } from "@chakra-ui/react"
 import {
   CardProdCores,
   CardProdCoresGridCores,
@@ -207,6 +207,7 @@ class Categoria extends Component {
               estoque: prod.estoque,
               selo_prod: prod.selo_prod,
               ad_embalagem: prod.ad_embalagem,
+              imagem_home_store: prod.imagem_home_store,
             })
           }
         }
@@ -462,7 +463,9 @@ class Categoria extends Component {
                 </ChakraProvider>
                 <CategoriaContainerContentGridProdutos length={this.state.dados.length} viewMenu={this.state.viewMenu}>
                   <CategoriaContainerContentGridProdutosLoading style={{ display: this.state.loadingProd }}>
-                    <img alt="loading" src={loading} />
+                    <Center>
+                      <Spinner color="#CC0000" size={"lg"} />
+                    </Center>
                   </CategoriaContainerContentGridProdutosLoading>
                   {this.state.dados.map((data) => {
                     return (
@@ -470,7 +473,7 @@ class Categoria extends Component {
                         prod_nome={data.prod_nome}
                         codigo_prod={data.prod_cod}
                         url_prod={data.url_prod}
-                        img_prod={"/images/produtos" + data.img_prod}
+                        img_prod={data.imagem_home_store}
                         descricao={data.descricao}
                         caracteristicas={data.caracteristicas}
                         valor_home={data.valor_home}

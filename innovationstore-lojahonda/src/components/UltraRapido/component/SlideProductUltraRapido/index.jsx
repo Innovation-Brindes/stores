@@ -31,7 +31,6 @@ const Index = (props) => {
     },
   }
 
-
   const router = useRouter()
 
   useEffect(() => {
@@ -77,7 +76,7 @@ const Index = (props) => {
                             prod_nome={data.prod_nome}
                             codigo_prod={data.prod_cod}
                             url_prod={data.url_prod}
-                            img_prod={"/images/produtos" + data.img_prod}
+                            img_prod={data.imagem_home_store}
                             descricao={data.descricao}
                             caracteristicas={data.caracteristicas}
                             valor_home={data.valor_home}
@@ -114,7 +113,7 @@ const Index = (props) => {
                               prod_nome={data.prod_nome}
                               codigo_prod={data.prod_cod}
                               url_prod={data.url_prod}
-                              img_prod={"/images/produtos" + data.img_prod}
+                              img_prod={data.imagem_home_store}
                               descricao={data.descricao}
                               caracteristicas={data.caracteristicas}
                               valor_home={data.valor_home}
@@ -139,7 +138,7 @@ const Index = (props) => {
                               prod_nome={data.prod_nome}
                               codigo_prod={data.prod_cod}
                               url_prod={data.url_prod}
-                              img_prod={"/images/produtos" + data.img_prod}
+                              img_prod={data.imagem_home_store}
                               descricao={data.descricao}
                               caracteristicas={data.caracteristicas}
                               valor_home={data.valor_home}
@@ -173,7 +172,7 @@ const Index = (props) => {
       {/*          prod_nome={data.prod_nome}*/}
       {/*          codigo_prod={data.prod_cod}*/}
       {/*          url_prod={data.url_prod}*/}
-      {/*          img_prod={"/images/produtos" + data.img_prod}*/}
+      {/*           img_prod={data.imagem_home_store}*/}
       {/*          descricao={data.descricao}*/}
       {/*          caracteristicas={data.caracteristicas}*/}
       {/*          valor_home={data.valor_home}*/}

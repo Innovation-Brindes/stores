@@ -13,6 +13,19 @@ export function ContainerResumo({ product }) {
 
   const isNotAvailable = parseInt(product.estoque) === 0
 
+  console.log("product", isNotAvailable)
+
+  if (isNotAvailable) {
+    return (
+      <Container>
+        {" "}
+        <S.ResumoContent border show={isResumoShow}>
+          <IsNotAvailable product={product} />
+        </S.ResumoContent>
+      </Container>
+    )
+  }
+
   if (loading) {
     return (
       <Container>
@@ -30,17 +43,6 @@ export function ContainerResumo({ product }) {
           <Resumo product={product} />
         </S.ResumoContent>
         <Orcamento product={product} />
-      </Container>
-    )
-  }
-
-  if (isNotAvailable) {
-    return (
-      <Container>
-        {" "}
-        <S.ResumoContent border show={isResumoShow}>
-          <IsNotAvailable product={product} />
-        </S.ResumoContent>
       </Container>
     )
   }

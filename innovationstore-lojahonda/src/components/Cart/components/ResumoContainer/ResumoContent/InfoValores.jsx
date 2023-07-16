@@ -21,7 +21,7 @@ export function InfoValores() {
 
   const total = parseFloat(totalItens) + totalEmbValue + parseFloat(frete?.frete)
 
-  const totalItensMais3Porcento = totalItens + totalItens * 0.03
+  const totalItensMais3Porcento = totalItens - totalItens * 0.03
 
   return (
     <>

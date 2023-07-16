@@ -12,7 +12,12 @@ const nextConfig = {
   },
   staticPageGenerationTimeout: 1000,
   images: {
-    domains: ["imgproductioncrm.s3.us-east-2.amazonaws.com", "res.cloudinary.com", "innovationbrindes.com.br"],
+    domains: [
+      "imgproductioncrm.s3.us-east-2.amazonaws.com",
+      "res.cloudinary.com",
+      "innovationbrindes.com.br",
+      "imgprodstore.s3.us-east-2.amazonaws.com",
+    ],
   },
 }
 

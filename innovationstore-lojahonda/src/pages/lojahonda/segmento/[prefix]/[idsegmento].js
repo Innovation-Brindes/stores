@@ -8,6 +8,7 @@ import Header from "../../../../components/Header"
 export async function getStaticProps(context) {
   const segmento = context.params.idsegmento
   const prefix = context.params.prefix.replace(/-/g, "_")
+
   var result = await getGridProduto(segmento)
   const linksSubcategorias = await getCategorias()
   const linksSegmentos = await getSegmentos()
@@ -127,6 +128,7 @@ async function getGridProduto(categoria) {
           segmento: prod.segmento,
           ultrarapido: parseInt(prod.prazo_minimo_entrega) == 1 ? "S" : "N",
           estoque: prod.estoque,
+          imagem_home_store: prod.imagem_home_store ?? "",
         })
       }
 
@@ -172,7 +174,6 @@ function ifnull(a, b) {
 }
 
 export default function SegmentoPage(props) {
-  console.log("proprs", props)
   return (
     <>
       <Header subcategorias={props.linksSubcategorias} segmentos={props.linksSegmentos} />

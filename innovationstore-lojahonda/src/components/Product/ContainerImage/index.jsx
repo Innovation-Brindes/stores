@@ -19,18 +19,18 @@ export function ContainerImage({ product }) {
     setOpenModalSlide(false)
   }
 
-  const [listImages, setListImages] = useState(product.imagens_produto)
-  const [imageSelected, setImageSelected] = useState(product.imagens_produto[0])
+  const [listImages, setListImages] = useState(product.imagens_produto_store)
+  const [imageSelected, setImageSelected] = useState(product.imagens_produto_store[0] ?? [])
   const [imageActive, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "next":
-        if (state === product.imagens_produto.length - 1) {
+        if (state === product.imagens_produto_store.length - 1) {
           return 0
         }
         return state + 1
       case "prev":
         if (state === 0) {
-          return product.imagens_produto.length - 1
+          return product.imagens_produto_store.length - 1
         }
         return state - 1
       default:
@@ -51,7 +51,7 @@ export function ContainerImage({ product }) {
   }
 
   useEffect(() => {
-    setImageSelected(product.imagens_produto[0])
+    setImageSelected(product.imagens_produto_store[0])
   }, [product])
 
   return (
@@ -66,7 +66,7 @@ export function ContainerImage({ product }) {
         <ModalSlideImages
           isOpen={openModalSlide}
           onClose={handleCloseModalSlide}
-          images={product.imagens_produto}
+          images={product.imagens_produto_store}
           onOpen={handleOpenModalSlide}
           initialImage={imageSelected.url}
         />
@@ -74,14 +74,14 @@ export function ContainerImage({ product }) {
           <CarouselProvider
             naturalSlideWidth={400}
             naturalSlideHeight={360}
-            totalSlides={product.imagens_produto.length}
+            totalSlides={product.imagens_produto_store.length}
             visibleSlides={3}
             infinite={true}
             dragEnabled={true}
             currentSlide={imageActive}
           >
             <Slider>
-              {product.imagens_produto.map((image, id) => {
+              {product.imagens_produto_store.map((image, id) => {
                 return (
                   <Slide index={id} key={id}>
                     <S.ImageSliderContent

@@ -72,6 +72,7 @@ async function getGridProduto() {
         ultrarapido: 1,
         estoque: prod.estoque,
         data_ultra_rapido: prod.data_ultra_rapido,
+        imagem_home_store: prod.imagem_home_store ?? "",
       })
     }
 

@@ -64,6 +64,7 @@ export async function getStaticProps(context) {
             estoque: prod.estoque,
             selo_prod: prod.selo_prod,
             ad_embalagem: prod.ad_embalagem,
+            imagem_home_store: prod.imagem_home_store ?? "",
           })
         }
       } catch (error) {
