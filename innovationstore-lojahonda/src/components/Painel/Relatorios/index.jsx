@@ -1,12 +1,17 @@
 import Image from "next/image"
 import * as S from "./styles"
-import { PiNotepadFill } from "react-icons/pi"
+import { format } from "date-fns"
 
-import { AiFillDollarCircle, AiOutlineDollarCircle } from "react-icons/ai"
 import { useState } from "react"
+import { Tr } from "./Tr"
+import { Summary } from "./Summary"
+import { formatPrice } from "../../../utils/formatPrice"
 
-export function Relatorios() {
+export function Relatorios({ relatorios }) {
   const [cnpj, setCnpj] = useState("")
+  const [data, setData] = useState(relatorios)
+  const [dataDe, setDataDe] = useState("")
+  const [dataAte, setDataAte] = useState("")
 
   function handleCnpj(e) {
     const cnpj = e.target.value.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5")
@@ -14,35 +19,64 @@ export function Relatorios() {
     setCnpj(cnpj)
   }
 
+  function handleFilter(e) {
+    const cnpjNotFormatted = cnpj.replace(/(\.|\-|\/)/g, "")
+
+    if (cnpjNotFormatted.length === 14) {
+      const filter = relatorios.filter((item) => {
+        return item.cpfcnpj_parceiro === cnpjNotFormatted
+      })
+
+      setData(filter)
+      return
+    }
+
+    if (dataDe && dataAte) {
+      const filter = relatorios.filter((item) => {
+        const dataDeFormatted = format(new Date(dataDe), "yyyy-MM-dd")
+        const dataAteFormatted = format(new Date(dataAte), "yyyy-MM-dd")
+
+        const dataPedido = format(new Date(item.dt_ultatu), "yyyy-MM-dd")
+
+        return dataPedido >= dataDeFormatted && dataPedido <= dataAteFormatted
+      })
+
+      setData(filter)
+      return
+    }
+
+    setData(relatorios)
+  }
+
+  const summary = data.reduce(
+    (acc, curr) => {
+      const { valor_cupom, valor_pedido } = curr
+
+      const valorCupom = parseFloat(valor_cupom)
+      const valorPedido = parseFloat(valor_pedido)
+
+      acc.totalPedidos += 1
+      acc.totalValor += valorPedido
+
+      if (valorCupom > 0) {
+        acc.totalDesconto += valorCupom
+      }
+
+      return acc
+    },
+    {
+      totalPedidos: 0,
+      totalValor: 0,
+      totalDesconto: 0,
+    },
+  )
+
   return (
     <S.RelatoriosContainer>
       <S.RelatoriosHeaderImage>
         <Image src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo-honda.png" width={300} height={73} />
       </S.RelatoriosHeaderImage>
-      <S.RelatoriosSummary>
-        <S.TitleRelatorios>Dashboard</S.TitleRelatorios>
-        <S.RelatoriosSummaryCard>
-          <S.Wrapper>
-            <PiNotepadFill size={30} />
-            <h2>Total de pedidos:</h2>
-            <span>1.000</span>
-          </S.Wrapper>
-        </S.RelatoriosSummaryCard>
-        <S.RelatoriosSummaryCard>
-          <S.Wrapper>
-            <AiOutlineDollarCircle size={30} />
-            <h2>Valor total:</h2>
-            <span>989.978,00</span>
-          </S.Wrapper>
-        </S.RelatoriosSummaryCard>
-        <S.RelatoriosSummaryCard>
-          <S.Wrapper>
-            <AiFillDollarCircle size={30} />
-            <h2>Desconto adiquirido:</h2>
-            <span>99.004,00</span>
-          </S.Wrapper>
-        </S.RelatoriosSummaryCard>
-      </S.RelatoriosSummary>
+      <Summary summary={summary} />
       <S.RelatoriosHeadingTable>
         <h1>Resumo da Produção</h1>
       </S.RelatoriosHeadingTable>
@@ -62,18 +96,35 @@ export function Relatorios() {
         </S.InputGroup>
         <S.InputGroup>
           <span>De:</span>
-          <input type="date" />
+          <input
+            type="date"
+            onChange={(e) => {
+              setDataDe(e.target.value)
+            }}
+          />
         </S.InputGroup>
         <S.InputGroup>
           <span>Ate:</span>
-          <input type="date" />
+          <input
+            type="date"
+            onChange={(e) => {
+              setDataAte(e.target.value)
+            }}
+          />
         </S.InputGroup>
-        <S.FilterButton>Ok</S.FilterButton>
+        <S.FilterButton
+          type="button"
+          onClick={() => {
+            handleFilter()
+          }}
+        >
+          Ok
+        </S.FilterButton>
       </S.FilterContainer>
       <S.TableTitleSummary>
-        <span>TOTAL DE PEDIDOS: 500</span>
-        <span>VALOR TOTAL: R$ 111.432.978,00</span>
-        <span>CRÉDITO DISPONÍVEL: R$ 99.999,00</span>
+        <span>TOTAL DE PEDIDOS: {summary.totalPedidos}</span>
+        <span>VALOR TOTAL: {formatPrice(summary.totalValor)}</span>
+        {/* <span>CRÉDITO DISPONÍVEL: R$ 99.999,00</span> */}
       </S.TableTitleSummary>
 
       <S.TableContainer>
@@ -84,7 +135,7 @@ export function Relatorios() {
               <th>Data</th>
               <th>Razão Social</th>
               <th>CNPJ</th>
-              <th>Tipo</th>
+              {/* <th>Tipo</th> */}
               <th>Responsável</th>
               <th>E-mail</th>
               <th>Prazo de produção</th>
@@ -92,248 +143,9 @@ export function Relatorios() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
-            <tr>
-              <td>12123123</td>
-              <td>01/01/2021</td>
-              <td>Alexandre</td>
-              <td>Alexandre</td>
-              <td>C</td>
-              <td>Alexandre</td>
-              <td>alesurf13@gmail.com</td>
-              <td>1 dia</td>
-              <td>10000</td>
-            </tr>
+            {data.map((item, index) => (
+              <Tr key={index} item={item} />
+            ))}
           </tbody>
         </S.Table>
       </S.TableContainer>

@@ -38,6 +38,7 @@ export function Login() {
       {
         email: data.email,
         senha: data.password,
+        loja: "lojahonda",
       },
     )
 

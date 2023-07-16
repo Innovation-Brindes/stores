@@ -3,6 +3,7 @@ import Header from "../../../../components/Header"
 import { Relatorios } from "../../../../components/Painel"
 import { getCategorias, getSegmentos } from "../../../../utils/getLinksHeader"
 import nookies from "nookies"
+import axios from "axios"
 
 export const getServerSideProps = async (context) => {
   const linksSubcategorias = await getCategorias()
@@ -11,6 +12,10 @@ export const getServerSideProps = async (context) => {
   const cookies = nookies.get(context)
 
   const { "@innovationstore-honda/user:0.0.1": user, "@innovationstore-honda/token:0.0.1": token } = cookies
+
+  const relatorios = await axios.get("https://api.innovationbrindes.com.br/api/site/v2/markup/lista-relatorio-store/25")
+
+  const { data } = relatorios
 
   if (!user || !token) {
     return {
@@ -25,11 +30,12 @@ export const getServerSideProps = async (context) => {
     props: {
       linksSubcategorias: linksSubcategorias.subcategorias,
       linksSegmentos: linksSegmentos.segmentos,
+      relatorios: data,
     },
   }
 }
 
-export default function RelatoriosPage({ ...props }) {
+export default function RelatoriosPage({ relatorios, ...props }) {
   return (
     <div>
       <Head>
@@ -38,7 +44,7 @@ export default function RelatoriosPage({ ...props }) {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
       <Header subcategorias={props.linksSubcategorias} segmentos={props.linksSegmentos} />
-      <Relatorios />
+      <Relatorios relatorios={relatorios} />
     </div>
   )
 }
