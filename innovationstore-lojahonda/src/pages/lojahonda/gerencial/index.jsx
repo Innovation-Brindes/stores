@@ -7,7 +7,6 @@ export default function LoginPage({ linksSubcategorias, linksSegmentos }) {
       <Head>
         <title>Login | Loja Honda</title>
       </Head>
-
       <Login />
     </div>
   )

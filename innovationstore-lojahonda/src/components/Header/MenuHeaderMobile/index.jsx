@@ -1,9 +1,7 @@
 import { HamburgerIcon } from "@chakra-ui/icons"
 import {
   Box,
-  Button,
   ChakraProvider,
-  Divider,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -11,22 +9,16 @@ import {
   DrawerOverlay,
   Flex,
   IconButton,
-  Image,
   List,
   ListIcon,
   ListItem,
-  Table,
-  Tbody,
-  Td,
-  Text,
-  Tr,
   useDisclosure,
 } from "@chakra-ui/react"
 import React from "react"
 import { BiCategory } from "react-icons/bi"
-import { cor_base_1, cor_base_2 } from "../../../services/cores"
-import { HeaderContentNavItem, TagInfo } from "../styled"
-import { BoxMenuSegmentos, ImageMenuHeader, TextMenu, TextMenuHeader } from "./stylesMobile"
+import { cor_base_1 } from "../../../services/cores"
+import { TagInfo } from "../styled"
+import { BoxMenuSegmentos, ImageMenuHeader, TextMenu } from "./stylesMobile"
 import Link from "next/link"
 
 const logotipo = "/images/logoTopoMobile-copia.png"
