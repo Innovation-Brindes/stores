@@ -2,8 +2,14 @@ import Link from "next/link"
 import { ColorInputComponent } from "../../ContainerConfig/ColorInput/styles"
 import * as S from "./styles"
 import { formatPrice } from "../../../../utils/formatPrice"
+import { BiTime } from "react-icons/bi"
+import { useEffect } from "react"
+import { useState } from "react"
+import { RiCloseCircleFill } from "react-icons/ri"
+import { PiSpeakerHighBold } from "react-icons/pi"
 
 export function CardRelatedProducts({ item }) {
+  const [tag, setTag] = useState(null)
   const maxLetterProduct = 75
 
   const productDescriptionSliced =
@@ -28,10 +34,51 @@ export function CardRelatedProducts({ item }) {
     return String(variables[codprod.length] + codprod)
   }
 
+  const isUltraRapido = item.ultrarapido === "S"
+  const isIndisponivel = parseInt(item.estoque) === 0
+  const isNovidade = item.selo === "S" || item.segmento === "" || item.segmento === null
+
+  function getTagColor(tag) {
+    const objectColorsTag = {
+      isUltraRapido: {
+        backgroundColor: "#CC0000",
+        color: "#fff",
+        text: "Pronto em 48 hrs!",
+        icon: BiTime,
+      },
+      isIndisponivel: {
+        backgroundColor: "#414042",
+        color: "#FFF",
+        text: "Indisponível",
+        icon: RiCloseCircleFill,
+      },
+      isNovidade: {
+        backgroundColor: "#F5F5F5",
+        color: "#CC0000",
+        text: "Novidade",
+        icon: PiSpeakerHighBold,
+      },
+    }
+
+    return objectColorsTag[tag]
+  }
+
+  useEffect(() => {
+    const tagReturned = getTagColor(
+      isUltraRapido ? "isUltraRapido" : isIndisponivel ? "isIndisponivel" : !isNovidade ? "isNovidade" : null,
+    )
+
+    setTag(tagReturned)
+  }, [isUltraRapido, isIndisponivel, isNovidade])
+
   return (
     <Link href={`/lojahonda/${item.url_produto}`} passHref>
       <a target="_blank">
         <S.CardContainer>
+          <S.Tag backgroundColor={tag?.backgroundColor} color={tag?.color}>
+            {tag?.text}
+            {tag?.icon && <tag.icon size={20} color={tag?.color} />}
+          </S.Tag>
           <S.CardImageContainer>
             <img src={item.imagem_home_store} alt="Adaptador Universal Tomada" />
           </S.CardImageContainer>

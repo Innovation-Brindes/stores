@@ -6,7 +6,7 @@ export const ContainerAddressClient = styled("div", {
   marginInline: "17px",
   marginTop: "7px",
   height: "30px",
-  backgroundColor: "#0B73F8",
+  backgroundColor: "#414042",
   color: "#fff",
   alignItems: "center",
   justifyContent: "center",

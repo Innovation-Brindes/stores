@@ -10,6 +10,7 @@ export const CardContainer = styled.div`
   padding-block: 14px;
   min-height: 455px;
   transition: 0.3s;
+  position: relative;
 
   border: 1px solid #cfcfcf;
   border-radius: 15px;
@@ -110,4 +111,22 @@ export const FooterCard = styled.div`
       }
     }
   }
+`
+
+export const Tag = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 134px;
+  padding: 3px;
+  font-size: 12px;
+  font-weight: bold;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+
+  background-color: ${(props) => props.backgroundColor};
+  color: ${(props) => props.color};
 `

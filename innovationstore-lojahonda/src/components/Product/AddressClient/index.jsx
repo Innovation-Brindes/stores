@@ -44,7 +44,10 @@ export function AddresClient() {
           <Spinner size="sm" />
         )}
         {!loadingRefreshCep && addressClient.frete_gratis === "S" && (
-          <ImageGratis src="/gifs/frete-gratis/frete-gratis.png" alt="frete-gratis" />
+          <ImageGratis
+            src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/frete-gratis-honda.png"
+            alt="frete-gratis"
+          />
         )}
       </ContainerAddressClient>
     )

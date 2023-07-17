@@ -2,6 +2,9 @@ import { Box, Flex, Image, Spinner, Text } from "@chakra-ui/react"
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
 import { colorBaseUltraRapido } from "../UltraRapido/component/FlexFiltroUltraRapido/styles"
+import { BiTime } from "react-icons/bi"
+import { RiCloseCircleFill } from "react-icons/ri"
+import { PiSpeakerHighBold } from "react-icons/pi"
 import {
   CardProdCores,
   CardProdCoresGridCores,
@@ -65,31 +68,43 @@ export function GridProductDefault(props) {
       >
         <Flex justify="start" position="absolute" zIndex={99} w="100%" h="25px">
           {props.estoque === "0" ? (
-            <Image
-              objectFit="cover"
-              alt="selo"
-              w="100px"
-              borderRadius="2px"
-              h="14px"
-              src={"https://innovationbrindes.com.br/images/menu/selo-indisponivel.png"}
-            />
+            <Flex minW="134px" bg={"#414042"} align="center" justify="center" paddingInline="5px" gap={1}>
+              <Text fontFamily={"Open Sans"} fontSize={"10pt"} fontWeight={"400"} color={"#ffffff"} m={"0"}>
+                Indisponível
+              </Text>
+              <RiCloseCircleFill size={20} color="#fff" />
+            </Flex>
           ) : props.segmento == "Ultra Rapido" ||
             props.ultrarapido == "S" ||
             props.segmento == "U" ||
             props.isUltraRapido ? (
-            <Flex bg={"#fca62e"} align="center" justify="center" paddingInline="5px">
+            <Flex minW="134px" bg={"#CC0000"} align="center" justify="center" paddingInline="5px" gap={1}>
               <Text fontFamily={"Open Sans"} fontSize={"10pt"} fontWeight={"400"} color={"#ffffff"} m={"0"}>
                 Pronto em 48 hrs!
               </Text>
+              <BiTime size={20} color="#fff" />
             </Flex>
           ) : props.selo == "S" || props.segmento == "" || props.segmento == null ? (
             <></>
           ) : (
-            <Image objectFit="cover" alt="selo" w="100px" borderRadius="2px" h="14px" src={props.selo_prod} />
+            <Flex minW="134px" bg={"#F5F5F5"} align="center" justify="center" paddingInline="5px" gap={1}>
+              <Text fontFamily={"Open Sans"} fontSize={"10pt"} fontWeight={"700"} color={"#CC0000"} m={"0"}>
+                Novidade!
+              </Text>
+              <PiSpeakerHighBold size={20} color="#CC0000" />
+            </Flex>
           )}
         </Flex>
         {props.img_prod ? (
-          <ImgProd objectFit="cover" alt="imagem-produto" src={props.img_prod} />
+          <ImgProd
+            objectFit="cover"
+            alt="imagem-produto"
+            src={props.img_prod}
+            width={170}
+            height={210}
+            placeholder="blur"
+            blurDataURL={props.img_prod}
+          />
         ) : (
           <Spinner
             thickness="4px"

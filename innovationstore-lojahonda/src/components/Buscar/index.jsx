@@ -267,6 +267,7 @@ class Buscar extends Component {
             estoque: prod.estoque_disponivel,
             data_ultra_rapido: prod.data_ultra_rapido,
             selo_prod: prod.selo_prod,
+            imagem_home_store: prod.imagem_home_store,
           })
         }
       }
@@ -1339,7 +1340,7 @@ class Buscar extends Component {
                         prod_nome={data.prod_nome}
                         codigo_prod={data.prod_cod}
                         url_prod={data.url_prod}
-                        img_prod={"/images/produtos" + data.img_prod}
+                        img_prod={data.imagem_home_store}
                         descricao={data.descricao}
                         caracteristicas={data.caracteristicas}
                         valor_home={data.valor_home}
@@ -1363,7 +1364,7 @@ class Buscar extends Component {
                         url_prod={data.url_prod}
                         url_img={data.url_img}
                         referencia={data.referencia}
-                        img_prod={"/images/produtos" + data.img_prod}
+                        img_prod={data.imagem_home_store}
                         descricao={data.descricao}
                         caracteristicas={data.caracteristicas}
                         valor_home={data.valor_home}

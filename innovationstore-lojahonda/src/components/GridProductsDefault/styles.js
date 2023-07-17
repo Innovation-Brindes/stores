@@ -1,7 +1,8 @@
 import styled from "styled-components"
-import { Box, LinkBox, Image, Text, Button, Flex } from "@chakra-ui/react"
+import { Box, LinkBox, Text, Button, Flex } from "@chakra-ui/react"
 import { cor_base_1, cor_base_2 } from "./../../services/cores"
 import { colorBaseUltraRapido } from "../UltraRapido/component/FlexFiltroUltraRapido/styles"
+import Image from "next/image"
 
 export const ImgProd = styled(Image)`
   width: 170px;
