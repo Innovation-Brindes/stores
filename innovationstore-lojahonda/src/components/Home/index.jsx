@@ -40,6 +40,8 @@ import Link from "next/link"
 import BannerChaveiro from "./components/BannerChaveiro"
 import { ProductImage } from "./ProductImage"
 import Image from "next/image"
+import { NewFooter } from "../NewFooter"
+import { AtendimentoExclusivo } from "./components/AtendimentoExclusivo"
 
 // const imgrecesso = "/images/banners/recesso.png";
 
@@ -556,7 +558,8 @@ class Home extends Component {
                 </HomeContentBodyInfo>
               </HomeContentBody>
             </HomeContent>
-            <Footer />
+            <AtendimentoExclusivo />
+            <NewFooter />
           </HomeContainer>
         </>
       </>
