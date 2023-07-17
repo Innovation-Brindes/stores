@@ -560,9 +560,9 @@ class Home extends Component {
                 </HomeContentBodyInfo>
               </HomeContentBody>
             </HomeContent>
-            <AtendimentoExclusivo />
-            <NewFooter />
           </HomeContainer>
+          <AtendimentoExclusivo />
+          <NewFooter />
         </>
       </>
     )
