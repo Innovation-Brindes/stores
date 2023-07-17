@@ -107,10 +107,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
       <MobileControl>
         <div className="flex items-center gap-2">
           <MenuHeaderMobile state={{ subcategorias: subcategorias }} retiraAcentos={retira_acentos} />
-          <img
-            src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo-honda.png"
-            className="cursor-pointer w-32"
-          />
+
           {/* <Image
             src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo%20mobile-01.svg"
             width={38}
@@ -119,6 +116,10 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
             className="cursor-pointer"
           /> */}
         </div>
+        <img
+          src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo-honda.png"
+          className="cursor-pointer w-32 "
+        />
         <InfosContent>
           {/* <IconGroup>
             <IconContent border>
@@ -126,26 +127,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
             </IconContent>
             <span>2649-6030</span>
           </IconGroup> */}
-          <IconGroup
-            css={{
-              fontWeight: "bold",
-            }}
-          >
-            <IconContent border>
-              <FaUser />
-            </IconContent>
-            {!isAuthenticated && (
-              <Link href={"/lojahonda/login"}>
-                <span>Entrar</span>
-              </Link>
-            )}
-            {isAuthenticated && (
-              <>
-                <UserComponentLogin user={user} logout={logout} />
-              </>
-            )}
-          </IconGroup>
-          <Divider />
+
           <IconGroup
             css={{
               fontWeight: "bold",
