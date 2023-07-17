@@ -95,6 +95,7 @@ export function ContainerImage({ product }) {
                         height={322}
                         placeholder="blur"
                         blurDataURL={image.url}
+                        priority
                       />
                     </S.ImageSliderContent>
                   </Slide>

@@ -52,6 +52,7 @@ export function ModalSlideImages({ onOpen, isOpen, onClose, images, initialImage
                   quality={100}
                   placeholder="blur"
                   blurDataURL={image.url}
+                  priority
                 />
               ))}
             </Slider>
