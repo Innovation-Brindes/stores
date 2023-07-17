@@ -489,15 +489,17 @@ class Home extends Component {
                   <Image alt="confira-tambem" src={confiraTambem} width={300} height={50} priority />
                 </HomeContentBodyTitle>
                 <HomeContentBodyBanner>
-                  <ImageContent>
-                    <Image
-                      src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-rodape.jpg"
-                      width={1044}
-                      height={300}
-                      placeholder="blur"
-                      blurDataURL="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-rodape.jpg"
-                    />
-                  </ImageContent>
+                  <Link href="https://www.innovationstore.com.br/lojahonda/squeeze-inox-750ml-brindes-10150924369">
+                    <ImageContent>
+                      <Image
+                        src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-rodape.jpg"
+                        width={1044}
+                        height={300}
+                        placeholder="blur"
+                        blurDataURL="https://imgproductioncrm.s3.us-east-2.amazonaws.com/banner-rodape.jpg"
+                      />
+                    </ImageContent>
+                  </Link>
                 </HomeContentBodyBanner>
                 <HomeContentBodyInfo>
                   <HomeContentBodyInfoCard>

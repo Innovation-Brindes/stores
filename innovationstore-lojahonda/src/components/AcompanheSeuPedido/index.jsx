@@ -13,6 +13,7 @@ import { AiFillCaretLeft, AiOutlineArrowLeft } from "react-icons/ai"
 import MobileButton from "./components/MobileButton"
 import { AcompanharPedido } from "./../../services/api/index"
 import FooterComponent from "../Footer/FooterComponent"
+import { NewFooter } from "../NewFooter"
 
 const loadingGif = "/images/loading.gif"
 
@@ -201,7 +202,7 @@ class AcompanheSeuPedido extends Component {
                 <ContainerSearchHash />
               )}
             </ContainerBox>
-            <FooterComponent />
+            <NewFooter />
           </>
         )}
       </ChakraProvider>

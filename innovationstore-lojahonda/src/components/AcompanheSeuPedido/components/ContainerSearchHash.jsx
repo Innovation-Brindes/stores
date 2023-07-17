@@ -76,9 +76,9 @@ const ContainerSearchHash = ({ cod_hash, getDadosAcompanharPedido }) => {
           textTransform="uppercase"
           mt="30px"
           w="200px"
-          bgColor="#7fbc03"
-          _hover={{ bgColor: "#7fbc03", opacity: "0.9", color: "white" }}
-          _active={{ transform: "scale(0.95)", bgColor: "#7fbc03" }}
+          bgColor="#CC0000"
+          _hover={{ bgColor: "#CC0000", opacity: "0.9", color: "white" }}
+          _active={{ transform: "scale(0.95)", bgColor: "#CC0000" }}
           transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
           color="white"
           boxShadow="none !important"
@@ -87,8 +87,8 @@ const ContainerSearchHash = ({ cod_hash, getDadosAcompanharPedido }) => {
         </Button>
       </Flex>
       <Flex align="center" h="70px" w={mobileView ? "90vw" : "800px"} justify="end">
-        <Link href="/" prefetch={true} passHref>
-          <ButtonVoltar as="a" h="30px" pt="2px" color="black" fontFamily="Akrobat" letterSpacing="1px">
+        <Link href="/lojahonda">
+          <ButtonVoltar as="a" h="30px" pt="2px" color="black" fontFamily="Open sans" letterSpacing="1px">
             <span>Voltar</span>
           </ButtonVoltar>
         </Link>

@@ -90,7 +90,6 @@ export function Login() {
                 {isSubmitting ? "Carregando..." : "Entrar"}
               </S.FormButton>
               <S.Wrapper>
-                <S.FormLink href="#">Esqueci minha senha</S.FormLink>
                 <Link href="/lojahonda" passHref>
                   <S.FormLink>Voltar para home</S.FormLink>
                 </Link>

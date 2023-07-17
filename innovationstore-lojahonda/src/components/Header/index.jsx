@@ -275,8 +275,8 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                 <span>{cart?.length} itens</span>
               </Link>
             </IconGroup>
-            <Divider />
-            <IconGroup
+            {/* <Divider /> */}
+            {/* <IconGroup
               css={{
                 fontWeight: "bold",
               }}
@@ -294,7 +294,7 @@ export default function HeaderComponent({ segmentos, subcategorias }) {
                   <UserComponentLogin user={user} logout={logout} />
                 </>
               )}
-            </IconGroup>
+            </IconGroup> */}
           </InfosContent>
         </Container>
       </div>

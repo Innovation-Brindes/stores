@@ -41,50 +41,50 @@ export default function SlideCategoria({ isMobile = false }) {
         <Slider>
           <Slide index={0}>
             <BoxCards>
-              <Link target href="/categoria/kit-churrasco-personalizado-para-brindes/1020073" passHref>
+              <Link target href="/lojahonda/categoria/kit-churrasco-personalizado-para-brindes/1020073" passHref>
                 <BoxCardItem target="_blank" bgimg={box1} />
               </Link>
-              <Link href="/categoria/squeeze-personalizado-para-brindes/1015092" passHref>
+              <Link href="/lojahonda/categoria/squeeze-personalizado-para-brindes/1015092" passHref>
                 <BoxCardItem target="_blank" bgimg={box2} />
               </Link>
-              <Link href="/categoria/mochilas-personalizadas-para-brindes/1032146" passHref>
+              <Link href="/lojahonda/categoria/mochilas-personalizadas-para-brindes/1032146" passHref>
                 <BoxCardItem target="_blank" bgimg={box3} />
               </Link>
-              <Link href="/categoria/mala-de-viagem-personalizada-para-brindes/1032144" passHref>
+              <Link href="/lojahonda/categoria/mala-de-viagem-personalizada-para-brindes/1032144" passHref>
                 <BoxCardItem target="_blank" bgimg={box4} />
               </Link>
-              <Link href="/categoria/chaveiro-personalizado-para-brindes/1018109" passHref>
+              <Link href="/lojahonda/categoria/chaveiro-personalizado-para-brindes/1018109" passHref>
                 <BoxCardItem target="_blank" bgimg={box5} />
               </Link>
-              <Link href="/categoria/caneta-de-metal-personalizada-para-brindes/1023104" passHref>
+              <Link href="/lojahonda/categoria/caneta-de-metal-personalizada-para-brindes/1023104" passHref>
                 <BoxCardItem target="_blank" bgimg={box6} />
               </Link>
-              <Link href="/categoria/caixa-de-som-personalizada-para-brindes/1012054" passHref>
+              <Link href="/lojahonda/categoria/caixa-de-som-personalizada-para-brindes/1012054" passHref>
                 <BoxCardItem target="_blank" bgimg={box7} />
               </Link>
             </BoxCards>
           </Slide>
           <Slide index={1}>
             <BoxCards>
-              <Link href="/categoria/necessaire-personalizada-para-brindes/1017130" passHref>
+              <Link href="/lojahonda/categoria/necessaire-personalizada-para-brindes/1017130" passHref>
                 <BoxCardItem target="_blank" bgimg={box8} />
               </Link>
-              <Link href="/categoria/garrafas-termicas-personalizadas-para-brindes/1015059" passHref>
+              <Link href="/lojahonda/categoria/garrafas-termicas-personalizadas-para-brindes/1015059" passHref>
                 <BoxCardItem target="_blank" bgimg={box9} />
               </Link>
-              <Link href="/categoria/guarda-chuva-personalizado-para-brindes/1034147" passHref>
+              <Link href="/lojahonda/categoria/guarda-chuva-personalizado-para-brindes/1034147" passHref>
                 <BoxCardItem target="_blank" bgimg={box10} />
               </Link>
-              <Link href="/categoria/cozinha-diversos-personalizados-para-brindes/1014058" passHref>
+              <Link href="/lojahonda/categoria/cozinha-diversos-personalizados-para-brindes/1014058" passHref>
                 <BoxCardItem target="_blank" bgimg={box11} />
               </Link>
-              <Link href="/categoria/kit-queijo-personalizado-para-brindes/1020072" passHref>
+              <Link href="/lojahonda/categoria/kit-queijo-personalizado-para-brindes/1020072" passHref>
                 <BoxCardItem target="_blank" bgimg={box12} />
               </Link>
-              <Link href="/categoria/mouse-personalizado-para-brindes/1012130" passHref>
+              <Link href="/lojahonda/categoria/mouse-personalizado-para-brindes/1012130" passHref>
                 <BoxCardItem target="_blank" bgimg={box13} />
               </Link>
-              <Link href="/categoria/caneta-plastica-brindes-personalizados/1023103" passHref>
+              <Link href="/lojahonda/categoria/caneta-plastica-brindes-personalizados/1023103" passHref>
                 <BoxCardItem target="_blank" bgimg={box14} />
               </Link>
             </BoxCards>
@@ -94,34 +94,38 @@ export default function SlideCategoria({ isMobile = false }) {
               <BoxCardItem
                 target="_blank"
                 bgimg={box15}
-                href="/categoria/caneta-ecologica-personalizada-para-brindes/1023110"
+                href="/lojahonda/categoria/caneta-ecologica-personalizada-para-brindes/1023110"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box16}
-                href="/categoria/kit-vinho-personalizado-para-brindes/1020070"
+                href="/lojahonda/categoria/kit-vinho-personalizado-para-brindes/1020070"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box17}
-                href="/categoria/pen-drive-personalizado-para-brindes/1012132"
+                href="/lojahonda/categoria/pen-drive-personalizado-para-brindes/1012132"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box18}
-                href="/categoria/power-bank-personalizado-para-brindes/1012053"
+                href="/lojahonda/categoria/power-bank-personalizado-para-brindes/1012053"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box19}
-                href="/categoria/kit-ferramentas-personalizado-para-brindes/1019068"
+                href="/lojahonda/categoria/kit-ferramentas-personalizado-para-brindes/1019068"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box20}
-                href="/categoria/tabua-de-madeira-personalizada-para-brindes/1014121"
+                href="/lojahonda/categoria/tabua-de-madeira-personalizada-para-brindes/1014121"
               />
-              <BoxCardItem target="_blank" bgimg={box21} href="/categoria/bolsas-personalizadas-para-brindes/1017129" />
+              <BoxCardItem
+                target="_blank"
+                bgimg={box21}
+                href="/lojahonda/categoria/bolsas-personalizadas-para-brindes/1017129"
+              />
             </BoxCards>
           </Slide>
         </Slider>
@@ -132,13 +136,17 @@ export default function SlideCategoria({ isMobile = false }) {
               <BoxCardItem
                 target="_blank"
                 bgimg={box1}
-                href="/categoria/kit-churrasco-personalizado-para-brindes/1020073"
+                href="/lojahonda/categoria/kit-churrasco-personalizado-para-brindes/1020073"
               />
-              <BoxCardItem target="_blank" bgimg={box2} href="/categoria/squeeze-personalizado-para-brindes/1015092" />
+              <BoxCardItem
+                target="_blank"
+                bgimg={box2}
+                href="/lojahonda/categoria/squeeze-personalizado-para-brindes/1015092"
+              />
               <BoxCardItem
                 target="_blank"
                 bgimg={box3}
-                href="/categoria/mochilas-personalizadas-para-brindes/1032146"
+                href="/lojahonda/categoria/mochilas-personalizadas-para-brindes/1032146"
               />
             </BoxCards>
           </Slide>
@@ -147,13 +155,17 @@ export default function SlideCategoria({ isMobile = false }) {
               <BoxCardItem
                 target="_blank"
                 bgimg={box4}
-                href="/categoria/mala-de-viagem-personalizada-para-brindes/1032144"
+                href="/lojahonda/categoria/mala-de-viagem-personalizada-para-brindes/1032144"
               />
-              <BoxCardItem target="_blank" bgimg={box5} href="/categoria/chaveiro-personalizado-para-brindes/1018109" />
+              <BoxCardItem
+                target="_blank"
+                bgimg={box5}
+                href="/lojahonda/categoria/chaveiro-personalizado-para-brindes/1018109"
+              />
               <BoxCardItem
                 target="_blank"
                 bgimg={box6}
-                href="/categoria/caneta-de-metal-personalizada-para-brindes/1023104"
+                href="/lojahonda/categoria/caneta-de-metal-personalizada-para-brindes/1023104"
               />
             </BoxCards>
           </Slide>
@@ -162,17 +174,17 @@ export default function SlideCategoria({ isMobile = false }) {
               <BoxCardItem
                 target="_blank"
                 bgimg={box7}
-                href="/categoria/caixa-de-som-personalizada-para-brindes/1012054"
+                href="/lojahonda/categoria/caixa-de-som-personalizada-para-brindes/1012054"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box8}
-                href="/categoria/necessaire-personalizada-para-brindes/1017130"
+                href="/lojahonda/categoria/necessaire-personalizada-para-brindes/1017130"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box9}
-                href="/categoria/garrafas-termicas-personalizadas-para-brindes/1015059"
+                href="/lojahonda/categoria/garrafas-termicas-personalizadas-para-brindes/1015059"
               />
             </BoxCards>
           </Slide>
@@ -181,32 +193,36 @@ export default function SlideCategoria({ isMobile = false }) {
               <BoxCardItem
                 target="_blank"
                 bgimg={box10}
-                href="/categoria/guarda-chuva-personalizado-para-brindes/1034147"
+                href="/lojahonda/categoria/guarda-chuva-personalizado-para-brindes/1034147"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box11}
-                href="/categoria/cozinha-diversos-personalizados-para-brindes/1014058"
+                href="/lojahonda/categoria/cozinha-diversos-personalizados-para-brindes/1014058"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box12}
-                href="/categoria/kit-queijo-personalizado-para-brindes/1020072"
+                href="/lojahonda/categoria/kit-queijo-personalizado-para-brindes/1020072"
               />
             </BoxCards>
           </Slide>
           <Slide index={4}>
             <BoxCards>
-              <BoxCardItem target="_blank" bgimg={box13} href="/categoria/mouse-personalizado-para-brindes/1012130" />
+              <BoxCardItem
+                target="_blank"
+                bgimg={box13}
+                href="/lojahonda/categoria/mouse-personalizado-para-brindes/1012130"
+              />
               <BoxCardItem
                 target="_blank"
                 bgimg={box14}
-                href="/categoria/caneta-plastica-brindes-personalizados/1023103"
+                href="/lojahonda/categoria/caneta-plastica-brindes-personalizados/1023103"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box15}
-                href="/categoria/caneta-ecologica-personalizada-para-brindes/1023110"
+                href="/lojahonda/categoria/caneta-ecologica-personalizada-para-brindes/1023110"
               />
             </BoxCards>
           </Slide>
@@ -215,17 +231,17 @@ export default function SlideCategoria({ isMobile = false }) {
               <BoxCardItem
                 target="_blank"
                 bgimg={box16}
-                href="/categoria/kit-vinho-personalizado-para-brindes/1020070"
+                href="/lojahonda/categoria/kit-vinho-personalizado-para-brindes/1020070"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box17}
-                href="/categoria/pen-drive-personalizado-para-brindes/1012132"
+                href="/lojahonda/categoria/pen-drive-personalizado-para-brindes/1012132"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box18}
-                href="/categoria/power-bank-personalizado-para-brindes/1012053"
+                href="/lojahonda/categoria/power-bank-personalizado-para-brindes/1012053"
               />
             </BoxCards>
           </Slide>
@@ -234,14 +250,18 @@ export default function SlideCategoria({ isMobile = false }) {
               <BoxCardItem
                 target="_blank"
                 bgimg={box19}
-                href="/categoria/kit-ferramentas-personalizado-para-brindes/1019068"
+                href="/lojahonda/categoria/kit-ferramentas-personalizado-para-brindes/1019068"
               />
               <BoxCardItem
                 target="_blank"
                 bgimg={box20}
-                href="/categoria/tabua-de-madeira-personalizada-para-brindes/1014121"
+                href="/lojahonda/categoria/tabua-de-madeira-personalizada-para-brindes/1014121"
               />
-              <BoxCardItem target="_blank" bgimg={box21} href="/categoria/bolsas-personalizadas-para-brindes/1017129" />
+              <BoxCardItem
+                target="_blank"
+                bgimg={box21}
+                href="/lojahonda/categoria/bolsas-personalizadas-para-brindes/1017129"
+              />
             </BoxCards>
           </Slide>
         </Slider>

@@ -11,8 +11,6 @@ export function NewFooter() {
         <img src="https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo2.png" />
       </S.ImageContent>
 
-      <BodyFooter />
-
       <S.SiteSeguroContainer>
         <Divider>
           <Flex width="100px" alignItems="center" justifyContent="center">
