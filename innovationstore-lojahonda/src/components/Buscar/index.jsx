@@ -175,7 +175,7 @@ class Buscar extends Component {
         this.loadPreFiltro()
         this.getListaDeFiltros(texto_buscado)
       } else {
-        window.location.href = "/"
+        window.location.href = "/lojahonda"
       }
     }
   }

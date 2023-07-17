@@ -154,7 +154,7 @@ export default function Home() {
 export async function getServerSideProps(context) {
   return {
     redirect: {
-      destination: "https://innovationbrindes.com.br",
+      destination: "/lojahonda",
       permanent: false,
     },
   }

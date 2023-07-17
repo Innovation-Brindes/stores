@@ -17,7 +17,7 @@ export function AtendimentoExclusivo() {
         />
       </S.ImageContainter>
       <S.HeaderAtendimento>
-        <h2>Atendimento Exclusivo</h2>{" "}
+        <h2>Atendimento Exclusivo</h2>
         <p>
           Mirian Marques / <span>Departamento Comercial</span>
         </p>
