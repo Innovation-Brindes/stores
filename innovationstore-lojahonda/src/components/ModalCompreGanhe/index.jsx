@@ -175,23 +175,11 @@ export function ModalCompreGanhe({ value }) {
             >
               Aqui você <br /> <span style={{ color: "#CC0000" }}> ganha </span> mais!
             </Text>
-            <Text
-              display={!isMobile ? "block" : "none"}
-              fontSize={"14px"}
-              color={"#FFFFFF"}
-              m={0}
-              position={"absolute"}
-              left={activeLabel === 5 ? "62px" : "49px"}
-              top={"50%"}
-              transform={"translateY(-50%)"}
-              zIndex={"3"}
-            >
-              Receba presentes, <br /> incríveis a <br /> cada compra!
-            </Text>
+
             {Array.from({ length: 5 }).map((_, index) => (
               <Image
                 src={`https://imgproductioncrm.s3.us-east-2.amazonaws.com/compre-ganhe-${
-                  isMobile ? "mobile" : "desk"
+                  isMobile ? "mobile" : "deskstore"
                 }-${index + 1}.png`}
                 transition={"all .3s ease-in-out"}
                 opacity={activeLabel === index + 1 ? 1 : 0}
@@ -203,6 +191,7 @@ export function ModalCompreGanhe({ value }) {
                 left={!isMobile ? ".7rem" : "50%"}
                 transform={isMobile && "translate(-50%, -50%)"}
                 animation={`${animation} 1s ease-in-out`}
+                width={!isMobile && "350px"}
                 {...(isMobile && {
                   transform: activeLabel === 2 ? "rotate(45deg) translate(-80%, -10%)" : "translate(-50%, -50%)",
                 })}
