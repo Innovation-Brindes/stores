@@ -54,8 +54,6 @@ export function ContainerImage({ product }) {
     setImageSelected(product.imagens_produto_store[0])
   }, [product])
 
-  console.log("image selected", imageSelected)
-
   return (
     <Container>
       <S.ImageContainer>
