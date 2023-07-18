@@ -14,7 +14,8 @@ export function ModalSlideImages({ onOpen, isOpen, onClose, images, initialImage
   return (
     <>
       <ImageContent onClick={onOpen}>
-        <Image
+        <img src={initialImage} />
+        {/* <Image
           src={initialImage}
           width={427}
           height={322}
@@ -23,7 +24,7 @@ export function ModalSlideImages({ onOpen, isOpen, onClose, images, initialImage
           placeholder="blur"
           blurDataURL={initialImage}
           alt="Imagem do produto"
-        />
+        /> */}
       </ImageContent>
       <S.Overlay open={isOpen} onClick={onClose} />
       <S.ContainerModalSlideImage open={isOpen}>

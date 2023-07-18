@@ -54,6 +54,8 @@ export function ContainerImage({ product }) {
     setImageSelected(product.imagens_produto_store[0])
   }, [product])
 
+  console.log("image selected", imageSelected)
+
   return (
     <Container>
       <S.ImageContainer>
@@ -70,6 +72,19 @@ export function ContainerImage({ product }) {
           onOpen={handleOpenModalSlide}
           initialImage={imageSelected.url}
         />
+        {/* <S.ImageContent> */}
+        {/* <Image
+            src={imageSelected.url}
+            width={427}
+            height={322}
+            priority
+            quality={30}
+            placeholder="blur"
+            blurDataURL={imageSelected.url}
+            alt="Imagem do produto"
+          /> */}
+        {/* <img src={imageSelected.url} alt={imageSelected.caracteristicas} /> */}
+        {/* </S.ImageContent> */}
         <S.ImageSliderContainer>
           <CarouselProvider
             naturalSlideWidth={400}
