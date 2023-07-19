@@ -2,22 +2,25 @@ import { useEffect, useState } from "react"
 import * as S from "./styles"
 import { useProductProvider } from "../../../../../contexts/ProductProvider"
 import { ColorInputComponent } from "../../ColorInput/styles"
-import { ListaPrazoDeProducao } from "../../../../../services/api"
+import { ListaPrazoDeProducao, baseURL } from "../../../../../services/api"
 
 export function StepPrazoProducao({ product }) {
   const [selectedProducao, setSelectedProducao] = useState(null)
   const { handleSetEntrega } = useProductProvider()
   const [prazos, setPrazos] = useState([])
 
-  async function prazoProducao(prazoMinimo) {
-    const responsePrazo = await ListaPrazoDeProducao.get(prazoMinimo.toString())
+  async function prazoProducao() {
+    const responsePrazoMinimo = await baseURL.get(`/produto/listar-prazo-entrega/${product.codigo_produto}`)
+    const prazo = await responsePrazoMinimo.data
+
+    const responsePrazo = await ListaPrazoDeProducao.get(prazo?.prazo_minimo_entrega.toString())
     const dadosPrazo = await responsePrazo.data
 
     const newPrazos = dadosPrazo.map((prazo) => {
       return {
         ...prazo,
-        mais_rapido: parseInt(prazo.prazo) === 5,
-        mais_barato: parseInt(prazo.prazo) === 10,
+        mais_rapido: parseInt(prazo.prazo) === Math.min(...dadosPrazo.map((prazo) => parseInt(prazo.prazo))),
+        mais_barato: parseInt(prazo.prazo) === Math.max(...dadosPrazo.map((prazo) => parseInt(prazo.prazo))),
       }
     })
 
@@ -44,7 +47,7 @@ export function StepPrazoProducao({ product }) {
 
   useEffect(() => {
     calculateInitialPersonalizacao()
-    prazoProducao(product.prazo_minimo_entrega)
+    prazoProducao()
   }, [product])
 
   function backgroundColor(mais_rapido, mais_barato) {
