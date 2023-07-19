@@ -104,8 +104,9 @@ export function ContainerImage({ product }) {
                       <Image
                         src={image.url}
                         alt={image.caracteristicas}
-                        width={427}
-                        height={322}
+                        width={120}
+                        height={100}
+                        quality={50}
                         placeholder="blur"
                         blurDataURL={image.url}
                         priority
