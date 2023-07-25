@@ -7,6 +7,7 @@ import { dadosProdutosUltraRapidoRandom } from "../../services/api"
 import { TextUltraRapido2, TextUltraRapido3, TextUltraRapido, FlexContainer, ContainerFlexUtilize } from "./styles"
 import { colorBaseUltraRapido } from "./component/FlexFiltroUltraRapido/styles"
 import { NextSeo } from "next-seo"
+import { NewFooter } from "../NewFooter"
 
 const loading = "/images/loading.gif"
 const lupa = "/images/menu/lupa-busca.png"
@@ -201,8 +202,7 @@ class UltraRapido extends Component {
             </Flex>
 
             <SlideProductUltraRapido isUltraRapido={true} state={this.state} />
-
-            <Footer isUltraRapido={true} />
+            <NewFooter />
           </Box>
         </ChakraProvider>
       </>

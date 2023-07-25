@@ -494,17 +494,7 @@ class Categoria extends Component {
               </Flex>
             </CategoriaContainerContent>
           </CategoriaContainer>
-          {this.state.texto_seo != null ? (
-            <CategoriaContainerContentTextoSEO>
-              <p id="myP">
-                {this.state.texto_seo.length > 0 ? (
-                  <div dangerouslySetInnerHTML={{ __html: this.state.texto_seo }} />
-                ) : null}
-              </p>
-            </CategoriaContainerContentTextoSEO>
-          ) : (
-            <></>
-          )}
+
           <NewFooter />
         </Box>
       </>

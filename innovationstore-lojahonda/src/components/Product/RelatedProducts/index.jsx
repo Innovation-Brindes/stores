@@ -11,7 +11,6 @@ export function RelatedProducts({ product }) {
             <CardRelatedProducts key={index} item={item} />
           ))}
         </S.RelatedProductsContent>
-        <S.ContainerTextSeo dangerouslySetInnerHTML={{ __html: product?.texto_seo }} />
       </S.RelatedProductsContentInside>
     </S.RelatedProductsContainer>
   )
