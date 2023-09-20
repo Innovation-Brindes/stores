@@ -215,7 +215,7 @@ async function getTextoSEO(categoria) {
 export async function getStaticPaths() {
   var produtos = await getRotas()
 
-  const topProducts = ["4636", "1916", "0040", "040", "40", "4411", "3687"]
+  const topProducts = ["4300"]
 
   const uniqueProduct = produtos.filter((item) => {
     return topProducts.includes(item.codigo_produto)
