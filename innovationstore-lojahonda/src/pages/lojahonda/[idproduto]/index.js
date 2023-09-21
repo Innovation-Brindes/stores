@@ -294,8 +294,6 @@ export default function ProdutoPage(props) {
   var prazo_producao = props.prazo_producao != undefined ? props.prazo_producao : []
   var texto_seo = props.texto_seo != undefined ? props.texto_seo : ""
 
-  console.log(produto)
-
   return (
     <>
       <Head>

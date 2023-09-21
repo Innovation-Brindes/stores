@@ -82,6 +82,15 @@ export function Orcamento() {
 
     const response = await GerarOrcamento.post("", params)
 
+    const dataOrcamento = response.data
+
+    if (dataOrcamento) {
+      window.open(
+        `https://api.innovationbrindes.com.br/api/site/v2/orcamento/gerar-pdf-orcamento-produto/${dataOrcamento.NOTA}/${dataOrcamento.ULTIMA_SEQUENCIA}`,
+        "_blank",
+      )
+    }
+
     setLoading(false)
 
     reset()
