@@ -9,6 +9,15 @@ export function WhatsAppChat() {
     setButtonVisible(false)
   }
 
+  function toWhatsApp() {
+    window.open(
+      "https://api.whatsapp.com/send?phone=5511986050047&text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Innovation%20Brindes",
+      {
+        target: "_blank",
+      },
+    )
+  }
+
   return (
     <div
       className={`
@@ -28,28 +37,29 @@ export function WhatsAppChat() {
     >
       <button
         className="
-        flex 
-        items-center 
-        justify-start 
-        p-2
-        bg-white 
-        shadow-2xl 
-        rounded-3xl
-        relative
-        w-full
+          flex 
+          items-center 
+          justify-start 
+          p-2
+          bg-white 
+          shadow-2xl 
+          rounded-3xl
+          relative
+          w-full
       "
+        onClick={() => toWhatsApp()}
       >
         <div className="flex gap-2 items-center">
           <div
             className="bg-[#cc0000]
-          text-white
-          flex items-center justify-center
-          w-14 h-14
-          rounded-full
-          cursor-pointer
-          hover:brightness-90 
-          focus:outline-none
-          focus:shadow-none"
+            text-white
+              flex items-center justify-center
+              w-14 h-14
+              rounded-full
+              cursor-pointer
+              hover:brightness-90 
+              focus:outline-none
+              focus:shadow-none"
           >
             <FaWhatsapp className="text-3xl" />
           </div>
