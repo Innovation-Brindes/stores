@@ -402,7 +402,6 @@ export const ImageContent = styled.div`
 
   transition: 0.1s ease-in-out;
 
-
   &:hover {
     opacity: 0.8;
   }
@@ -1025,7 +1024,6 @@ export const InnovationSiteHomeContentMobile = styled(Box)`
 
   @media screen and (max-width: 768px) {
     display: block;
-    z-index: -1;
   }
   // background-color: darkgoldenrod;
   .carousel {
