@@ -4,7 +4,6 @@ import { FontStyles } from "../components/Home/styles"
 import "bootstrap/dist/css/bootstrap.css"
 import { CartProvider } from "../contexts/useCart"
 import { WhatsAppProvider } from "../contexts/WhatsAppProvider"
-import { WhatsAppChat } from "../components/WhatsAppChat"
 import { CookiesSessionProvider } from "../contexts/cookiesSessionProvider"
 import { globalStyles } from "../styles/global"
 import "../globals.css"
@@ -16,6 +15,7 @@ import dynamic from "next/dynamic"
 import { GlobalStyled } from "../styles/globalStyles"
 import { ThemeProvider } from "styled-components"
 import { defaultTheme } from "../theme/default"
+import { WhatsAppChat } from "../components/WhatsAppChat"
 
 const TopProgressBar = dynamic(
   () => {
