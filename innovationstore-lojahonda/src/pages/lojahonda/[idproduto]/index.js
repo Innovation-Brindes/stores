@@ -215,27 +215,27 @@ async function getTextoSEO(categoria) {
 export async function getStaticPaths() {
   var produtos = await getRotas()
 
-  const topProducts = ["4636", "1916", "0040", "040", "40", "4411", "3687"]
+  const topProducts = ["4433, 4399", "4411", "4410"]
 
   const uniqueProduct = produtos.filter((item) => {
     return topProducts.includes(item.codigo_produto)
   })
 
-  // const paths = uniqueProduct.map((item) => ({
-  //   params: {
-  //     idproduto: String(item.url_produto),
-  //   },
-  // }))
+  const paths = uniqueProduct.map((item) => ({
+    params: {
+      idproduto: String(item.url_produto),
+    },
+  }))
 
   // const uniqueUrl = uniqueProduct.map((item) => {
   //   return item.url_produto
   // })
 
-  const paths = produtos.map((item) => ({
-    params: {
-      idproduto: String(item.url_produto),
-    },
-  }))
+  // const paths = produtos.map((item) => ({
+  //   params: {
+  //     idproduto: String(item.url_produto),
+  //   },
+  // }))
   // const paths = [
   //   {
   //     params: {
@@ -293,6 +293,8 @@ export default function ProdutoPage(props) {
   var gravacao = props.gravacao != undefined ? props.gravacao : []
   var prazo_producao = props.prazo_producao != undefined ? props.prazo_producao : []
   var texto_seo = props.texto_seo != undefined ? props.texto_seo : ""
+
+  console.log(produto)
 
   return (
     <>
