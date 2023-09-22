@@ -1252,22 +1252,7 @@ class Buscar extends Component {
         />
         <Box style={{ opacity: this.state.display_init, transition: "0.3s" }}>
           <Box>
-            {this.state.mobileView && this.state.isUltraRapido ? (
-              <></>
-            ) : this.state.isUltraRapido ? (
-              <Image
-                mt="-15px"
-                maxWidth="1900px"
-                mx={this.state.mobileView ? "auto" : "auto"}
-                h={this.state.mobileView ? "auto" : "auto"}
-                w={this.state.mobileView ? "100vw" : "100%"}
-                objectFit="cover"
-                src={`/images/banners/banner-ultra-rapido/banner-ultra-rapido-${this.state.sortBanner}.png`}
-                alt="banner-ultra-rapido"
-              />
-            ) : (
-              <></>
-            )}
+            {this.state.mobileView && this.state.isUltraRapido ? <></> : this.state.isUltraRapido ? <></> : <></>}
             <BuscarContentFilter isUltraRapido={this.state.isUltraRapido}>
               <BuscarContentFilterSelect
                 isUltraRapido={this.state.isUltraRapido}
@@ -1325,7 +1310,7 @@ class Buscar extends Component {
                   <GridProdutsLoading style={{ display: this.state.loadingProd }}>
                     {this.state.isUltraRapido ? (
                       <Center>
-                        <img alt="loading_ultra_rapido" src={loading_ultra_rapido} />
+                        <Spinner size="lg" color="#CC0000" />
                       </Center>
                     ) : (
                       <Center>

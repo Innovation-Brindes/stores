@@ -417,7 +417,10 @@ export default function HomeFilter({ subcategorias, bannerRecesso }) {
                         </HomeContentSlideTopoFilterBodyBrindesContentGrid>
 
                         <HomeContentSlideTopoFilterBodyBrindesContentImgProd>
-                          <img alt="categoria-images" src={`/images/categoria-images/${imageCategoria}.jpg`} />
+                          <img
+                            alt="categoria-images"
+                            src={`https://innovationbrindes.com.br/images/categoria-images/${imageCategoria}.jpg`}
+                          />
                         </HomeContentSlideTopoFilterBodyBrindesContentImgProd>
                       </HomeContentSlideTopoFilterBodyBrindesContent>
                     </HomeContentSlideTopoFilterBodyBrindes>
