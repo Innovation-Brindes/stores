@@ -39,6 +39,11 @@ module.exports = {
         raleway: ["Raleway", "sans-serif"],
         akrobat: ["Akrobat", "sans-serif"],
       },
+
+      backgroundImage: {
+        //compre-ganhe-pattern to top #fff, #69B2C5, #017D9D
+        "compre-ganhe-pattern": "linear-gradient(180deg, #cecece 5%, #d5d5d5 86%, #ddd 100%);",
+      },
     },
   },
   plugins: [],

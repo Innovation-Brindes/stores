@@ -2,7 +2,7 @@ import { useRouter } from "next/router"
 import { useProductProvider } from "../../../../contexts/ProductProvider"
 import { useCart } from "../../../../contexts/useCart"
 import { formatPrice } from "../../../../utils/formatPrice"
-import { ComprouGanhou } from "../../../Produto/components/ComprouGanhou"
+import { ComprouGanhou } from "../../../ComprouGanhou"
 import { AddresClient } from "../../AddressClient"
 import { Button } from "../../components/Button"
 import { PaymentMethods } from "../PaymentMethods"
@@ -131,7 +131,7 @@ export function Resumo({ product }) {
       </S.ContainerDivider>
 
       <PaymentMethods totalPedido={parseFloat(price?.valor_total)} />
-      <ComprouGanhou valor={parseFloat(price?.valor_total)} />
+      <ComprouGanhou price={parseFloat(price?.valor_total)} />
 
       <S.ContainerActions>
         <Button.Root
