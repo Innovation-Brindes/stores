@@ -1,7 +1,7 @@
 import { IoIosRefreshCircle } from "react-icons/io"
 import * as S from "./styles"
 import { useProductProvider } from "../../../../../contexts/ProductProvider"
-import { useEffect, useMemo, useRef } from "react"
+import { useMemo, useRef } from "react"
 import { BoxBestOption } from "./BoxBestOption"
 import * as Toast from "@radix-ui/react-toast"
 import { useState } from "react"
