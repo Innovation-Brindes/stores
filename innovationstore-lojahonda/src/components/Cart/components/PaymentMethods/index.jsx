@@ -5,7 +5,7 @@ import { AiOutlineBarcode } from "react-icons/ai"
 import { Method } from "./Method"
 import { ModalInfoPayment } from "./components"
 import { formatPrice } from "../../../../utils/formatPrice"
-import { ComprouGanhou } from "../ComprouGanhou"
+import { ComprouGanhou } from "../../../ComprouGanhou"
 import { MdPix } from "react-icons/md"
 import { Divider } from "../ResumoContainer/Divider"
 
@@ -74,7 +74,7 @@ export function PaymentMethods({ totalPedido }) {
         </Text>
         <ModalInfoPayment totalPedido={totalPedido} />
         <Divider />
-        <ComprouGanhou valor={totalPedido} />
+        <ComprouGanhou price={totalPedido} />
       </Flex>
     </Flex>
   )

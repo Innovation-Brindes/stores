@@ -289,7 +289,7 @@ export function EditeSeuProduto({
             <Text as="span" m="0" fontSize="0.6875rem" color="#414042">
               Disponivel: {corProduto?.estoque ?? itemEdit?.allInfos.cor_estoque}
             </Text>
-            <Flex gap={2} mt=".3rem">
+            <Flex gap={2} mt=".3rem" flexWrap="wrap">
               {colors?.map((item) => {
                 return (
                   <InputColor

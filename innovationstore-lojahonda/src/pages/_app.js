@@ -16,6 +16,8 @@ import { GlobalStyled } from "../styles/globalStyles"
 import { ThemeProvider } from "styled-components"
 import { defaultTheme } from "../theme/default"
 import { WhatsAppChat } from "../components/WhatsAppChat"
+import { QueryClientProvider } from "react-query"
+import { queryClient } from "../services/queryClient"
 
 const TopProgressBar = dynamic(
   () => {
@@ -30,10 +32,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <React.Fragment>
       <Head>
-        <title>Teste Innovation</title>
+        {/* <title>Teste Innovation</title> */}
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#58BC03" />
-        {/* <title>Innovation Brindes</title> */}
+        <title>Innovation Store - Honda</title>
         <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
 
         <link rel="shortcut icon" href="../../images/logo-icon.png" />
@@ -59,20 +61,22 @@ function MyApp({ Component, pageProps }) {
 
       <ChakraProvider>
         <AuthProvider>
-          <ProductProvider>
-            <CartProvider>
-              <CookiesSessionProvider>
-                <WhatsAppProvider>
-                  <ThemeProvider theme={defaultTheme}>
-                    <TopProgressBar />
-                    <GlobalStyled />
-                    <Component {...pageProps} />
-                    <WhatsAppChat />
-                  </ThemeProvider>
-                </WhatsAppProvider>
-              </CookiesSessionProvider>
-            </CartProvider>
-          </ProductProvider>
+          <QueryClientProvider client={queryClient}>
+            <ProductProvider>
+              <CartProvider>
+                <CookiesSessionProvider>
+                  <WhatsAppProvider>
+                    <ThemeProvider theme={defaultTheme}>
+                      <TopProgressBar />
+                      <GlobalStyled />
+                      <Component {...pageProps} />
+                      <WhatsAppChat />
+                    </ThemeProvider>
+                  </WhatsAppProvider>
+                </CookiesSessionProvider>
+              </CartProvider>
+            </ProductProvider>
+          </QueryClientProvider>
         </AuthProvider>
       </ChakraProvider>
     </React.Fragment>

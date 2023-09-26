@@ -4,34 +4,76 @@ import { ColorInputComponent } from "../../ColorInput/styles"
 import * as S from "./styles"
 import { format, parseISO } from "date-fns"
 import { useProductProvider } from "../../../../../contexts/ProductProvider"
-import { buscaProduto } from "../../../../../services/api"
 import { setFirstLetterUpperCase } from "../../../../../utils/setFirstLetterUpperCase"
+import { ModalDisponibilidadeFutura } from "../../ModalDisponibilidadeFutura"
+import { buscaProduto } from "../../../../../services/api"
+import { useQuery, useQueryClient } from "react-query"
 
 export function ColorStep({ product }) {
   const [selectedColor, setSelectedColor] = useState(null)
   const { handleSetCodColor, handleSetProductQuantity } = useProductProvider()
-  const [cores, setCores] = useState([])
+  const [colors, setColors] = useState([])
+  const [initialColorsCalculated, setInitialColorsCalculated] = useState(false)
 
-  function handleSelectedColor(color) {
+  const queryClient = useQueryClient()
+
+  const flag = Number(product.ad_multiplo)
+
+  async function handleSelectedColor(color) {
+    queryClient.invalidateQueries(["colorsdata", product.codigo_produto])
+    // queryClient.refetchQueries(["colorsdata", product.codigo_produto])
+
     const stockIsZero = parseInt(color?.estoque_disponivel) === 0
     if (stockIsZero) return
     const quantitySelected = parseInt(color?.estoque_disponivel) > 1000 ? 1000 : parseInt(color?.estoque_disponivel)
+
+    if (!!flag && quantitySelected < 1000) {
+      //se o produto for abaixo de 1000, ele pega o valor do estoque e transforma em multiplo de 10
+      //transforma o valor que esta recebendo e transforma em multiplo de 10
+      const intQuantity = parseInt(quantitySelected)
+      const rest = intQuantity % flag
+      const newQuantity = intQuantity - rest + flag
+      handleSetProductQuantity(newQuantity)
+      setSelectedColor(color)
+      handleSetCodColor(color)
+      return
+    }
 
     handleSetProductQuantity(quantitySelected)
     setSelectedColor(color)
     handleSetCodColor(color)
   }
 
-  async function coresDisponiveis(codprod) {
-    const response = await buscaProduto.get(`${codprod}/cores-disponiveis`)
+  async function calculateInitialColors(data) {
+    if (data?.length <= 0 || initialColorsCalculated) return
 
-    setCores(response.data)
-
-    return response.data
+    const productMaxStock = data?.reduce((acc, curr) => {
+      if (parseInt(acc.estoque_disponivel) > parseInt(curr.estoque_disponivel)) {
+        return acc
+      }
+      return curr
+    }, [])
+    handleSelectedColor(productMaxStock)
+    setInitialColorsCalculated(true)
   }
 
+  const { data } = useQuery(
+    ["colorsdata", product.codigo_produto],
+    async () => {
+      const response = await buscaProduto.get(product.codigo_produto + "/cores-disponiveis")
+
+      return response.data
+    },
+    {
+      onSuccess: (data) => {
+        setColors(data)
+        calculateInitialColors(data)
+      },
+    },
+  )
+
   const orderByStock = useMemo(() => {
-    return cores?.sort((a, b) => {
+    return data?.sort((a, b) => {
       if (a?.estoque_disponivel > b?.estoque_disponivel) {
         return -1
       }
@@ -40,7 +82,7 @@ export function ColorStep({ product }) {
       }
       return 0
     })
-  }, [cores])
+  }, [data])
 
   const dateRepoStock = useMemo(() => {
     if (!selectedColor?.reposicao_estoque) return null
@@ -60,20 +102,6 @@ export function ColorStep({ product }) {
 
     return parseInt(selectedColor?.quantidade_reposicao)
   }, [selectedColor])
-
-  async function calculateInitialColors() {
-    const coresDispo = await coresDisponiveis(product.codigo_produto)
-
-    if (coresDispo?.length <= 0) return
-
-    const productMaxStock = coresDispo?.reduce((acc, curr) => {
-      if (parseInt(acc.estoque_disponivel) > parseInt(curr.estoque_disponivel)) {
-        return acc
-      }
-      return curr
-    }, [])
-    handleSelectedColor(productMaxStock)
-  }
 
   const tamanhos = useMemo(() => {
     const tamanhoMap = {
@@ -109,13 +137,9 @@ export function ColorStep({ product }) {
     )
   }, [selectedColor])
 
-  useEffect(() => {
-    calculateInitialColors()
-  }, [])
-
-  useEffect(() => {
-    coresDisponiveis(product.codigo_produto)
-  }, [product.codigo_produto])
+  // useEffect(() => {
+  //   calculateInitialColors()
+  // }, [])
 
   const placeholderColorInputComponent = Array.from({ length: 5 }).map((_, index) => (
     <ColorInputComponent key={index} backgroundColor={"#cecece"} loading />
@@ -138,6 +162,7 @@ export function ColorStep({ product }) {
           Disponível: {!isNaN(stockDisponivelColor) ? stockDisponivelColor : "Carrengando.."}
         </span>
       </S.AccordionHeaderColors>
+      {product.cores[0]?.valida_disponibilidade && <ModalDisponibilidadeFutura codprod={product.codigo_produto} />}
       <S.AccordionColorsRow>
         {orderByStock
           ? orderByStock.map((value) => (
@@ -151,10 +176,10 @@ export function ColorStep({ product }) {
           : placeholderColorInputComponent}
       </S.AccordionColorsRow>
       {product.prod_vestuario === "S" && tamanhos}
-
-      {selectedColor?.reposicao_estoque && (
+      {selectedColor?.quantidade_reposicao && (
         <S.AccordionFooterPanelColors>
-          Reposição de estoque: {dateRepoStock} {selectedColor?.quantidade_reposicao && `| + ${quantityRepoStock} un.`}
+          Reposição de estoque: {selectedColor?.reposicao_estoque && dateRepoStock}{" "}
+          {selectedColor?.quantidade_reposicao && ` + ${quantityRepoStock} un.`}
         </S.AccordionFooterPanelColors>
       )}
     </>
