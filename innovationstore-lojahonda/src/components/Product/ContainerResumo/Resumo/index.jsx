@@ -88,11 +88,11 @@ export function Resumo({ product }) {
 
     addToCart(produto)
 
-    console.log("produto", produto)
-    // router.push("/lojahonda/carrinho")
+    // console.log("produto", produto)
+    router.push("/lojahonda/carrinho")
   }
 
-  console.log("product", product)
+  // console.log("product", product)
   return (
     <>
       <S.Heading>Resumo</S.Heading>
