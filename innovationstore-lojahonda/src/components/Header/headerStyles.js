@@ -66,13 +66,14 @@ export const MenuOpen = styled("div", {
     width: "100%",
   },
 
-  li: {
+  a: {
     listStyle: "none",
     fontSize: "13px",
     fontWeight: "400",
     color: "#414042",
     cursor: "pointer",
     padding: "2px 20px",
+    textDecoration: "none",
 
     //a
 

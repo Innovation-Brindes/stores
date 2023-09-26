@@ -28,6 +28,8 @@ export function CartItem({ index, item }) {
     return str?.charAt(0).toUpperCase() + str?.slice(1).toLowerCase()
   }
 
+  console.log(item)
+
   const toast = useToast()
 
   const { highlightedItemId } = useCart()
@@ -135,7 +137,7 @@ export function CartItem({ index, item }) {
                 )}
                 <Flex gap={2} alignItems="center" width="100%">
                   <Image
-                    src={item.imagem ? item.imagem : "https://fakeimg.pl/120x120/cecece/000"}
+                    src={item.url_img ? item.url_img : "https://fakeimg.pl/120x120/cecece/000"}
                     height="5.625rem"
                     width="4.375rem"
                     marginBlock="1.5rem"

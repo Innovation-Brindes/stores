@@ -59,7 +59,7 @@ export function Resumo({ product }) {
     const produto = {
       id_hash: product.codigo_produto,
       codprod: product.codigo_produto,
-      imagem: product.imagem_produto,
+      imagem: product.imagem_home_store,
       nome_prod: product.nome,
       referencia: product.referencia,
       ad_embalagem: product.ad_embalagem,
@@ -78,7 +78,7 @@ export function Resumo({ product }) {
       },
       numero_max_impressoes: numeroMaxImpressoes,
       list_cores: cores,
-      url_img: product.imagens_produto[0].url,
+      url_img: product.imagem_home_store,
       allInfos: product,
       embalagem: false,
       codigo_impressao: state.codImp.codigo_impressao,
@@ -87,9 +87,12 @@ export function Resumo({ product }) {
     }
 
     addToCart(produto)
-    router.push("/lojahonda/carrinho")
+
+    console.log("produto", produto)
+    // router.push("/lojahonda/carrinho")
   }
 
+  console.log("product", product)
   return (
     <>
       <S.Heading>Resumo</S.Heading>
