@@ -271,7 +271,6 @@ export function OptionsShipping({
                 />
               }
               {<ClienteRetira name="Pier Serv" handleStepCartValue={() => handleStepCartValue("pierServ")} />}
-              {<ClienteRetira handleStepCartValue={() => handleStepCartValue("autlog")} name="Autlog" />}
               {<ClienteRetira handleStepCartValue={() => handleStepCartValue("profileLog")} name="ProfileLog" />}
             </Flex>
             {isGdSp && !verifyIsFreeSP && (
