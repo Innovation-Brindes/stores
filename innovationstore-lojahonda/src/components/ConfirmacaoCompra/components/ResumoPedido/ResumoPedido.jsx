@@ -1,34 +1,24 @@
-import { Text, Flex, useMediaQuery } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
-import * as S from "./resumoStyles";
+import { Text, Flex, useMediaQuery } from "@chakra-ui/react"
+import { useState, useEffect } from "react"
+import * as S from "./resumoStyles"
 
-export const ResumoPedido = ({
-  isMobile = false,
-  valores,
-  valorTotalItens,
-  valorFreteResumo,
-}) => {
-  const [isMaxWidth768] = useMediaQuery("(max-width: 768px)");
-  const [isMinWidthMedium, setIsMinWidthMedium] = useState(false);
+export const ResumoPedido = ({ isMobile = false, valores, valorTotalItens, valorFreteResumo }) => {
+  const [isMaxWidth768] = useMediaQuery("(max-width: 768px)")
+  const [isMinWidthMedium, setIsMinWidthMedium] = useState(false)
 
   useEffect(() => {
     if (isMaxWidth768 !== isMinWidthMedium) {
-      setIsMinWidthMedium(isMaxWidth768);
+      setIsMinWidthMedium(isMaxWidth768)
     }
-  }, [isMaxWidth768]);
+  }, [isMaxWidth768])
 
   const soma = Array.from(valorTotalItens).reduce((acc, curr) => {
-    return acc + Number(curr);
-  }, 0);
+    return acc + Number(curr)
+  }, 0)
 
   return (
     <>
-      <Flex
-        width="100%"
-        bg="#7fbc03"
-        alignItems="center"
-        justifyContent="center"
-      >
+      <Flex width="100%" bg="#cc0000" alignItems="center" justifyContent="center">
         <Text
           width="100%"
           textAlign="center"
@@ -69,11 +59,7 @@ export const ResumoPedido = ({
                 gap={8}
               >
                 <Text margin="0">VALOR TOTAL DOS ITENS:</Text>
-                <Text
-                  margin="0"
-                  marginLeft="auto"
-                  {...(isMinWidthMedium && { fontSize: ".3rem" })}
-                >
+                <Text margin="0" marginLeft="auto" {...(isMinWidthMedium && { fontSize: ".3rem" })}>
                   {new Intl.NumberFormat("pt-BR", {
                     style: "currency",
                     currency: "BRL",
@@ -133,10 +119,8 @@ export const ResumoPedido = ({
                   currency: "BRL",
                 }).format(
                   parseFloat(
-                    parseFloat(soma) +
-                      parseFloat(valores?.substituicaoTributaria[0]) +
-                      parseFloat(valorFreteResumo)
-                  )
+                    parseFloat(soma) + parseFloat(valores?.substituicaoTributaria[0]) + parseFloat(valorFreteResumo),
+                  ),
                 )}
               </Text>
             </Flex>
@@ -155,12 +139,7 @@ export const ResumoPedido = ({
               justifyContent="center"
               gap={1}
             >
-              <Text
-                margin="0"
-                fontSize="1rem"
-                textTransform="uppercase"
-                padding=".6rem"
-              >
+              <Text margin="0" fontSize="1rem" textTransform="uppercase" padding=".6rem">
                 Valor total dos itens:
               </Text>{" "}
               <Text margin="0" fontSize="1rem" fontWeight="bold">
@@ -179,12 +158,7 @@ export const ResumoPedido = ({
               justifyContent="center"
               gap={1}
             >
-              <Text
-                margin="0"
-                fontSize="1rem"
-                textTransform="uppercase"
-                padding=".6rem"
-              >
+              <Text margin="0" fontSize="1rem" textTransform="uppercase" padding=".6rem">
                 Substituição tributária:
               </Text>{" "}
               <Text margin="0" fontSize="1rem" fontWeight="bold">
@@ -203,12 +177,7 @@ export const ResumoPedido = ({
               justifyContent="center"
               gap={1}
             >
-              <Text
-                margin="0"
-                fontSize="1rem"
-                textTransform="uppercase"
-                padding=".6rem"
-              >
+              <Text margin="0" fontSize="1rem" textTransform="uppercase" padding=".6rem">
                 Valor do frete:
               </Text>{" "}
               <Text margin="0" fontSize="1rem" fontWeight="bold">
@@ -229,12 +198,7 @@ export const ResumoPedido = ({
               bgColor="#2C2C3A"
               color="white"
             >
-              <Text
-                margin="0"
-                fontSize="1rem"
-                textTransform="uppercase"
-                padding=".6rem"
-              >
+              <Text margin="0" fontSize="1rem" textTransform="uppercase" padding=".6rem">
                 VALOR TOTAL DO PEDIDO:
               </Text>{" "}
               <Text margin="0" fontSize="1rem" fontWeight="bold">
@@ -248,5 +212,5 @@ export const ResumoPedido = ({
         </>
       )}
     </>
-  );
-};
+  )
+}

@@ -1,6 +1,11 @@
-import { Flex, Text, Th, Tr } from "@chakra-ui/react";
+import { Flex, Text, Th, Tr } from "@chakra-ui/react"
 
 export function ListTable({ item, index }) {
+  const urlHonda = item.CATEGORIA.replace(
+    "https://innovationbrindes.com.br",
+    "https://innovationstore.com.br/lojahonda",
+  )
+
   return (
     <Tr key={index}>
       <Th>
@@ -12,23 +17,10 @@ export function ListTable({ item, index }) {
             Cod {item.CODPROD}
           </Text>
           <Text fontSize=".8rem" fontWeight="500">
-            <Text
-              as="a"
-              href={item.CATEGORIA}
-              textDecoration={"none"}
-              target="_blank"
-              rel="noreferrer"
-              mr="5px"
-            >
+            <Text as="a" href={urlHonda} textDecoration={"none"} target="_blank" rel="noreferrer" mr="5px">
               + Mais informações |
             </Text>
-            <Text
-              as="a"
-              href={item.LINK_LAYOUT}
-              textDecoration={"none"}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <Text as="a" href={item.LINK_LAYOUT} textDecoration={"none"} target="_blank" rel="noreferrer">
               Layout
             </Text>
           </Text>
@@ -62,5 +54,5 @@ export function ListTable({ item, index }) {
         }).format(parseFloat(item.VALOR_TOTAL_ITEM))}
       </Th>
     </Tr>
-  );
+  )
 }

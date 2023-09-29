@@ -6,7 +6,15 @@ export function Tr({ item }) {
 
   return (
     <tr>
-      <td>{item.numero_pedido}</td>
+      <td>
+        <a
+          href={`https://innovationstore.com.br/lojahonda/confirmacao-compra/${item.nunota}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {item.numero_pedido}
+        </a>
+      </td>
       <td>{format(new Date(item.dt_ultatu), "dd/MM/yyyy")}</td>
       <td>{item.razao_social}</td>
       <td>{maskedCnpj}</td>
