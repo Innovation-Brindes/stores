@@ -14,6 +14,8 @@ export function Tr({ item }) {
       <td>{item.nome_parceiro}</td>
       <td>{item.email_parceiro}</td>
       <td>{item.prazo_producao} dias</td>
+      <td>{parseFloat(item.percentual_desconto).toFixed(2)} %</td>
+      <td>{formatPrice(item.valor_sem_desconto)}</td>
       <td>{formatPrice(item.valor_pedido)}</td>
     </tr>
   )

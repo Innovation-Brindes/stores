@@ -29,7 +29,13 @@ export function CardMobile({ item }) {
         <span>Prazo de produção:</span> {item.prazo_producao}
       </p>
       <p>
-        <span>Valor:</span> {formatPrice(item.valor_pedido)}
+        <span>Percentual de desconto:</span> {} {parseFloat(item.percentual_desconto).toFixed(2)} %
+      </p>
+      <p>
+        <span>Valor com desconto:</span> {formatPrice(item.valor_pedido)}
+      </p>
+      <p>
+        <span>Valor sem desconto:</span> {formatPrice(item.valor_sem_desconto)}
       </p>
     </S.CardRelatorioMobile>
   )

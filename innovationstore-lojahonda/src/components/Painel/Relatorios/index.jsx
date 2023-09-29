@@ -1,6 +1,7 @@
 import Image from "next/image"
 import * as S from "./styles"
 import { format } from "date-fns"
+import { usePdfGenerator } from "../../../hooks/usePdfGenerator"
 
 import { useState } from "react"
 import { Tr } from "./Tr"
@@ -51,26 +52,78 @@ export function Relatorios({ relatorios }) {
 
   const summary = data.reduce(
     (acc, curr) => {
-      const { valor_cupom, valor_pedido } = curr
+      const { valor_cupom, valor_pedido, valor_sem_desconto } = curr
 
-      const valorCupom = parseFloat(valor_cupom)
       const valorPedido = parseFloat(valor_pedido)
+      const valorSemDesconto = parseFloat(valor_sem_desconto)
+
+      acc.totalSemDesconto += valorSemDesconto
 
       acc.totalPedidos += 1
       acc.totalValor += valorPedido
 
-      if (valorCupom > 0) {
-        acc.totalDesconto += valorCupom
+      if (valorSemDesconto > valorPedido) {
+        acc.descontoAdquirido += valorSemDesconto - valorPedido
       }
 
-      return acc
+      return {
+        ...acc,
+      }
     },
     {
       totalPedidos: 0,
       totalValor: 0,
-      totalDesconto: 0,
+      descontoAdquirido: 0,
+      totalSemDesconto: 0,
     },
   )
+
+  const headData = [
+    "Pedido",
+    "Data",
+    "Razão Social",
+    "CNPJ",
+    // "Tipo",
+    "Responsável",
+    "E-mail",
+    "Prazo de produção",
+    "% de desconto",
+    "Valor sem desconto",
+    "Valor com desconto",
+  ]
+
+  const mapBodyData = () => {
+    return data.map((item) => [
+      item.numero_pedido,
+      format(new Date(item.dt_ultatu), "dd/MM/yyyy"),
+      item.razao_social,
+      item.cpfcnpj_parceiro,
+      item.nome_parceiro,
+      item.email_parceiro,
+      `${item.prazo_producao} dias`,
+      `${parseFloat(item.percentual_desconto).toFixed(2)} %`,
+      formatPrice(item.valor_sem_desconto),
+      formatPrice(item.valor_pedido),
+    ])
+  }
+
+  const headSummary = [
+    "Total de pedidos",
+    "Valor total",
+    "Desconto adquirido",
+    "Total com Desconto",
+    "Total sem Desconto",
+  ]
+
+  const summaryData = [
+    summary.totalPedidos,
+    formatPrice(summary.totalValor),
+    formatPrice(summary.descontoAdquirido),
+    formatPrice(summary.totalValor),
+    formatPrice(summary.totalSemDesconto),
+  ]
+
+  const generatePDF = usePdfGenerator(headData, mapBodyData, headSummary, summaryData, "Relatório")
 
   return (
     <S.RelatoriosContainer>
@@ -122,6 +175,10 @@ export function Relatorios({ relatorios }) {
           Ok
         </S.FilterButton>
       </S.FilterContainer>
+      <button onClick={generatePDF} className="mb-3 px-4 py-2 bg-[#cc0000] text-white rounded-md hover:brightness-90">
+        Gerar relatório em PDF
+      </button>
+
       <S.TableTitleSummary>
         <span>TOTAL DE PEDIDOS: {summary.totalPedidos}</span>
         <span>VALOR TOTAL: {formatPrice(summary.totalValor)}</span>
@@ -140,7 +197,9 @@ export function Relatorios({ relatorios }) {
               <th>Responsável</th>
               <th>E-mail</th>
               <th>Prazo de produção</th>
-              <th>Valor</th>
+              <th>% de desconto</th>
+              <th>Valor sem desconto</th>
+              <th>Valor com desconto</th>
             </tr>
           </thead>
           <tbody>
