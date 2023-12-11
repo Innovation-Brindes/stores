@@ -459,7 +459,7 @@ export const ConfirmarCompra = ({ id, dataInfoClientes, data, dadosPix }) => {
                   },
                 }}
               >
-                <Thead bg="#7fbc03" color="white">
+                <Thead bg="#cc0000" color="white">
                   <Tr
                     sx={{
                       "th, td": {

@@ -21,7 +21,9 @@ export function InfoValores() {
 
   const total = parseFloat(totalItens) + totalEmbValue + parseFloat(frete?.frete)
 
-  const totalItensMais3Porcento = totalItens - totalItens * 0.03
+  const percent = 5
+
+  const totalItensMais5Porcento = totalItens - totalItens * (percent / 100)
 
   return (
     <>
@@ -49,10 +51,10 @@ export function InfoValores() {
       </Flex>
       <Flex justifyContent="space-between" alignItems="center" mt="1rem">
         <Text as="h1" color="#cc0000" fontSize="15px" fontWeight="bold" letterSpacing="0rem" textAlign="center" m="0">
-          Desconto honda 3%
+          Desconto honda {percent}%
         </Text>
         <Text m="0" as="h1" color="#000" fontSize="15px" fontWeight="bold" letterSpacing="0rem" textAlign="center">
-          {formatPrice(totalItensMais3Porcento)}
+          {formatPrice(totalItensMais5Porcento)}
         </Text>
       </Flex>
     </>

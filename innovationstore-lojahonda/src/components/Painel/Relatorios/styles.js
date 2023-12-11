@@ -197,6 +197,8 @@ export const Table = styled.table`
   border-collapse: collapse;
   margin: 5px 0;
 
+  overflow-x: auto;
+
   @media (max-width: 768px) {
     display: none;
   }

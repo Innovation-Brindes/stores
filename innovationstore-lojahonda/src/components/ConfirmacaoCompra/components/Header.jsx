@@ -1,22 +1,18 @@
-import { Flex, Image, Img, Text, useMediaQuery } from "@chakra-ui/react";
-import React, { useEffect } from "react";
-import axios from "axios";
-import { useState } from "react";
-const logo = "/images/logo.png";
+import { Flex, Image, Img, Text, useMediaQuery } from "@chakra-ui/react"
+import React, { useEffect } from "react"
+import axios from "axios"
+import { useState } from "react"
+const logo = "/images/logo.png"
 
-export const Header = ({
-  pedCompra = false,
-  nunota = false,
-  numUnico = false,
-}) => {
-  const [isMaxWidth768] = useMediaQuery("(max-width: 768px)");
-  const [isMinWidthMedium, setIsMinWidthMedium] = useState(false);
+export const Header = ({ pedCompra = false, nunota = false, numUnico = false }) => {
+  const [isMaxWidth768] = useMediaQuery("(max-width: 768px)")
+  const [isMinWidthMedium, setIsMinWidthMedium] = useState(false)
 
   useEffect(() => {
     if (isMaxWidth768 !== isMinWidthMedium) {
-      setIsMinWidthMedium(isMaxWidth768);
+      setIsMinWidthMedium(isMaxWidth768)
     }
-  }, [isMaxWidth768]);
+  }, [isMaxWidth768])
 
   return (
     <Flex
@@ -32,14 +28,18 @@ export const Header = ({
         gap={isMinWidthMedium && ".8rem"}
         width={isMinWidthMedium && "100%"}
       >
-        <Image src={logo} alt="confirmacao" width="170px" />
+        <Image
+          src={"https://imgproductioncrm.s3.us-east-2.amazonaws.com/logo-honda.png"}
+          alt="confirmacao"
+          width="170px"
+        />
         <Text
           fontSize={isMinWidthMedium ? "1.2rem" : "1.5rem"}
           paddingInline={isMinWidthMedium ? ".6rem" : "2rem"}
           paddingBlock={isMinWidthMedium ? "1rem" : "0"}
           color="white"
           {...(isMinWidthMedium && { textAlign: "center" })}
-          bgColor="#7fbc03"
+          bgColor="#cc0000"
           margin="0"
           marginLeft={!isMinWidthMedium && "2rem"}
           width={!isMinWidthMedium ? "630px" : "100%"}
@@ -53,28 +53,16 @@ export const Header = ({
             })}
         </Text>
       </Flex>
-      <Text
-        margin="0"
-        fontSize={isMinWidthMedium ? "1.2rem" : "1.5rem"}
-        fontWeight="bold"
-      >
+      <Text margin="0" fontSize={isMinWidthMedium ? "1.2rem" : "1.5rem"} fontWeight="bold">
         {pedCompra ? (
-          <Text
-            margin="0"
-            fontSize={isMinWidthMedium ? "1.2rem" : "1.4rem"}
-            fontWeight="bold"
-          >
+          <Text margin="0" fontSize={isMinWidthMedium ? "1.2rem" : "1.4rem"} fontWeight="bold">
             Pedido de compra:{" "}
             <strong>
               #{pedCompra}/{nunota[0]}
             </strong>
           </Text>
         ) : (
-          <Text
-            margin="0"
-            fontSize={isMinWidthMedium ? "1.2rem" : "1.4rem"}
-            fontWeight="bold"
-          >
+          <Text margin="0" fontSize={isMinWidthMedium ? "1.2rem" : "1.4rem"} fontWeight="bold">
             Pedido de compra:{" "}
             <strong>
               #{numUnico}/{nunota[0]}
@@ -83,5 +71,5 @@ export const Header = ({
         )}
       </Text>
     </Flex>
-  );
-};
+  )
+}
