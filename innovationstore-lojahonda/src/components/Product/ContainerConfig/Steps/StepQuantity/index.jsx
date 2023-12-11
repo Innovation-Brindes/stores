@@ -43,7 +43,6 @@ export function StepQuantity({ product }) {
 
       if (intQuantity % flag !== 0) {
         setQuantityMultiple(true)
-        console.log("entrou aqui")
 
         for (let i = 1; i <= 4; i++) {
           const examples = intQuantity + flag * i - (intQuantity % flag)
@@ -92,7 +91,7 @@ export function StepQuantity({ product }) {
       const quantity = intQuantity + (flag - (intQuantity % flag))
 
       handleSetProductQuantity(quantity)
-      refQuantity.current.value = quantity
+      refQuantity.current.value = quantity // valor
       return
     }
 
