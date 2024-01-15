@@ -41,7 +41,7 @@ export async function getStaticProps(context) {
       linksSubcategorias: linksSubcategorias.subcategorias,
       linksSegmentos: linksSegmentos.segmentos,
     }, // will be passed to the page component as props
-    // revalidate: 60,
+    revalidate: 60,
   }
 }
 
