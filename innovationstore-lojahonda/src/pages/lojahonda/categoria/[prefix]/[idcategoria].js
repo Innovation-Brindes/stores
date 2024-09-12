@@ -10,6 +10,7 @@ export async function getStaticProps(context) {
 
   const linksSubcategorias = await getCategorias()
   const linksSegmentos = await getSegmentos()
+  //teest
 
   try {
     const response = await dadosProdutosSubcategoria.post("", {
