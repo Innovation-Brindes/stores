@@ -233,11 +233,11 @@ export async function getStaticPaths() {
   //   return item.url_produto
   // })
 
-  const paths = produtos.map((item) => ({
-    params: {
-      idproduto: String(item.url_produto),
-    },
-  }))
+  // const paths = produtos.map((item) => ({
+  //   params: {
+  //     idproduto: String(item.url_produto),
+  //   },
+  // }))
   // const paths = [
   //   {
   //     params: {
@@ -247,8 +247,8 @@ export async function getStaticPaths() {
   // ]
 
   return {
-    paths,
-    fallback: false, // false or 'blocking'
+    paths: [],
+    fallback: "blocking", // false or 'blocking'
   }
 }
 
