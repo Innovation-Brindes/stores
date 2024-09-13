@@ -1,63 +1,42 @@
 import React, { Component } from "react"
-import { GoAlert, GoTriangleDown } from "react-icons/go"
+import { GoAlert } from "react-icons/go"
 
-import { buscaCoresDisponiveis, dadosProdutosSubcategoria } from "../../services/api"
-import $ from "jquery"
-
-import Footer from "../../components/Footer"
-
-// import bgPrecoHome from '../../images/precohome.png';
-// import loading from "../../resources/images/loading.gif";
-import { Box, Center, Flex, Grid, Icon, Select, Spinner, Text } from "@chakra-ui/react"
+import { Button, Center } from "@chakra-ui/react"
 import {
-  CardProdCores,
-  CardProdCoresGridCores,
-  CardProdCoresGridCoresContent,
-  CardProdCoresGridCoresContentCor,
-  CardProdCoresTitle,
-  CardProdDesc,
-  CardProdValor,
-  CardProdValorContent,
-  CategoriaContainer,
-  CategoriaContainerContent,
-  CategoriaContainerContentFilter,
-  CategoriaContainerContentFilterSelect,
-  CategoriaContainerContentGridProdutos,
-  CategoriaContainerContentGridProdutosLoading,
-  CategoriaContainerContentGridProdutosProduto,
-  CategoriaContainerContentGridProdutosProdutoCardProd,
-  CategoriaContainerContentGridProdutosProdutoCardProdImgProd,
-  CategoriaContainerContentGridProdutosProdutoTitle,
-  CategoriaContainerContentTextoSEO,
-  GridContainerFilterAviso,
-  GridProdutosProdutoBTNConferir,
-  GridProdutosProdutoBTNConferirIndisponivel,
-  Selo,
-  SeloEmbalagem,
+  AlertContent,
+  CategoriaContainerProducts,
+  OrderbyComponent,
+  OrderbyContainer,
+  TextSeoContainer,
 } from "./styles"
 import Head from "next/head"
 import { NextSeo } from "next-seo"
-import FooterSocialMediaComponent from "../Footer/FooterSocialMedia"
-import FiltroBusca from "../Buscar/components/Filtro"
-import { GridProductDefault } from "../GridProductsDefault"
-import FooterComponent from "../Footer/FooterComponent"
-import { ChakraProvider } from "@chakra-ui/provider"
-import { NewFooter } from "../NewFooter"
 
-const bgPrecoHome = "/images/precohome.png"
-const loading = "/images/loading.gif"
+import { GridProductDefault } from "../GridProductsDefault"
+import { Layout } from "./Layout"
+import { Filtro } from "../Filtro"
+import { baseURL } from "../../services/api"
+import Link from "next/link"
+
 class Categoria extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      dados: this.props.produtos,
+      dados: [],
+      productData: this.props.produtos.filter((item) => item.estoque !== "0"),
+      productIndisponivel: this.props.produtos.filter((item) => item.estoque === "0"),
+      showIndisponiveis: false,
+      isFilter: false,
+      valorMaximo: props.valorMaximo,
+      valorMinimo: props.valorMinimo,
       loadingProd: "block",
       paginacao: 1,
       total_paginacao: [],
       texto_seo: this.props.texto_seo,
       url_site: null,
       display_init: 0,
+      coresSelected: [],
 
       texto_buscado: null,
       subcategorias_selecionadas: [],
@@ -70,7 +49,6 @@ class Categoria extends Component {
       nome_categoria: "",
       cor_selecionada: null,
       prazo_selecionado: null,
-      quantidade_selecionada: null,
       valor_ate_selecionado: null,
       valor_de_selecionado: null,
 
@@ -79,167 +57,9 @@ class Categoria extends Component {
     this.footerChatRef = React.createRef()
   }
 
-  ifnull = (a, b) => {
-    if (a === null || a === undefined || a === "") {
-      return b
-    } else {
-      return a
-    }
-  }
-
-  componentDidMount() {
-    this.setState({
-      url_site:
-        window.location.hostname.indexOf("localhost") != -1
-          ? window.location.hostname + ":3000"
-          : window.location.hostname,
-    })
-
-    window.scrollTo(0, 10)
-    this.getGridProduto(this.props.idcategoria)
-
-    this.handleOrderBy({ target: { options: { selectedIndex: 2 } } })
-    this.handleOrderBy({ target: { options: { selectedIndex: 1 } } })
-    this.handleOrderBy({ target: { options: { selectedIndex: 2 } } })
-    this.handleOrderBy({ target: { options: { selectedIndex: 1 } } })
-
-    var self = this
-    setTimeout(function () {
-      self.setState({ display_init: 1 })
-    }, 1000)
-
-    this.buscaCoresCategoria()
-    this.props.nomecategoria.split(" ")
-    var nome_categoria = this.props.nomecategoria.split(" ")
-    nome_categoria.pop()
-    nome_categoria.pop()
-    nome_categoria.pop()
-    this.setState({ nome_categoria: nome_categoria.join(" ") })
-  }
-
-  buscaCoresCategoria = async () => {
-    try {
-      var param = {
-        codigo_categoria: null,
-        codigo_subcategoria: this.props.idcategoria,
-      }
-
-      const responseCores = await buscaCoresDisponiveis.post("", param)
-      var dadosCor = responseCores.data
-
-      var cores = []
-      for (var cor of dadosCor) {
-        cores.push({
-          name: cor.nome_cor.trim(),
-          cod: cor.codigo_cor,
-          rgb: cor.rgb_cores,
-        })
-      }
-
-      cores.sort(function (a, b) {
-        if (a.name > b.name) {
-          return 1
-        }
-        if (a.name < b.name) {
-          return -1
-        }
-        return 0
-      })
-
-      this.setState({ cores: cores })
-    } catch (error) {
-      console.log(Object.keys(error), error.message)
-    }
-  }
-
-  getGridProduto = async (categoria) => {
-    this.setState({ dados: [], loadingProd: "block" })
-    try {
-      if (categoria) {
-        const response = await dadosProdutosSubcategoria.post("", {
-          codigo_grupo_produto: categoria,
-          codigo_cor: this.state.cor_selecionada,
-          quantidade: this.state.quantidade_selecionada,
-          valor_inicial: this.state.valor_de_selecionado,
-          valor_final: this.state.valor_ate_selecionado,
-          prazo_entrega: this.state.prazo_selecionado,
-        })
-
-        var dados = response.data
-
-        var produtos = []
-
-        var texto_seo = null
-        for (var prod of dados) {
-          texto_seo = prod.texto_seo
-          if (prod.url_seo) {
-            var url_seo = prod.url_seo.split("-")
-
-            var referencia = prod.referencia.toString()
-            var link =
-              "/" +
-              referencia.substring(referencia.length - 4) +
-              "/" +
-              url_seo.slice(0, url_seo.length - 1).join("-") +
-              "-1-1.jpg"
-
-            var preco_home = Math.round(parseFloat(prod.preco_home) * 100) / 100
-            if (isNaN(preco_home)) {
-              preco_home = 0.0
-            }
-
-            produtos.push({
-              prod_nome: prod.nome_produto.trim(),
-              prod_cod: prod.referencia,
-              url_prod: prod.url_seo,
-              img_prod: link,
-              referencia: prod.referencia,
-              descricao: prod.descricao,
-              caracteristicas: prod.caracteristicas,
-              valor_home: (Math.round(parseFloat(preco_home) * 100) / 100).toLocaleString("pt-br", {
-                minimumFractionDigits: 2,
-              }),
-              selo: prod.ad_embalagem ? "S" : "N",
-              segmento: prod.segmento,
-              ultrarapido: parseInt(prod.prazo_minimo_entrega) == 1 ? "S" : "N",
-              cores: this.ifnull(prod.rgb_cores, "").trim(),
-              pdv: prod.ad_pdv,
-              estoque: prod.estoque,
-              selo_prod: prod.selo_prod,
-              ad_embalagem: prod.ad_embalagem,
-              imagem_home_store: prod.imagem_home_store,
-            })
-          }
-        }
-
-        this.setState({ texto_seo: texto_seo })
-        this.setState({ loadingProd: "none" })
-
-        await this.setState({ dados: produtos })
-
-        await this.handleOrderBy({ target: { options: { selectedIndex: 2 } } })
-        await this.handleOrderBy({ target: { options: { selectedIndex: 1 } } })
-        await this.handleOrderBy({ target: { options: { selectedIndex: 2 } } })
-        await this.handleOrderBy({ target: { options: { selectedIndex: 1 } } })
-      } else {
-        window.location.href = "/"
-      }
-    } catch (error) {
-      console.log(Object.keys(error), error.message)
-    }
-  }
-
-  ifnull = (a, b) => {
-    if (a === null || a === undefined || a === "") {
-      return b
-    } else {
-      return a
-    }
-  }
-
   handleOrderBy = async (e) => {
     if (e.target.options.selectedIndex == 1) {
-      this.state.dados.sort(function (a, b) {
+      this.state.productData.sort(function (a, b) {
         var valor_a = parseFloat(a.valor_home.replace(".", "").replace(",", "."))
         var valor_b = parseFloat(b.valor_home.replace(".", "").replace(",", "."))
 
@@ -262,7 +82,7 @@ class Categoria extends Component {
         return 0
       })
     } else {
-      this.state.dados.sort(function (a, b) {
+      this.state.productData.sort(function (a, b) {
         var valor_a = parseFloat(a.valor_home.replace(".", "").replace(",", "."))
         var valor_b = parseFloat(b.valor_home.replace(".", "").replace(",", "."))
 
@@ -285,27 +105,111 @@ class Categoria extends Component {
         return 0
       })
     }
-    var dados = this.state.dados
+    const dados = this.state.productData
     await this.setState({ dados: dados })
   }
 
-  atualizarBusca = async (data) => {
-    await this.setState({
-      cor_selecionada: data.cor_selecionada,
-      prazo_selecionado: data.prazo_selecionado != null ? parseInt(data.prazo_selecionado.prazo) : null,
-      quantidade_selecionada: data.quantidade_selecionada,
-      valor_ate_selecionado: data.valor_ate_selecionado,
-      valor_de_selecionado: data.valor_de_selecionado,
+  handleFilterProducts = async () => {
+    const { cor, prazo, valorDe, valorAte, quantidade, coresSelected } = this.state
+    const { productData } = this.state
+    const originalProductData = this.props.produtos
+    let filteredProducts = [...originalProductData]
+
+    if (cor) {
+      filteredProducts = filteredProducts.filter((item) => {
+        const cores = item.list_cores.map((cor) => cor.cod_cor)
+        const coresSelecionadas = coresSelected.filter((cor) => cores.includes(cor.value))
+        return coresSelecionadas.length > 0 && item.estoque > 0 // Adicionando a condição item.estoque > 0
+      })
+
+      if (filteredProducts.length === 0) {
+        filteredProducts = [...originalProductData]
+      }
+    }
+
+    if (prazo) {
+      filteredProducts = filteredProducts.filter(
+        (item) => parseInt(item.prazo_minimo_entrega) <= parseInt(prazo?.prazo),
+      )
+
+      filteredProducts = filteredProducts.map((item) => {
+        const precoDias = item.preco_dias // < array de objetos
+        const precoDiasFiltrado = precoDias.filter((item) => parseInt(item.prazo) === parseInt(prazo?.prazo))
+
+        if (precoDiasFiltrado.length > 0) {
+          item.valor_home = parseFloat(precoDiasFiltrado[0].preco).toFixed(2).replace(".", ",")
+        }
+
+        if (parseInt(item.estoque) < 1000) {
+          item.valor_home = parseFloat(item.price_home).toFixed(2).replace(".", ",")
+        }
+
+        return item
+      })
+    }
+
+    if (quantidade) {
+      const prazoSelected = prazo ?? 10
+
+      const response = await baseURL.get(
+        `/categoria/filtrar-preco-categoria/${this.props.idcategoria}/${quantidade}/${prazoSelected}`,
+      )
+
+      const produtos = response.data
+
+      filteredProducts = filteredProducts.filter((item) => {
+        const produtosFiltrados = produtos.filter(
+          (produto) => parseInt(produto.codigo_produto) === parseInt(item.codigo_produto),
+        )
+        return produtosFiltrados.length > 0
+      })
+    }
+
+    if (valorDe && valorAte) {
+      filteredProducts = filteredProducts.filter((item) => {
+        const valor = parseFloat(item.price_home)
+        return valor >= valorDe && valor <= valorAte
+      })
+    }
+
+    if (quantidade || cor || prazo || (valorDe && valorAte)) {
+      this.setState({ productData: filteredProducts, isFilter: true })
+    } else {
+      this.setState({ productData: originalProductData, isFilter: false })
+    }
+  }
+
+  handleInputChange = (e) => {
+    const { name, value } = e.target
+    if (name === "cor") {
+      const cores = this.state.coresSelected.filter((cor) => cor.value !== value)
+      if (cores.length === this.state.coresSelected.length) {
+        cores.push({ value: value, name: value })
+      }
+      this.setState({ coresSelected: cores })
+    }
+
+    this.setState({ [name]: value }, () => {
+      this.handleFilterProducts()
     })
-    this.getGridProduto(this.props.idcategoria)
-    $("#select-order").val(0)
+  }
+
+  showProductsIndisponiveis = () => {
+    this.setState({ showIndisponiveis: !this.state.showIndisponiveis })
+
+    if (this.state.showIndisponiveis) {
+      return this.backToTop()
+    }
+  }
+
+  backToTop = () => {
+    window.scrollTo(0, 0)
   }
 
   render() {
     return (
       <>
         <Head>
-          {/* <link rel="alternate" href={`https://innovationbrindes.com.br/categoria${this.props.linkcategoria}`} hreflang="pt"/> */}
           <script
             dangerouslySetInnerHTML={{
               __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -317,11 +221,20 @@ class Categoria extends Component {
           ></script>
         </Head>
         <NextSeo
-          title={this.props.nomecategoria}
-          description={`${this.props.nomecategoria}, Brindes, Brindes Personalizados, Brindes Promocionais, Brindes Corporativos, Brindes Ecológicos, Personalizados, Innovation Brindes`}
-          keywords={`${this.props.nomecategoria}, Brindes, Brindes Personalizados, Personalizados, Brindes Promocionais, Promocionais, Empresa de Brindes, Brindes Corporativos, Chaveiros Personalizados, Squeeze Personalizado, Canetas Personalizadas, Canetas Para Brindes, Caneta Personalizada, Canetas Promocionais, Produtos Promocionais, Brindes Para Eventos, Carregador Celular Personalizado, Power Bank Personalizado, Espelho Personalizado, Brindes Dia Das Mães, Brindes Dia Dos Pais, Brindes Dia Da Mulher, Brindes Para o Final Do Ano, Brindes Para Funcionários, Confecção Promocional`}
+          title={this.props.titulo ? this.props.titulo : this.props.nomecategoria}
+          description={
+            this.props.description
+              ? this.props.description
+              : `Confira os melhores brindes personalizados e promocionais da categoria ${this.props.nomecategoria} na Innovation Brindes. A maior empresa de brindes personalizados do Brasil. Confira!`
+          }
           canonical={`https://innovationbrindes.com.br/categoria${this.props.linkcategoria}`}
-          openGraph={{}}
+          openGraph={{
+            url: `https://innovationbrindes.com.br/categoria${this.props.linkcategoria}`,
+            title: this.props.titulo ? this.props.titulo : this.props.nomecategoria,
+            description: this.props.description
+              ? this.props.description
+              : `Confira os melhores brindes personalizados e promocionais da categoria ${this.props.nomecategoria} na Innovation Brindes. A maior empresa de brindes personalizados do Brasil. Confira!`,
+          }}
           additionalMetaTags={[
             {
               property: "google-site-verification",
@@ -387,126 +300,133 @@ class Categoria extends Component {
           ]}
         />
 
-        <Box style={{ opacity: this.state.display_init, transition: "0.3s" }}>
-          <CategoriaContainer>
-            <CategoriaContainerContent viewMenu={this.state.viewMenu}>
-              <FiltroBusca
-                styles={{ marginTop: "0px" }}
-                loadingProd={this.state.loadingProd}
-                texto_buscado={this.state.texto_buscado}
-                subcategoria_carregada={[this.props.idcategoria]}
-                subcategorias={this.state.subcategorias}
-                cores={this.props.cores}
-                cor_selecionadas={[]}
-                quantidade_selecionada={null}
-                valor_de={null}
-                valor_ate={null}
-                atualizarBusca={this.atualizarBusca}
-                count_produtos={this.state.dados.length}
-                filtro_categoria={false}
-                nome_categoria={this.state.nome_categoria}
-                active_load={() => this.setState({ loadingProd: "block", dados: [] })}
-                ocultar_whats={(value) => {
-                  this.setState({ viewMenu: !value })
-                  this.footerChatRef.current?.ocultWhatsApp(value)
-                }}
-                selo_prod={this.state.dados.selo_prod}
-              />
-              <Flex flexDirection="column" alignItems="center" gap={25}>
-                <ChakraProvider>
-                  <GridContainerFilterAviso
-                    gridTemplateColumns={"1fr 200px"}
-                    //alinhar o grid ao centro
-                    justifyContent="center"
-                    alignItems="center"
-                    maxW="1100px"
-                    width="813px"
-                    gap={2}
-                  >
-                    <Flex
-                      bg="#F5F5F5"
-                      paddingInline=".5rem"
-                      paddingBlock=".1rem"
-                      borderRadius="10px"
-                      flex="1"
-                      gap={2}
-                      alignItems="center"
-                    >
-                      <Icon as={GoAlert} color="#aaaaaa" fontSize="1.5rem" />
-                      <Flex flexDir="row">
-                        <Text as="span" fontSize="9px" color="#5a5a5a">
-                          <span
-                            style={{
-                              fontWeight: "bold",
-                            }}
-                          >
-                            * Valor gerado pela oferta para 1.000 unidades.
-                          </span>{" "}
-                          Não temos quantidade mínima, produzimos a partir de 1 unidade. Clique na foto do item para
-                          personalizar as configurações e a quantidade que você deseja.
-                        </Text>
-                      </Flex>
-                    </Flex>
-                    <Select
-                      icon={<Icon as={GoTriangleDown} />}
-                      onChange={(e) => this.handleOrderBy(e)}
-                      color="#5a5a5a"
-                      fontSize=".9rem"
-                      _hover={{ borderColor: "#58bc03" }}
-                      _focus={{ borderColor: "#58bc03" }}
-                    >
-                      <option value={0}>Ordenar produtos</option>
-                      <option value={1}>Menor Valor</option>
-                      <option value={2}>Maior Valor</option>
-                    </Select>
-                  </GridContainerFilterAviso>
-                </ChakraProvider>
-                <CategoriaContainerContentGridProdutos length={this.state.dados.length} viewMenu={this.state.viewMenu}>
-                  <CategoriaContainerContentGridProdutosLoading style={{ display: this.state.loadingProd }}>
-                    <Center>
-                      <Spinner color="#CC0000" size={"lg"} />
-                    </Center>
-                  </CategoriaContainerContentGridProdutosLoading>
-                  {this.state.dados.map((data) => {
-                    return (
-                      <GridProductDefault
-                        prod_nome={data.prod_nome}
-                        codigo_prod={data.prod_cod}
-                        url_prod={data.url_prod}
-                        img_prod={data.imagem_home_store}
-                        descricao={data.descricao}
-                        caracteristicas={data.caracteristicas}
-                        valor_home={data.valor_home}
-                        selo={data.selo}
-                        segmento={data.segmento}
-                        ultrarapido={data.ultrarapido}
-                        url_site={this.state.url_site}
-                        ad_pdv={data.pdv}
-                        cores={data.cores}
-                        estoque={data.estoque}
-                        state={this.state}
-                        selo_prod={data.selo_prod}
-                        ad_embalagem={data.embalagem}
-                      />
-                    )
-                  })}
-                </CategoriaContainerContentGridProdutos>
-              </Flex>
-            </CategoriaContainerContent>
-          </CategoriaContainer>
+        <Layout>
+          <Filtro
+            handleInputChange={this.handleInputChange}
+            cores={this.props.coresCategoria}
+            valorMinimo={this.props.valorMinimo}
+            valorMaximo={this.props.valorMaximo}
+            quantityProducts={this.state.productData?.length}
+            category={this.props.nomeCategoria}
+            prazos={this.props.prazos}
+          />
+          <OrderbyContainer>
+            {this.props.titulo && (
+              <div className="flex flex-col gap-2 mb-5">
+                <h1 className="text-[#414042] text-2xl font-sans font-bold text-center ">{this.props.titulo}</h1>
+                <p className="text-[#414042] text-sm font-sans font-normal text-center">{this.props.description}</p>
+              </div>
+            )}
 
-          <NewFooter />
-        </Box>
+            <div className="flex gap-2  flex-col md:flex-row ">
+              <AlertContent>
+                <div className="flex items-center gap-2 max-w-[600px]">
+                  <GoAlert size={40} />
+                  <span className="text-xs leading-4">
+                    * Valor gerado pela oferta para 1.000 unidades. Não temos quantidade mínima, produzimos a partir de
+                    <br /> 1 unidade. Clique na foto do item para personalizar as configurações e a quantidade que você
+                    deseja.
+                  </span>
+                </div>
+              </AlertContent>
+              <div className="flex flex-col self-end gap-2 w-[190px]">
+                <label className="text-sm font-bold text-gray-700" htmlFor="orderby">
+                  Ordenar por:
+                </label>
+                <OrderbyComponent onChange={(e) => this.handleOrderBy(e)} id="orderby" name="orderby">
+                  <option value={0}>Ordenar produtos</option>
+                  <option value={1}>Menor Valor</option>
+                  <option value={2}>Maior Valor</option>
+                </OrderbyComponent>
+              </div>
+            </div>
+          </OrderbyContainer>
+
+          <CategoriaContainerProducts>
+            {this.state.productData?.map((data) => (
+              <GridProductDefault
+                prod_nome={data.prod_nome}
+                codigo_prod={data.prod_cod}
+                url_prod={data.url_prod}
+                img_prod={data.imagem_home_store}
+                descricao={data.descricao}
+                caracteristicas={data.caracteristicas}
+                valor_home={data.valor_home}
+                selo={data.selo}
+                segmento={data.segmento}
+                ultrarapido={data.ultrarapido}
+                url_site={this.state.url_site}
+                ad_pdv={data.pdv}
+                cores={data.cores}
+                estoque={data.estoque}
+                state={this.state}
+                selo_prod={data.selo_prod}
+                ad_embalagem={data.embalagem}
+              />
+            ))}
+            {this.state.showIndisponiveis &&
+              this.state.productIndisponivel?.map((data) => (
+                <GridProductDefault
+                  prod_nome={data.prod_nome}
+                  codigo_prod={data.prod_cod}
+                  url_prod={data.url_prod}
+                  img_prod={data.imagem_home_store}
+                  descricao={data.descricao}
+                  caracteristicas={data.caracteristicas}
+                  valor_home={data.valor_home}
+                  selo={data.selo}
+                  segmento={data.segmento}
+                  ultrarapido={data.ultrarapido}
+                  url_site={this.state.url_site}
+                  ad_pdv={data.pdv}
+                  cores={data.cores}
+                  estoque={data.estoque}
+                  state={this.state}
+                  selo_prod={data.selo_prod}
+                  ad_embalagem={data.embalagem}
+                />
+              ))}
+          </CategoriaContainerProducts>
+        </Layout>
+
+        <Center marginBlock="1.3rem">
+          <Button
+            onClick={() => this.showProductsIndisponiveis()}
+            bgColor="#58bc03"
+            _hover={{
+              filter: "brightness(0.9)",
+            }}
+            color="#fff"
+          >
+            {!this.state.showIndisponiveis ? "Ver mais" : "Ver menos"}
+          </Button>
+        </Center>
+
+        <TextSeoContainer>
+          {this.state.texto_seo.length > 0 ? (
+            <div className="px-5 md:px-0" dangerouslySetInnerHTML={{ __html: this.state.texto_seo }} />
+          ) : null}
+        </TextSeoContainer>
+
+        {this.props.tags_categoria?.length > 0 && (
+          <div className="flex gap-2 self-start max-w-[1280px] w-full mx-auto mt-10">
+            <h2 className="text-[#414042] text-sm font-sans text-start self-start">Tags</h2>
+            <div className="flex flex-wrap gap-2 justify-start">
+              {this.props.tags_categoria.map((tag) => (
+                <Link href={tag.link_tag} key={tag.tag} passHref>
+                  <a
+                    href={tag.link_tag}
+                    className="text-[#414042] text-xs font-sans font-normal bg-[#F2F2F2] px-2 py-1 rounded-md lowercase"
+                  >
+                    {tag.tag}
+                  </a>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </>
     )
-  }
-}
-
-function ifnull(a, b) {
-  if (a === null || a === undefined || a === "") {
-    return b
-  } else {
-    return a
   }
 }
 
