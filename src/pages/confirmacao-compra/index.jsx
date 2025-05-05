@@ -1,4 +1,4 @@
-import { ConfirmarCompra } from "../../../components/ConfirmacaoCompra"
+import { ConfirmarCompra } from "../../components/ConfirmacaoCompra"
 
 const ConfirmacaoCompra = () => {
   return <ConfirmarCompra />

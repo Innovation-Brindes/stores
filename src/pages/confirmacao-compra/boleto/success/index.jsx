@@ -1,8 +1,8 @@
 import { Flex } from "@chakra-ui/react"
 import React from "react"
 
-import { Header } from "../../../../../components/ConfirmacaoCompra/components/Header"
-import { Success as Sucesso } from "../../../../../components/success/Success"
+import { Header } from "../../../../components/ConfirmacaoCompra/components/Header"
+import { Success as Sucesso } from "../../../../components/success/Success"
 
 const Success = () => {
   return (

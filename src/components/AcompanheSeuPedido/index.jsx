@@ -11,9 +11,9 @@ import ContainerStatusMobile from "./components/ContainerStatusMobile"
 import FooterSocialMediaComponent from "../Footer/FooterSocialMedia"
 import { AiFillCaretLeft, AiOutlineArrowLeft } from "react-icons/ai"
 import MobileButton from "./components/MobileButton"
-import { AcompanharPedido } from "./../../services/api/index"
 import FooterComponent from "../Footer/FooterComponent"
 import { NewFooter } from "../NewFooter"
+import { AcompanharPedido } from "../../services/api"
 
 const loadingGif = "/images/loading.gif"
 

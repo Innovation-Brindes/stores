@@ -1,7 +1,7 @@
 import React from "react"
-import Buscar from "../../../components/Buscar"
-import Header from "../../../components/Header"
-import { getCategorias, getSegmentos } from "../../../utils/getLinksHeader"
+import Buscar from "../../components/Buscar"
+import Header from "../../components/Header"
+import { getCategorias, getSegmentos } from "../../utils/getLinksHeader"
 
 export default function BuscarPage(props) {
   return (

@@ -1,7 +1,7 @@
 import React from "react"
-import AcompanheSeuPedido from "../../../components/AcompanheSeuPedido"
-import Header from "../../../components/Header"
-import { getCategorias, getSegmentos } from "../../../utils/getLinksHeader"
+import AcompanheSeuPedido from "../../components/AcompanheSeuPedido"
+import Header from "../../components/Header"
+import { getCategorias, getSegmentos } from "../../utils/getLinksHeader"
 
 export async function getServerSideProps(context) {
   const hash_pedido = context.params.hash_pedido

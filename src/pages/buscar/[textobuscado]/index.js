@@ -1,8 +1,8 @@
 import React from "react"
-import Buscar from "../../../../components/Buscar"
-import { dadosSubCategoriasUltraRapido } from "../../../../services/api"
-import { getCategorias, getSegmentos } from "../../../../utils/getLinksHeader"
-import Header from "../../../../components/Header"
+import Buscar from "../../../components/Buscar"
+import { dadosSubCategoriasUltraRapido } from "../../../services/api"
+import { getCategorias, getSegmentos } from "../../../utils/getLinksHeader"
+import Header from "../../../components/Header"
 
 export async function getServerSideProps(context) {
   const textobuscado = context.params.textobuscado

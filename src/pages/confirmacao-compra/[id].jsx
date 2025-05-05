@@ -1,6 +1,6 @@
 import Head from "next/head"
-import { ConfirmarCompra } from "../../../components/ConfirmacaoCompra"
-import { baseURL } from "../../../services/api"
+import { ConfirmarCompra } from "../../components/ConfirmacaoCompra"
+import { baseURL } from "../../services/api"
 
 export async function getServerSideProps({ params }) {
   const { id } = params
